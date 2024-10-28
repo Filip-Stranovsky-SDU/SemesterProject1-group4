@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WorldOfZuul
-build_property.ProjectDir = C:\Users\maxdk\source\repos\WorldOfZuul\WorldOfZuul\
+build_property.ProjectDir = C:\Users\Gaja\Documents\GitHub\SemesterProject1-group4\WorldOfZuul\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
