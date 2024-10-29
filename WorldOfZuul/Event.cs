@@ -7,37 +7,39 @@ namespace WorldOfZuul
     public bool IsActive { get; set; }
     public Interactible ParentInteractible { get; set; }
     public List<Event> ActivatesAfterFinish { get; set; }
-    public string Description { get; set; }
+    public string Description { get; private set; }
   
     
    
-    public Event()
+    public Event(string description)
     {
         IsActive = false;
         ActivatesAfterFinish = new List<Event>();
-        Description = GetDescription();
+        Description = description;
+
     }
 
    
     // Method to start the event
 
-    private bool Activate()
+    public bool Run()
     {
-        if (QuizEvent.questActivate == true)
+        if (!IsActive)
         {
-            IsActive = true;
-            Console.WriteLine($"{Description}");
-            Quest();
+            return false;
         }
+        CompleteEvent();
+        return true;
     }
+
 
 
     private void CompleteEvent()
     {
         IsActive = false;
-        foreach (var nextEvent in ActivatesAfterFinish)
+        foreach (Event nextEvent in ActivatesAfterFinish)
         {
-            nextEvent.Activate();
+            nextEvent.Run();
         }
         }
     }
