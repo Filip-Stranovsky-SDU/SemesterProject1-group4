@@ -2,8 +2,10 @@
 {
     public class Game
     {
+        public bool ContinuePlaying {get; set;}
         private Room? currentRoom;
         private Room? previousRoom;
+
 
         public Game()
         {
@@ -38,8 +40,7 @@
 
             PrintWelcome();
 
-            bool continuePlaying = true;
-            while (continuePlaying)
+            while (ContinuePlaying)
             {
                 Console.WriteLine(currentRoom?.ShortDescription);
                 Console.Write("> ");
@@ -81,7 +82,7 @@
                         break;
 
                     case "quit":
-                        continuePlaying = false;
+                        ContinuePlaying = false;
                         break;
 
                     case "help":
