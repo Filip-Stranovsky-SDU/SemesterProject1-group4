@@ -8,17 +8,17 @@ namespace WorldOfZuul
     public Interactible ParentInteractible { get; set; }
     public List<Event> ActivatesAfterFinish { get; set; }
     public string Description { get; set; }
-    public static List<Event> CompletedQuests { get; private set; } = new List<Event>(); 
+  
     
    
     public Event()
     {
         IsActive = false;
         ActivatesAfterFinish = new List<Event>();
-        Description = TextEvent.GetDescription();
+        Description = GetDescription();
     }
 
-
+   
     // Method to start the event
 
     private bool Activate()
