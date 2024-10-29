@@ -16,9 +16,13 @@ public class Interactable
         ParentRoom = parentRoom;
     }
 
-    public virtual void Interact()   // this is what happens when the player in the game interacts with the interactable
+    public void Interact()   // this is what happens when the player in the game interacts with the interactable
     {
-        Console.WriteLine($"Interacting with {Name}");
+        Console.WriteLine($"Interacting with {Name}"); // To be removed
+        foreach (Event event in Events)
+        {
+            event.Run();
+        }
     }
 }
 

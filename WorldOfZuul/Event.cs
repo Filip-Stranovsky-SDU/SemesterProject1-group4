@@ -43,4 +43,9 @@ namespace WorldOfZuul
         }
         }
     }
+
+    public class TextEvent : Event
+    {
+        
+    }
 }
