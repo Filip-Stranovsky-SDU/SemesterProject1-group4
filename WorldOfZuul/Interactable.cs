@@ -19,9 +19,9 @@ public class Interactable
     public void Interact()   // this is what happens when the player in the game interacts with the interactable
     {
         Console.WriteLine($"Interacting with {Name}"); // To be removed
-        foreach (Event event in Events)
+        foreach (Event current_event in Events)
         {
-            event.Run();
+            current_event.Run();
         }
     }
 }
