@@ -1,5 +1,4 @@
-namespace WorldOfZuul
-{
+namespace WorldOfZuul;
 
 public class Interactable
 {
@@ -27,8 +26,3 @@ public class Interactable
 }
 
 // example child class:
-public class Merchant : Interactable
-{
-    
-}
-}

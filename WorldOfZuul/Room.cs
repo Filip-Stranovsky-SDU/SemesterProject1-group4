@@ -2,18 +2,18 @@
 {
     public class Room
     {
-        public Dictionary<string, string> Interactables { get; private set; } = new();
-        public string ShortDescription { get; private set; }
-        public string LongDescription { get; private set;}
+        public Dictionary<string, string>? Interactables { get; private set; }
+        public string? ShortDescription { get; private set; }
+        public string? LongDescription { get; private set;}
         public Dictionary<string, string> Exits { get; private set; } = new();
 
         public Game? GameRef;
 
-        public Room(string shortDesc, string longDesc, Dictionary<string, Interactable> interactables)
+        /*public Room(string shortDesc, string longDesc, Dictionary<string, Interactable> interactables)
         {
             ShortDescription = shortDesc;
             LongDescription = longDesc;
-        }
+        }*/
 
         public void SetExits(string? north, string? east, string? south, string? west)
         {
