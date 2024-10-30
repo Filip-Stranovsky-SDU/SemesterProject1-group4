@@ -6,20 +6,17 @@ namespace WorldOfZuul
 
     public bool IsActive { get; set; }
     public string? ParentInteractableName {get; set;}
-    public Interactable ParentInteractable { get; set; }
-    public List<Event> ActivatesAfterFinish { get; set; }
+    public List<string> ActivatesAfterFinish { get; set; }
     public string Description { get; private set; }
-
     public Dictionary<string, int> ChangeInResources {get; set;}
-  
     
+    public Game? gameRef;
    
-    public Event(string description, Interactable pi)
+    public Event(string description)
     {
         IsActive = false;
         ActivatesAfterFinish = new List<Event>();
         Description = description;
-        ParentInteractable = pi;
     }
    
     // Method to start the event
@@ -50,7 +47,7 @@ namespace WorldOfZuul
     {   
         public string Text {get; set;} = "";
 
-        public TextEvent(string description, Interactable pi, string text) : base(description, pi){
+        public TextEvent(string description, Interactable pi, string text) : base(description){
             Text = text; // Text to be printed when event gets run
         } // Constructor, uses constructor of Event but with added Text var
         
