@@ -23,12 +23,21 @@ namespace WorldOfZuul
             string jsonString = reader.ReadToEnd();
             Rooms = JsonSerializer.Deserialize<Dictionary<string, Room>>(jsonString);
         }
+        
         private void CreateInteractibles()
         {       
             using StreamReader reader = new(@$"{AppContext.BaseDirectory}\JsonFiles\Interactables.json");
             string jsonString = reader.ReadToEnd();
             Interactables = JsonSerializer.Deserialize<Dictionary<string, Interactable>>(jsonString);
         }
+
+        private void CreateEvents()
+        {       
+            using StreamReader reader = new(@$"{AppContext.BaseDirectory}\JsonFiles\Events.json");
+            string jsonString = reader.ReadToEnd();
+            Events = JsonSerializer.Deserialize<Dictionary<string, Event>>(jsonString);
+        }
+
 
         public void Play()
         {
