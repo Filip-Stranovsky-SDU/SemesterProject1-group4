@@ -5,9 +5,12 @@ namespace WorldOfZuul
     {
 
     public bool IsActive { get; set; }
+    public string? ParentInteractableName {get; set;}
     public Interactable ParentInteractable { get; set; }
     public List<Event> ActivatesAfterFinish { get; set; }
     public string Description { get; private set; }
+
+    public Dictionary<string, int> ChangeInResources {get; set;}
   
     
    
@@ -18,7 +21,6 @@ namespace WorldOfZuul
         Description = description;
         ParentInteractable = pi;
     }
-
    
     // Method to start the event
 
