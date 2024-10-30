@@ -79,6 +79,7 @@ namespace WorldOfZuul
                 return false;
             }
             Console.Write(Text);
+
             string? input = "";
             while(input == ""){
                 input = Console.ReadLine();
@@ -92,6 +93,8 @@ namespace WorldOfZuul
                     input = "";
                     continue;
                 }
+                // Apply resource changes for a selected option
+                // Each option will contain specific resource changes
                 Options[n].Run();
             }
 

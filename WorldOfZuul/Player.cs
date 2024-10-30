@@ -3,15 +3,14 @@ namespace WorldOfZuul;
 public class Player{
 
     public Dictionary<string, int> Resources {get; set;} = new();
-    
     private Game gameRef;
 
 
     public Player(Game game){
         gameRef = game;
-        Resources.Add("Environment", 40);
-        Resources.Add("Social", 40);
-        Resources.Add("Money", 40);
+        Resources.Add("Environment", 50);
+        Resources.Add("Social", 50);
+        Resources.Add("Money", 50);
     }
 
     
@@ -22,7 +21,7 @@ public class Player{
         Resources.Add("Money", resources[2]);
     }
 
-
+    // This does the resource addition or subtraction
     public void ChangeResources(Dictionary<string, int> changes){
         foreach(KeyValuePair<string, int> change in changes){
             Resources[change.Key] += change.Value;
