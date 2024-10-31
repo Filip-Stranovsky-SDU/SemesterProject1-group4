@@ -1,0 +1,9 @@
+{
+    "Petunia1" :
+    {
+        "description" : "My gosh! I just can't believe it! \"My beautiful flowers dead like cattle!\" She hasn't yet noticed your presence",
+        "options" : ["Petunia2", "Petunia2", "Petunia3"],
+        "ParentInteractableName" : "petunia"
+    }
+}
+

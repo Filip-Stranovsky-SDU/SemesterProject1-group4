@@ -79,7 +79,11 @@ namespace WorldOfZuul
                         if (previousRoom == null)
                             Console.WriteLine("You can't go back from here!");
                         else
+                        {
+                            Room? tmp = currentRoom;
                             currentRoom = previousRoom;
+                            previousRoom = tmp;
+                        }
                         break;
 
                     case "north":
