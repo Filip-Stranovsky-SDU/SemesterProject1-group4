@@ -6,17 +6,20 @@ namespace WorldOfZuul
 
     public bool IsActive { get; set; }
     public string? ParentInteractableName {get; set;}
-    public List<string> ActivatesAfterFinish { get; set; }
+    public List<Event> ActivatesAfterFinish { get; set; }
     public string Description { get; private set; }
-    public Dictionary<string, int> ChangeInResources {get; set;}
+
+    // Dictionary to store how resources change when event happens 
+    public Dictionary<string, int> ChangeInResources {get; set;} = new();
     
     public Game? gameRef;
    
-    public Event(string description)
+    public Event(string description, Interactable pi, Dictionary<string, int> changeInResources)
     {
         IsActive = false;
         ActivatesAfterFinish = new List<Event>();
         Description = description;
+        ChangeInResources = changeInResources; // resource changes to this event
     }
    
     // Method to start the event
@@ -26,6 +29,10 @@ namespace WorldOfZuul
         if (!IsActive)
         {
             return false;
+        }
+        if (gameRef?.Player != null)
+        {
+            gameRef.Player.ChangeResources(ChangeInResources); // change resources on the player
         }
         CompleteEvent();
         return true;
@@ -47,7 +54,7 @@ namespace WorldOfZuul
     {   
         public string Text {get; set;} = "";
 
-        public TextEvent(string description, Interactable pi, string text) : base(description){
+        public TextEvent(string description, Interactable pi, string text, Dictionary<string, int> changeInResources) : base(description, pi, changeInResources){
             Text = text; // Text to be printed when event gets run
         } // Constructor, uses constructor of Event but with added Text var
         
@@ -57,6 +64,10 @@ namespace WorldOfZuul
                 return false;
             }
             Console.Write(Text);
+            if (gameRef?.Player != null)
+            {
+                gameRef.Player.ChangeResources(ChangeInResources); // Call ChangeResources on the player
+            }
             CompleteEvent();
             return true;
         }
@@ -80,6 +91,7 @@ namespace WorldOfZuul
             Console.Write(Text);
 
             string? input = "";
+
             while(input == ""){
                 input = Console.ReadLine();
                 if(input == null || input.Length != 1){
@@ -103,5 +115,29 @@ namespace WorldOfZuul
         }
 
 
+    }
+    
+    // Option Class to represent individual choices in a QuizEvent
+    public class Option
+    {
+        public string Text { get; set; }
+        public Dictionary<string, int> ResourceChanges { get; set; } = new();
+
+        public Option(string text, Dictionary<string, int> resourceChanges)
+        {
+            Text = text;
+            ResourceChanges = resourceChanges;
+        }
+
+        public void Run()
+        {
+            Console.WriteLine(Text);
+
+            // Apply resource changes when this option is selected
+            if (gameRef?.Player != null)
+            {
+                gameRef.Player.ChangeResources(ResourceChanges); // Applies changes for this option
+            }
+        }
     }
 }
