@@ -2,7 +2,7 @@ namespace WorldOfZuul;
 public class Interactable
 {
     public string Name {get; set; }
-    public Room ParentRoom {get; set; }
+    public Room ParentRoom {get; set; } // npc's aren't going to move around, so the room needs to know about the NPC but not the other way around
     public List<string> Events {get; set; } 
     protected Game gameRef; 
     public Interactable(Game game, string name, Room parentRoom)
