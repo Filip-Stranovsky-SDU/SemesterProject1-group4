@@ -4,7 +4,7 @@ namespace WorldOfZuul
 {
     public class Game
     {
-        public bool ContinuePlaying {get; set;}
+        public bool ContinuePlaying {get; set;} = true;
         private Room? currentRoom;
         private Room? previousRoom;
 
@@ -19,11 +19,11 @@ namespace WorldOfZuul
 
         private void CreateRooms()
         {       
-            using StreamReader reader = new(@$"{AppContext.BaseDirectory}\JsonFiles\Rooms.json");
-            string jsonString = reader.ReadToEnd();
+            using StreamReader reader = new(@$".\..\..\..\JsonFiles\Rooms.json");
+            string? jsonString = reader.ReadToEnd();
             Rooms = JsonSerializer.Deserialize<Dictionary<string, Room>>(jsonString);
         }
-        
+      /*  
         private void CreateInteractibles()
         {       
             using StreamReader reader = new(@$"{AppContext.BaseDirectory}\JsonFiles\Interactables.json");
@@ -38,9 +38,10 @@ namespace WorldOfZuul
             Events = JsonSerializer.Deserialize<Dictionary<string, Event>>(jsonString);
         }
 
-
+    */
         public void Play()
-        {
+        {   
+            currentRoom = Rooms["village-of-ix"];
             Parser parser = new();
 
             PrintWelcome();
@@ -108,7 +109,7 @@ namespace WorldOfZuul
             if (currentRoom?.Exits.ContainsKey(direction) == true)
             {
                 previousRoom = currentRoom;
-                currentRoom = Rooms[ currentRoom?.Exits[direction] ];
+                currentRoom = Rooms[ currentRoom.Exits[direction] ];
             }
             else
             {
