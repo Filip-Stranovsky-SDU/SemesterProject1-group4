@@ -1,5 +1,6 @@
-namespace WorldOfZuul
-{
+namespace WorldOfZuul;
+
+
 
     public class Event
     {
@@ -14,7 +15,7 @@ namespace WorldOfZuul
     
     public Game? gameRef;
    
-    public Event(string description, Interactable pi, Dictionary<string, int> changeInResources)
+    public Event(string description, Dictionary<string, int> changeInResources)
     {
         IsActive = false;
         ActivatesAfterFinish = new List<Event>();
@@ -54,7 +55,7 @@ namespace WorldOfZuul
     {   
         public string Text {get; set;} = "";
 
-        public TextEvent(string description, Interactable pi, string text, Dictionary<string, int> changeInResources) : base(description, pi, changeInResources){
+        public TextEvent(string description, string text, Dictionary<string, int> changeInResources) : base(description, changeInResources){
             Text = text; // Text to be printed when event gets run
         } // Constructor, uses constructor of Event but with added Text var
         
@@ -77,11 +78,12 @@ namespace WorldOfZuul
 
         public string Text {get; set;} = "";
         public List<Event> Options {get; set;} = new();
-
-        public QuizEvent(string description, Interactable pi, 
-                        string text, List<Event> options) : base(description, pi){
+        
+        public QuizEvent(string description, 
+                        string text, List<Event> options, Dictionary<string, int> changeInResources) : base(description, changeInResources){
             Text = text; // Text to be printed when event gets run
             Options = options;
+
         }
         public bool Run(){
             if (!IsActive)
@@ -118,7 +120,7 @@ namespace WorldOfZuul
     }
     
     // Option Class to represent individual choices in a QuizEvent
-    public class Option
+   /* public class Option: Event
     {
         public string Text { get; set; }
         public Dictionary<string, int> ResourceChanges { get; set; } = new();
@@ -139,6 +141,5 @@ namespace WorldOfZuul
                 gameRef.Player.ChangeResources(ResourceChanges); // Applies changes for this option
             }
         }
-}
+}*/
 
-}

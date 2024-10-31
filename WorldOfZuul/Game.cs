@@ -4,6 +4,7 @@ namespace WorldOfZuul
 {
     public class Game
     {
+        public Player Player {get; private set;}
         public bool ContinuePlaying {get; set;} = true;
         private Room? currentRoom;
         private Room? previousRoom;
@@ -14,6 +15,7 @@ namespace WorldOfZuul
 
         public Game()
         {
+            Player = new Player(this);
             CreateRooms();
         }
 
