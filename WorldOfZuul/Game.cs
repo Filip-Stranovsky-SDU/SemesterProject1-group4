@@ -21,26 +21,42 @@ namespace WorldOfZuul
 
         private void CreateRooms()
         {       
-            using StreamReader reader = new(@$".\JsonFiles\Rooms.json");
+            using StreamReader reader = new(@$".\JsonFiles\rooms.json");
             string? jsonString = reader.ReadToEnd();
             Rooms = JsonSerializer.Deserialize<Dictionary<string, Room>>(jsonString);
         }
-      /*  
+      
         private void CreateInteractibles()
         {       
-            using StreamReader reader = new(@$"{AppContext.BaseDirectory}\JsonFiles\Interactables.json");
+            using StreamReader reader = new(@$".\JsonFiles\npcs.json");
             string jsonString = reader.ReadToEnd();
             Interactables = JsonSerializer.Deserialize<Dictionary<string, Interactable>>(jsonString);
         }
 
         private void CreateEvents()
         {       
-            using StreamReader reader = new(@$"{AppContext.BaseDirectory}\JsonFiles\Events.json");
+            using StreamReader reader = new(@$".\JsonFiles\events.json");
+            using StreamReader reader1 = new(@$".\JsonFiles\textEvents.json");
+            using StreamReader reader2 = new(@$".\JsonFiles\quizEvents.json");
+            
             string jsonString = reader.ReadToEnd();
             Events = JsonSerializer.Deserialize<Dictionary<string, Event>>(jsonString);
+
+            jsonString = reader1.ReadToEnd();
+            var textEvents = JsonSerializer.Deserialize<Dictionary<string, TextEvent>>(jsonString);
+            
+            jsonString = reader1.ReadToEnd();
+            var quizEvents = JsonSerializer.Deserialize<Dictionary<string, QuizEvent>>(jsonString);
+
+            foreach(var entry in textEvents)
+                Events.Add(entry.Key, entry.Value);
+
+            
+            foreach(var entry in quizEvents)
+                Events.Add(entry.Key, entry.Value);
         }
 
-    */
+    
         public void Play()
         {   
             currentRoom = Rooms["village-of-ix"];
