@@ -1,0 +1,121 @@
+{
+    "village-of-ix" :
+    {
+        "name" : "Village of Ix",
+        "Interactables": { "i1" : "Captain Bernard"},
+        "ShortDescription": "Village of Ix",
+        "LongDescription": "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall. In the exits from the village there are small signs: To the south - river, to the east - red forest, to the north - crossroads of cordon and to the west - ruins of Galava castle.",
+        "Exits":
+        {
+            "north": "Crossroads of Cordon", "south" : "River", "east" : "Red forest", "west" : "Ruins of Galava castle"
+        }
+    },
+
+    "petunias-garden" :
+    {
+        "name" : "Petunia's Garden",
+        "Interactables": { "i2" : "Petunia", "i3" : "hoe"},
+        "ShortDescription": "You entered a place with a lovely view",
+        "LongDescription": "Upon entering you are greeted with the sight of wilted flowers and an older prissy lady standing next to them. Something seems to have caused the soil to dry out very quickly. An old well used hoe is placed to the side.",
+        "Exits":
+        {
+            "west" : "The Withering Forest of Arberia"
+        }
+    },
+
+    "market-square-of-pelorn" :
+    {
+        "name" : "Market Square of Pelorn",
+        "Interactables": {},
+        "ShortDescription": "",
+        "LongDescription": "",
+        "Exits":
+        {
+            
+        }
+    },
+
+    "crossroads-of-cordon" :
+    {
+        "name" : "Crossroads of Cordon",
+        "Interactables": {},
+        "ShortDescription": "",
+        "LongDescription": "",
+        "Exits":
+        {
+            
+        }
+    },
+
+    "dunes-of-raghar" :
+    {
+        "name" : "Dunes of Raghar",
+        "Interactables": {},
+        "ShortDescription": "",
+        "LongDescription": "",
+        "Exits":
+        {
+            
+        }
+    },
+
+    "shallow-waters-of-aviora" :
+    {
+        "name" : "Shallow Waters of Avoira",
+        "Interactables": {},
+        "ShortDescription": "",
+        "LongDescription": "",
+        "Exits":
+        {
+            
+        }
+    },
+
+    "river-shore" :
+    {
+        "name" : "River Shore",
+        "Interactables": {},
+        "ShortDescription": "",
+        "LongDescription": "",
+        "Exits":
+        {
+            
+        }
+    },
+
+    "distant-island" :
+    {
+        "name" : "Distant Island",
+        "Interactables": {},
+        "ShortDescription": "",
+        "LongDescription": "",
+        "Exits":
+        {
+            
+        }
+    },
+
+    "galava-castle-ruins" :
+    {
+        "name" : "Galava Castle Ruins",
+        "Interactables": {},
+        "ShortDescription": "",
+        "LongDescription": "",
+        "Exits":
+        {
+            
+        }
+    },
+
+    "the-withering-forest-of-arberia" :
+    {
+        "name" : "The Withering Forest of Arberia",
+        "Interactables": {},
+        "ShortDescription": "",
+        "LongDescription": "",
+        "Exits":
+        {
+            
+        }
+    }
+}

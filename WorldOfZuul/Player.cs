@@ -5,7 +5,7 @@ public class Player{
     public Dictionary<string, int> Resources {get; set;} = new();
     private Game gameRef;
 
-
+    // Add resource
     public Player(Game game){
         gameRef = game;
         Resources.Add("Environment", 50);
@@ -21,13 +21,20 @@ public class Player{
         Resources.Add("Money", resources[2]);
     }
 
-    // This does the resource addition or subtraction
-    public void ChangeResources(Dictionary<string, int> changes){
+    // Resource addition or subtraction
+    // I need a method for that
+    // but then shouldn't this method take in the Resources dictionary
+    public void ChangeResources(Dictionary<string, int> changes)
+    // where do I have my changes dictionary or where should I have it?
+    {
         foreach(KeyValuePair<string, int> change in changes){
             Resources[change.Key] += change.Value;
         }
+    // ensure that resources can't be negative
         CheckResources();
     }
+
+    // display the current state of resources
 
     private void CheckResources(){
         if(Resources["Environment"] > 90 && Resources["Social"] > 90){
