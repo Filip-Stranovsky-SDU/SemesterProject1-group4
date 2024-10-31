@@ -2,10 +2,10 @@
 {
     public class Room
     {
-        public Dictionary<string, string>? Interactables { get; private set; }
+        public Dictionary<string, string>? Interactables { get; set; }
         public string? ShortDescription { get; private set; }
         public string? LongDescription { get; private set;}
-        public Dictionary<string, string> Exits { get; private set; } = new();
+        public Dictionary<string, string>? Exits { get; set; }
 
         public Game? GameRef;
 

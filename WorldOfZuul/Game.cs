@@ -19,7 +19,7 @@ namespace WorldOfZuul
 
         private void CreateRooms()
         {       
-            using StreamReader reader = new(@$".\..\..\..\JsonFiles\Rooms.json");
+            using StreamReader reader = new(@$".\JsonFiles\Rooms.json");
             string? jsonString = reader.ReadToEnd();
             Rooms = JsonSerializer.Deserialize<Dictionary<string, Room>>(jsonString);
         }
@@ -43,6 +43,7 @@ namespace WorldOfZuul
         {   
             currentRoom = Rooms["village-of-ix"];
             Parser parser = new();
+            Console.WriteLine(currentRoom.Exits["north"]);
 
             PrintWelcome();
 
