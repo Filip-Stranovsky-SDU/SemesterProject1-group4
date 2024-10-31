@@ -3,8 +3,8 @@
     public class Room
     {
         public Dictionary<string, string>? Interactables { get; set; }
-        public string? ShortDescription { get; private set; }
-        public string? LongDescription { get; private set;}
+        public string? ShortDescription { get; set; }
+        public string? LongDescription { get; set;}
         public Dictionary<string, string>? Exits { get; set; }
 
         public Game? GameRef;

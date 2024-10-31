@@ -1,24 +1,22 @@
 {
     "village-of-ix" :
     {
-        "name" : "Village of Ix",
+        "ShortDescription" : "Village of Ix",
         "Interactables": { "i1" : "Captain Bernard"},
-        "ShortDescription": "Village of Ix",
         "LongDescription": "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall. In the exits from the village there are small signs: To the south - river, to the east - red forest, to the north - crossroads of cordon and to the west - ruins of Galava castle.",
         "Exits":
         {
-            "north": "crossroads-of-cordon", 
-            "south" : "river-shore", 
-            "east" : "the-withering-forest-of-arberia", 
-            "west" : "galava-castle-ruins"
+            "north": "the-withering-forest-of-arberia", 
+            "south" : "galava-castle-ruins", 
+            "east" : "river-shore", 
+            "west" : "abandoned-mine"
         }
     },
 
     "petunias-garden" :
     {
-        "name" : "Petunia's Garden",
+        "ShortDescription" : "Petunia's Garden",
         "Interactables": { "i2" : "Petunia", "i3" : "hoe"},
-        "ShortDescription": "You entered a place with a lovely view",
         "LongDescription": "Upon entering you are greeted with the sight of wilted flowers and an older prissy lady standing next to them. Something seems to have caused the soil to dry out very quickly. An old well used hoe is placed to the side.",
         "Exits":
         {
@@ -28,100 +26,120 @@
 
     "market-square-of-pelorn" :
     {
-        "name" : "Market Square of Pelorn",
+        "ShortDescription" : "Market Square of Pelorn",
         "Interactables": {},
-        "ShortDescription": "",
+        
         "LongDescription": "",
         "Exits":
         {
-            
+            "south" : "crossroads-of-cordon"
         }
     },
 
     "crossroads-of-cordon" :
     {
-        "name" : "Crossroads of Cordon",
+        "ShortDescription" : "Crossroads of Cordon",
         "Interactables": {},
-        "ShortDescription": "",
+        
         "LongDescription": "",
         "Exits":
         {
-            "north": "petunias-garden", 
-            "south" : "river-shore", 
-            "east" : "the-withering-forest-of-arberia", 
-            "west" : "galava-castle-ruins"
+            "north" : "market-square-of-pelorn",
+            "west" : "dunes-of-raghar",
+            "south" : "abandoned-mine",
+            "east" : "the-withering-forest-of-arberia"
         }
     },
 
     "dunes-of-raghar" :
     {
-        "name" : "Dunes of Raghar",
+        "ShortDescription" : "Dunes of Raghar",
         "Interactables": {},
-        "ShortDescription": "",
+        
         "LongDescription": "",
         "Exits":
         {
-            
+            "east" : "crossroads-of-cordon"
         }
     },
 
     "shallow-waters-of-aviora" :
     {
-        "name" : "Shallow Waters of Avoira",
+        "ShortDescription" : "Shallow Waters of Avoira",
         "Interactables": {},
-        "ShortDescription": "",
+        
         "LongDescription": "",
         "Exits":
         {
-            
+            "west" : "river-shore",
+            "south" : "distant-island"
         }
     },
 
     "river-shore" :
     {
-        "name" : "River Shore",
+        "ShortDescription" : "River Shore",
         "Interactables": {},
-        "ShortDescription": "",
+        
         "LongDescription": "",
         "Exits":
         {
-            
+            "east" : "shallow-waters-of-aviora",
+            "west" : "village-of-ix"
         }
     },
 
     "distant-island" :
     {
-        "name" : "Distant Island",
+        "ShortDescription" : "Distant Island",
         "Interactables": {},
-        "ShortDescription": "",
+        
         "LongDescription": "",
         "Exits":
         {
-            
+            "north" : "shallow-waters-of-aviora",
+            "west" : "galava-castle-ruins"
         }
     },
 
     "galava-castle-ruins" :
     {
-        "name" : "Galava Castle Ruins",
+        "ShortDescription" : "Galava Castle Ruins",
         "Interactables": {},
-        "ShortDescription": "",
+        
         "LongDescription": "",
         "Exits":
         {
-            
+            "north" : "village-of-ix",
+            "east" : "distant-island"
         }
     },
 
     "the-withering-forest-of-arberia" :
     {
-        "name" : "The Withering Forest of Arberia",
+        "ShortDescription" : "The Withering Forest of Arberia",
         "Interactables": {},
-        "ShortDescription": "",
+        
         "LongDescription": "",
         "Exits":
         {
-            
+            "east":"petunias-garden",
+            "south" : "village-of-ix",
+            "west" : "crossroads-of-cordon"
+        }
+    },
+    
+    "abandoned-mine" :
+    {
+        "ShortDescription" : "Abandoned Mine of Kaelor",
+        "Interactables": {},
+        
+        "LongDescription": "",
+        "Exits":
+        {
+            "east" : "village-of-ix",
+            "north" : "crossroads-of-cordon"
         }
     }
 }
+

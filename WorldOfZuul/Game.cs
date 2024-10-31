@@ -45,7 +45,6 @@ namespace WorldOfZuul
         {   
             currentRoom = Rooms["village-of-ix"];
             Parser parser = new();
-            Console.WriteLine(currentRoom.Exits["north"]);
 
             PrintWelcome();
 
