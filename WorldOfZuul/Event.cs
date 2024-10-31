@@ -6,14 +6,14 @@ namespace WorldOfZuul;
     {
 
     public bool IsActive { get; set; }
-    public string? ParentInteractableName {get; set;}
-    public List<Event> ActivatesAfterFinish { get; set; }
+    public string? ParentInteractableName {get; set;} // event knows about the interactable
+    public List<Event> ActivatesAfterFinish { get; set; } // list<string> instead of event, why?
     public string Description { get; private set; }
 
     // Dictionary to store how resources change when event happens 
     public Dictionary<string, int> ChangeInResources {get; set;} = new();
     
-    public Game? gameRef;
+    public Game? gameRef; // gameRef.Events["Petunia1"].Activate();
    
     public Event(string description, Dictionary<string, int> changeInResources)
     {
