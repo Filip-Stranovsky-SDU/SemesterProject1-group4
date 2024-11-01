@@ -100,7 +100,13 @@ namespace WorldOfZuul
                     case "help":
                         PrintHelp();
                         break;
-// somewhere he we would need a 'talk' command that would point to Interact() method
+
+                    case "interact":
+                    case "i":
+                        ManageInteract(command.SecondWord);
+                        
+                        break;
+
                     default:
                         Console.WriteLine("I don't know what command.");
                         break;
@@ -108,6 +114,19 @@ namespace WorldOfZuul
             }
 
             Console.WriteLine("Thank you for playing World of Zuul!");
+        }
+
+        private void ManageInteract(string name)
+        {
+            if (currentRoom?.Interactables.ContainsKey(name) == true)
+            {
+                string id = currentRoom?.Interactables[name];
+                Interactables[id].Interact(); // the Interact() method needs to know the particular NPC you're referring to
+            }
+            else
+            {
+                Console.WriteLine("Nothing to interact with in here");
+            }
         }
 
         private void Move(string direction)

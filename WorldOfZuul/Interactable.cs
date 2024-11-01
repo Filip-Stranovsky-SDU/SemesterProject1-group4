@@ -17,7 +17,6 @@ public class Interactable
 
         public void Interact()   // this is what happens when the player in the game interacts with the interactable
         {                        // but how do you trigger this? where do you write for the game to recognise what an interact is or how to activate it?
-                                 // the parser has to recognise this command, e.g., talk Petunia
                                  // then the game needs to find the right interactable and call it's interact method;)
             Console.WriteLine($"Interacting with {Name}"); // To be removed
             foreach (string current_event in Events)
