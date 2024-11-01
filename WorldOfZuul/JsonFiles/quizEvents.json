@@ -1,14 +1,52 @@
 {
-    "Petunia1" :
-    {
-        "Text" : "My gosh! I just can't believe it! \"My beautiful flowers dead like cattle!\" She hasn't yet noticed your presence",
-        "Options" : ["Petunia2", "Petunia2", "Petunia3"],
-        "ParentInteractableName" : "petunia",
-        "IsActive" : true
-    }
+    "Petunia": [
+      {
+        "id": "p1",
+        "text": "My gosh! I just can't believe it! \"My beautiful flowers dead like cattle!\" She hasn't yet noticed your presence.",
+        "options": [
+          {
+            "text": "Excuse me?",
+            "nextNode": "petunia_excuse"
+
+          },
+          {
+            "text": "Hello, do you need help?",
+            "nextNode": "petunia_excuse"
+          },
+          {
+            "text": "Leave",
+            "nextNode": "petunia_leave"
+          },
+        
+        "isActive": false
+        ]
+      },
+      {
+        "id": "p2",
+        "text": "The woman proceeded to turn around \"My gosh dear, don't sneak up on me like that. I might have a heart attack!\" She exclaimed dramatically. \"My name is Petunia, this is my garden or was more accurately...\"",
+        "options": [
+          {
+            "text": "What happened?",
+            "nextNode": "petunia_what_happened"
+          },
+          {
+            "text": "I'm sure it could still be salvaged.",
+            "nextNode": "petunia_salvaged"
+          },
+          {
+            "text": "Looks like you should have taken a better care of it.",
+            "nextNode": "petunia_care"
+          }
+        ]
+      },
+      {
+        "id": "petunia_leave",
+        "text": "You decide to leave Petunia to her thoughts."
+      }
+    ],
 
 
+    
 
-
-}
-
+      
+  }

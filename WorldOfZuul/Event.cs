@@ -1,7 +1,6 @@
 namespace WorldOfZuul;
 
 
-
 public class Event
 {
 
@@ -119,6 +118,15 @@ public class QuizEvent: Event{
     }
 
 }
+
+public class Option
+{
+    public string Text {get; set;} = "";
+    public string NextNode {get; set;} = "";
+
+
+}
+
     
     // Option Class to represent individual choices in a QuizEvent
    /* public class Option: Event
