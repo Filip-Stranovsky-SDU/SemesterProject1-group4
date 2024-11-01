@@ -13,6 +13,8 @@ public class Interactable
         
     }
 
+    // do this, we just need to finish the inside of the foreach loop, get the event from the Events dictionary
+    // through the gameRef and run it 
     public void Interact()   // this is what happens when the player in the game interacts with the interactable
     {
         Console.WriteLine($"Interacting with {Name}"); // To be removed
