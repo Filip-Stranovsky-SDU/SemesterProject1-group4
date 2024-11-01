@@ -100,7 +100,7 @@ namespace WorldOfZuul
                     case "help":
                         PrintHelp();
                         break;
-
+// somewhere he we would need a 'talk' command that would point to Interact() method
                     default:
                         Console.WriteLine("I don't know what command.");
                         break;

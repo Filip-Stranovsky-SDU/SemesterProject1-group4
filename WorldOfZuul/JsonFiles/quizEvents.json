@@ -2,7 +2,26 @@
     "Petunia1" :
     {
         "Text" : "My gosh! I just can't believe it! \"My beautiful flowers dead like cattle!\" She hasn't yet noticed your presence",
-        "Options" : ["Petunia2", "Petunia2", "Petunia3"],
+        "Options" : [
+        {
+            "option" : "Petunia2",
+            "text" : "Excuse me?",
+            "nextEvent" : "Petunia4"
+        },
+
+        {
+            "option" : "Petunia2",
+            "text" : "Hello, do you need help?",
+            "nextEvent" : "Petunia4"
+        },
+
+        {
+            "option" : "Petunia3",
+            "text" : "Leave",
+            "nextEvent" : "enter_petunias_garden"
+        }
+    
+    ],
         "ParentInteractableName" : "petunia",
         "IsActive" : true
     }

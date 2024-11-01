@@ -4,6 +4,6 @@
     "petunia" :
     {
         "name" : "Petunia",
-        "events" : []
+        "events" : ["Petunia1", "Petunia2", "Petunia3", "Petunia4"]
     }
 }
