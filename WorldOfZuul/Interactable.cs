@@ -23,4 +23,3 @@ public class Interactable
     }
     
 }
-// example child class:
