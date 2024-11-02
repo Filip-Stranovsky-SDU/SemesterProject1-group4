@@ -17,6 +17,8 @@ namespace WorldOfZuul
         {
             Player = new Player(this);
             CreateRooms();
+            CreateInteractibles();
+            CreateEvents();
         }
 
         private void CreateRooms()
@@ -31,6 +33,10 @@ namespace WorldOfZuul
             using StreamReader reader = new(@$".\JsonFiles\npcs.json");
             string jsonString = reader.ReadToEnd();
             Interactables = JsonSerializer.Deserialize<Dictionary<string, Interactable>>(jsonString);
+            
+            foreach(var entry in Interactables){
+                entry.Value.setupGameRef(this);
+            }
         }
 
         private void CreateEvents()
@@ -48,12 +54,21 @@ namespace WorldOfZuul
             jsonString = reader1.ReadToEnd();
             var quizEvents = JsonSerializer.Deserialize<Dictionary<string, QuizEvent>>(jsonString);
 
-            foreach(var entry in textEvents)
+            foreach(var entry in Events){
+                entry.Value.setupGameRef(this);
+            }
+
+            foreach(var entry in textEvents){
                 Events.Add(entry.Key, entry.Value);
+                entry.Value.setupGameRef(this);
+            }
+            
+            foreach(var entry in quizEvents){
+                Events.Add(entry.Key, entry.Value);
+                entry.Value.setupGameRef(this);
+            }
 
             
-            foreach(var entry in quizEvents)
-                Events.Add(entry.Key, entry.Value);
         }
 
     
@@ -137,6 +152,9 @@ namespace WorldOfZuul
             if (currentRoom?.Interactables.ContainsKey(name) == true)
             {
                 string id = currentRoom?.Interactables[name];
+                /*foreach(var inter in Interactables){
+                    Console.WriteLine(@$"{inter.Key} : {inter.Value}");
+                }*/
                 Interactables[id].Interact(); // the Interact() method needs to know the particular NPC you're referring to
             }
             else

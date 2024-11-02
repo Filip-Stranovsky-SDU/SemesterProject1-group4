@@ -5,19 +5,18 @@ namespace WorldOfZuul;
 public class Event
 {
 
-    public bool IsActive { get; set; }
+    public bool IsActive { get; set; } = true;
     public string? ParentInteractableName {get; set;} // event knows about the interactable
-    public List<string> ActivatesAfterFinish { get; set; } // list<string> instead of event, why?
-    public string Description { get; set; } = ""; // Default Val is empty, used for options in QuizEvent and for easier orientation
+    public List<string> ActivatesAfterFinish { get; set; } = new();// list<string> instead of event, why?
+    //public string Description { get; set; } = ""; // Default Val is empty, used for options in QuizEvent and for easier orientation
     public Dictionary<string, int> ChangeInResources {get; set;} = new(); // Dictionary to store how resources change when event happens 
     protected Game? gameRef; // gameRef.Events["Petunia1"].Activate();
 
 
-    public Event(string description, Dictionary<string, int> changeInResources)
+    public Event(Dictionary<string, int> changeInResources)
     {
         IsActive = false;
         ActivatesAfterFinish = new List<string>();
-        Description = description;
         ChangeInResources = changeInResources; // resource changes to this event
     }
    
@@ -27,7 +26,6 @@ public class Event
         if (!IsActive)
             return false;
 
-        gameRef.Player.ChangeResources(ChangeInResources); // change resources on the player
         
         CompleteEvent();
         return true;
@@ -38,10 +36,16 @@ public class Event
     protected void CompleteEvent()
     {
         IsActive = false;
+        gameRef.Player.ChangeResources(ChangeInResources); // change resources on the player
+        
         foreach (string nextEvent in ActivatesAfterFinish)
         {
-            gameRef.Events[nextEvent].Run();
+            gameRef.Events[nextEvent].IsActive = true;
         }
+    }
+
+    public void setupGameRef(Game gr){
+        gameRef = gr;
     }
 }
 
@@ -51,7 +55,7 @@ public class TextEvent : Event
 {   
     public string Text {get; set;} = "";
 
-    public TextEvent(string description, string text, Dictionary<string, int> changeInResources) : base(description, changeInResources){
+    public TextEvent(string text, Dictionary<string, int> changeInResources) : base(changeInResources){
         Text = text; // Text to be printed when event gets run
     } // Constructor, uses constructor of Event but with added Text var
     
@@ -61,10 +65,6 @@ public class TextEvent : Event
             return false;
         }
         Console.Write(Text);
-        if (gameRef?.Player != null)
-        {
-            gameRef.Player.ChangeResources(ChangeInResources); // Call ChangeResources on the player
-        }
         CompleteEvent();
         return true;
     }
@@ -73,10 +73,9 @@ public class TextEvent : Event
 public class QuizEvent: Event{
 
     public string Text {get; set;} = "";
-    public List<string> Options {get; set;} = new();
+    public List<Option> Options {get; set;} = new();
     
-    public QuizEvent(string description, 
-                    string text, List<string> options, Dictionary<string, int> changeInResources) : base(description, changeInResources){
+    public QuizEvent(string text, List<Option> options, Dictionary<string, int> changeInResources) : base(changeInResources){
         Text = text; // Text to be printed when event gets run
         Options = options;
 
@@ -87,11 +86,11 @@ public class QuizEvent: Event{
             return false;
         }
         Console.Write(Text);
-        string option = "";
+        Option? option;
         for(int i = 0; i < Options.Count; i++)
         {
             option = Options[i];
-            Console.WriteLine(@$"{i+'a'}: {gameRef.Events[option].Description}");
+            Console.WriteLine(@$"{i+'a'}: {option.OptionText}");
         }
 
         string? input = "";
@@ -110,7 +109,7 @@ public class QuizEvent: Event{
             }
             // Apply resource changes for a selected option
             // Each option will contain specific resource changes
-            gameRef.Events[Options[n]].Run();
+            gameRef.Events[Options[n].nextEventName].Run();
         }
 
 
@@ -120,27 +119,8 @@ public class QuizEvent: Event{
 
 }
     
-    // Option Class to represent individual choices in a QuizEvent
-   /* public class Option: Event
-    {
-        public string Text { get; set; }
-        public Dictionary<string, int> ResourceChanges { get; set; } = new();
+public class Option{
+    public string OptionText {get; set;} = "";
+    public string nextEventName {get; set;} = "";
 
-        public Option(string text, Dictionary<string, int> resourceChanges)
-        {
-            Text = text;
-            ResourceChanges = resourceChanges;
-        }
-
-        public void Run()
-        {
-            Console.WriteLine(Text);
-
-            // Apply resource changes when this option is selected
-            if (gameRef?.Player != null)
-            {
-                gameRef.Player.ChangeResources(ResourceChanges); // Applies changes for this option
-            }
-        }
-}*/
-
+}

@@ -16,7 +16,7 @@
     "petunias-garden" :
     {
         "ShortDescription" : "Petunia's Garden",
-        "Interactables": { "i2" : "Petunia", "i3" : "hoe"},
+        "Interactables": { "Petunia" : "petunia", "i3" : "hoe"},
         "LongDescription": "Upon entering you are greeted with the sight of wilted flowers and an older prissy lady standing next to them. Something seems to have caused the soil to dry out very quickly. An old well used hoe is placed to the side.",
         "Exits":
         {

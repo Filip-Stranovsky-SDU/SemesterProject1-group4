@@ -1,19 +1,19 @@
 {
     "petunia" :
     {
-        "name" : "Petunia",
-        "events" : ["Petunia1", "Petunia2", "Petunia3", "Petunia4"]
+        "Name" : "Petunia",
+        "Events" : ["PetuniaQ1", "PetuniaQ3"]
     },
 
     "captain-bernard" :
     {
-        "name" : "Captain Bernard",
-        "events" : 
+        "Name" : "Captain Bernard",
+        "Events" : []
     },
 
     "crowd" :
     {
-        "name" : "Crowd",
-        "events" :
+        "Name" : "Crowd",
+        "Events" : []
     }
 }

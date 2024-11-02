@@ -1,30 +1,89 @@
 {
-    "Petunia1" :
+    "PetuniaQ1" :
     {
         "Text" : "My gosh! I just can't believe it! \"My beautiful flowers dead like cattle!\" She hasn't yet noticed your presence",
         "Options" : [
         {
-            "option" : "Petunia2",
-            "text" : "Excuse me?",
-            "nextEvent" : "Petunia4"
+            "OptionText" : "Excuse me?",
+            "nextEventName" : "PetuniaQ2"
         },
 
         {
-            "option" : "Petunia2",
-            "text" : "Hello, do you need help?",
-            "nextEvent" : "Petunia4"
+            "OptionText" : "Hello, do you need help?",
+            "nextEventName" : "PetuniaQ2"
         },
 
         {
-            "option" : "Petunia3",
-            "text" : "Leave",
-            "nextEvent" : "enter_petunias_garden"
+            "OptionText" : "Leave",
+            "nextEventName" : "enter_petunias_garden"
         }
     
-    ],
+        ],
+        "ParentInteractableName" : "petunia",
+        "IsActive" : true
+    },
+
+    "PetuniaQ2" :
+    {
+        "Text" : "The woman proceeded to turn around \"My gosh dear, don't sneak up on me like that. I might have a heart attack!\" She exclaimed dramatically. \"My name is Petunia, this is my garden or was more accurately...\"",
+        "Options" : [
+        {
+            "OptionText" : "What happened?",
+            "nextEventName" : "PetuniaT1"
+        },
+
+        {
+            "OptionText" : "I'm sure it could still be salvaged",
+            "nextEventName" : "PetuniaT2"
+        },
+
+        {
+            "OptionText" : "Looks like you should have taken a better care of it.",
+            "nextEventName" : "PetuniaT3"
+        }
+    
+        ],
+        "ParentInteractableName" : "petunia",
+        "IsActive" : true
+    },
+
+    "PetuniaQ3" :
+    {
+        "Text" : "",
+        "Options" : [
+        {
+            "OptionText" : "That seems troubling",
+            "nextEventName" : "PetuniaQ4"
+        },
+
+        {
+            "OptionText" : "Flowers aren't worth that kind of effort",
+            "nextEventName" : "PetuniaQ4"
+        }
+        ],
+        "ParentInteractableName" : "petunia",
+        "IsActive" : false
+    },
+
+    "PetuniaQ4" :
+    {
+        "Text" : "That's quite true, but now that you're here I have an idea!\" Petunia beams, a devious smile adoring her wrinkled face. \"Destroy that dam for me sweetie, it would make my world so much easier\" \n>\"What? Why would I do that?\" \n>\"I heard about you, you're that fellow that is trying to fix this filthy world. Well I offer a deal. You destroy that dam and I will dedicate this garden to growing vegies and fruits that anyone may come pick out. So what do you say?\"",
+
+        "Options" : [
+        {
+            "OptionText" : "Accept the offer",
+            "nextEventName" : "PetuniaT5-PH"
+        },
+
+        {
+            "OptionText" : "Reject the offer",
+            "nextEventName" : "PetuniaT4"
+        }
+        ],
         "ParentInteractableName" : "petunia",
         "IsActive" : true
     }
+
 
 
 
