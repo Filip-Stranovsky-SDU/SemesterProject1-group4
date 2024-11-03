@@ -13,6 +13,7 @@ namespace WorldOfZuul
         public Dictionary<string, Interactable>? Interactables {get; private set;}
         public Dictionary<string, Event>? Events {get; private set;}
 
+
         public Game()
         {
             Player = new Player(this);
@@ -32,7 +33,14 @@ namespace WorldOfZuul
         {       
             using StreamReader reader = new(@$".\JsonFiles\npcs.json");
             string jsonString = reader.ReadToEnd();
-            Interactables = JsonSerializer.Deserialize<Dictionary<string, Interactable>>(jsonString);
+            
+
+            var options = new JsonSerializerOptions
+            {
+                IncludeFields = true
+            };
+
+            Interactables = JsonSerializer.Deserialize<Dictionary<string, Interactable>>(jsonString, options);
             
             foreach(var entry in Interactables){
                 entry.Value.setupGameRef(this);
@@ -45,14 +53,17 @@ namespace WorldOfZuul
             using StreamReader reader1 = new(@$".\JsonFiles\textEvents.json");
             using StreamReader reader2 = new(@$".\JsonFiles\quizEvents.json");
             
+
+            var options = new JsonSerializerOptions{ IncludeFields = true };
+
             string jsonString = reader.ReadToEnd();
-            Events = JsonSerializer.Deserialize<Dictionary<string, Event>>(jsonString);
+            Events = JsonSerializer.Deserialize<Dictionary<string, Event>>(jsonString, options);
 
             jsonString = reader1.ReadToEnd();
-            var textEvents = JsonSerializer.Deserialize<Dictionary<string, TextEvent>>(jsonString);
+            var textEvents = JsonSerializer.Deserialize<Dictionary<string, TextEvent>>(jsonString, options);
             
-            jsonString = reader1.ReadToEnd();
-            var quizEvents = JsonSerializer.Deserialize<Dictionary<string, QuizEvent>>(jsonString);
+            jsonString = reader2.ReadToEnd();
+            var quizEvents = JsonSerializer.Deserialize<Dictionary<string, QuizEvent>>(jsonString, options);
 
             foreach(var entry in Events){
                 entry.Value.setupGameRef(this);

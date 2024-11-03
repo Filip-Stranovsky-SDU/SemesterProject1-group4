@@ -1,0 +1,11 @@
+{
+    "PetuniaQ1" :
+    {
+        "Text" : "My gosh! I just can't believe it! \"My beautiful flowers dead like cattle!\" She hasn't yet noticed your presence",
+        
+        "ParentInteractableName" : "petunia",
+        "IsActive" : true
+    }
+
+}
+

@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace WorldOfZuul;
 
 
@@ -10,6 +12,8 @@ public class Event
     public List<string> ActivatesAfterFinish { get; set; } = new();// list<string> instead of event, why?
     //public string Description { get; set; } = ""; // Default Val is empty, used for options in QuizEvent and for easier orientation
     public Dictionary<string, int> ChangeInResources {get; set;} = new(); // Dictionary to store how resources change when event happens 
+    
+    [JsonIgnore]
     protected Game? gameRef; // gameRef.Events["Petunia1"].Activate();
 
 
@@ -19,6 +23,7 @@ public class Event
         ActivatesAfterFinish = new List<string>();
         ChangeInResources = changeInResources; // resource changes to this event
     }
+    public Event(){}
    
     public virtual bool Run() // Method to start the event
     //Virtual so it can be overriden for subclasses(C# magic)
@@ -59,12 +64,14 @@ public class TextEvent : Event
         Text = text; // Text to be printed when event gets run
     } // Constructor, uses constructor of Event but with added Text var
     
+    public TextEvent(){}
+
     public override bool Run(){
         if (!IsActive)
         {
             return false;
         }
-        Console.Write(Text);
+        Console.WriteLine(Text);
         CompleteEvent();
         return true;
     }
@@ -73,24 +80,31 @@ public class TextEvent : Event
 public class QuizEvent: Event{
 
     public string Text {get; set;} = "";
-    public List<Option> Options {get; set;} = new();
+    public List<Option>? Options {get; set;} 
+    
     
     public QuizEvent(string text, List<Option> options, Dictionary<string, int> changeInResources) : base(changeInResources){
         Text = text; // Text to be printed when event gets run
         Options = options;
 
     }
+    public QuizEvent() { }
+
     public override bool Run(){
         if (!IsActive)
         {
             return false;
         }
-        Console.Write(Text);
+
+        CompleteEvent(); // NEEDS TO BE BEFORE OPTIONS, otherwise activates after finish doesn't work on *this*
+
+        Console.WriteLine(Text);
         Option? option;
+        
         for(int i = 0; i < Options.Count; i++)
         {
             option = Options[i];
-            Console.WriteLine(@$"{i+'a'}: {option.OptionText}");
+            Console.WriteLine(@$"{(char)(i+'a')}: {option.OptionText}");
         }
 
         string? input = "";
@@ -109,11 +123,10 @@ public class QuizEvent: Event{
             }
             // Apply resource changes for a selected option
             // Each option will contain specific resource changes
-            gameRef.Events[Options[n].nextEventName].Run();
+            gameRef.Events[Options[n].NextEventName].Run();
         }
 
 
-        CompleteEvent();
         return true;
     }
 
@@ -121,6 +134,9 @@ public class QuizEvent: Event{
     
 public class Option{
     public string OptionText {get; set;} = "";
-    public string nextEventName {get; set;} = "";
+    public string NextEventName {get; set;} = "";
+
+    public Option(){}
+
 
 }

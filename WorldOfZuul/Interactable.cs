@@ -1,8 +1,12 @@
+using System.Text.Json.Serialization;
+
 namespace WorldOfZuul;
 public class Interactable
 {
     public string? Name {get; set; }
     public List<string>? Events {get; set; } // Only Events to be Run sequentially, don't put in QuizEvent branches
+
+    [JsonIgnore]
     protected Game? gameRef; 
     public Interactable(Game game, string name)
     {
@@ -12,6 +16,7 @@ public class Interactable
                                      // we want, e.g., this not to crash: Events.Add(newEvent)
         
     }
+    public Interactable(){}
 
     // do this, we just need to finish the inside of the foreach loop, get the event from the Events dictionary
     // through the gameRef and run it 
@@ -23,6 +28,10 @@ public class Interactable
             Event curr_event = gameRef.Events[current_event_name];
             curr_event.Run();
         }
+    }
+
+    public void setupGameRef(Game gr){
+        gameRef = gr;
     }
     
 }

@@ -31,7 +31,7 @@
 
         "IsActive": true,
         "ParentInteractableName" : "petunia",
-        "ChangeInResources": {"Social": -5, "Enviromet": 10}
+        "ChangeInResources": {"Social": -5, "Environment": 10}
         
     },
 

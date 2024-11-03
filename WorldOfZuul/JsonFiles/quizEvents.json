@@ -5,17 +5,17 @@
         "Options" : [
         {
             "OptionText" : "Excuse me?",
-            "nextEventName" : "PetuniaQ2"
+            "NextEventName" : "PetuniaQ2"
         },
 
         {
             "OptionText" : "Hello, do you need help?",
-            "nextEventName" : "PetuniaQ2"
+            "NextEventName" : "PetuniaQ2"
         },
 
         {
             "OptionText" : "Leave",
-            "nextEventName" : "enter_petunias_garden"
+            "NextEventName" : "enter_petunias_garden"
         }
     
         ],
@@ -29,17 +29,17 @@
         "Options" : [
         {
             "OptionText" : "What happened?",
-            "nextEventName" : "PetuniaT1"
+            "NextEventName" : "PetuniaT1"
         },
 
         {
             "OptionText" : "I'm sure it could still be salvaged",
-            "nextEventName" : "PetuniaT2"
+            "NextEventName" : "PetuniaT2"
         },
 
         {
             "OptionText" : "Looks like you should have taken a better care of it.",
-            "nextEventName" : "PetuniaT3"
+            "NextEventName" : "PetuniaT3"
         }
     
         ],
@@ -53,12 +53,12 @@
         "Options" : [
         {
             "OptionText" : "That seems troubling",
-            "nextEventName" : "PetuniaQ4"
+            "NextEventName" : "PetuniaQ4"
         },
 
         {
             "OptionText" : "Flowers aren't worth that kind of effort",
-            "nextEventName" : "PetuniaQ4"
+            "NextEventName" : "PetuniaQ4"
         }
         ],
         "ParentInteractableName" : "petunia",
@@ -72,12 +72,12 @@
         "Options" : [
         {
             "OptionText" : "Accept the offer",
-            "nextEventName" : "PetuniaT5-PH"
+            "NextEventName" : "PetuniaT5-PH"
         },
 
         {
             "OptionText" : "Reject the offer",
-            "nextEventName" : "PetuniaT4"
+            "NextEventName" : "PetuniaT4"
         }
         ],
         "ParentInteractableName" : "petunia",
