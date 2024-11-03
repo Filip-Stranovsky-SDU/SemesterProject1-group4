@@ -190,22 +190,20 @@ namespace WorldOfZuul
 
         private static void PrintWelcome()
         {
-            Console.WriteLine("Welcome to the World of Zuul!");
-            Console.WriteLine("World of Zuul is a new, incredibly boring adventure game.");
+            Console.WriteLine("Welcome to [the name of our world]");
+            Console.WriteLine("Viktor's lines");
             PrintHelp();
             Console.WriteLine();
         }
 
         private static void PrintHelp()
         {
-            Console.WriteLine("You are lost. You are alone. You wander");
-            Console.WriteLine("around the university.");
-            Console.WriteLine();
             Console.WriteLine("Navigate by typing 'north', 'south', 'east', or 'west'.");
             Console.WriteLine("Type 'look' for more details.");
             Console.WriteLine("Type 'back' to go to the previous room.");
             Console.WriteLine("Type 'help' to print this message again.");
             Console.WriteLine("Type 'quit' to exit the game.");
+            Console.WriteLine("Type 'interact' or 'i', press space and type in NPC's name to start events,\nfor example, i Petunia");
         }
     }
 }

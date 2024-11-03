@@ -21,7 +21,8 @@ namespace WorldOfZuul
 
             if (words.Length > 1)
             {
-                return new Command(words[0], words[1]);
+                string secondPart = String.Join(" ", words.Skip(1));
+                return new Command(words[0], secondPart);
             }
 
             return new Command(words[0]);
