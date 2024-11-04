@@ -41,9 +41,15 @@
         "IsActive": true,
         "ParentInteractableName" : "petunia"
         
+    },
+
+    "CaptainBernardT1":
+    {
+        "Text" : "We would like to disassemble the ruins to the west and use the materials to build some shelters and a dam. However we lack the equipment, we have a great offer, but we don't have any money left. If you would help us, we could give you some of our resources.",
+        "IsActive" : true,
+        "ParentInteractableName" : "captain-bernard"
+        
     }
-
-
 
 }
 
