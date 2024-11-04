@@ -2,7 +2,7 @@
     "village-of-ix" :
     {
         "ShortDescription" : "Village of Ix",
-        "Interactables": { "i1" : "Captain Bernard"},
+        "Interactables": { "Captain Bernard" : "captain-bernard"},
         "LongDescription": "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall. In the exits from the village there are small signs: To the south - river, to the east - red forest, to the north - crossroads of cordon and to the west - ruins of Galava castle.",
         "Exits":
         {
@@ -16,7 +16,7 @@
     "petunias-garden" :
     {
         "ShortDescription" : "Petunia's Garden",
-        "Interactables": { "i2" : "Petunia", "i3" : "hoe"},
+        "Interactables": { "Petunia" : "petunia", "i3" : "hoe"},
         "LongDescription": "Upon entering you are greeted with the sight of wilted flowers and an older prissy lady standing next to them. Something seems to have caused the soil to dry out very quickly. An old well used hoe is placed to the side.",
         "Exits":
         {

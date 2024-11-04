@@ -13,10 +13,13 @@ namespace WorldOfZuul
         public Dictionary<string, Interactable>? Interactables {get; private set;}
         public Dictionary<string, Event>? Events {get; private set;}
 
+
         public Game()
         {
             Player = new Player(this);
             CreateRooms();
+            CreateInteractibles();
+            CreateEvents();
         }
 
         private void CreateRooms()
@@ -30,7 +33,18 @@ namespace WorldOfZuul
         {       
             using StreamReader reader = new(@$".\JsonFiles\npcs.json");
             string jsonString = reader.ReadToEnd();
-            Interactables = JsonSerializer.Deserialize<Dictionary<string, Interactable>>(jsonString);
+            
+
+            var options = new JsonSerializerOptions
+            {
+                IncludeFields = true
+            };
+
+            Interactables = JsonSerializer.Deserialize<Dictionary<string, Interactable>>(jsonString, options);
+            
+            foreach(var entry in Interactables){
+                entry.Value.setupGameRef(this);
+            }
         }
 
         private void CreateEvents()
@@ -39,21 +53,33 @@ namespace WorldOfZuul
             using StreamReader reader1 = new(@$".\JsonFiles\textEvents.json");
             using StreamReader reader2 = new(@$".\JsonFiles\quizEvents.json");
             
+
+            var options = new JsonSerializerOptions{ IncludeFields = true };
+
             string jsonString = reader.ReadToEnd();
-            Events = JsonSerializer.Deserialize<Dictionary<string, Event>>(jsonString);
+            Events = JsonSerializer.Deserialize<Dictionary<string, Event>>(jsonString, options);
 
             jsonString = reader1.ReadToEnd();
-            var textEvents = JsonSerializer.Deserialize<Dictionary<string, TextEvent>>(jsonString);
+            var textEvents = JsonSerializer.Deserialize<Dictionary<string, TextEvent>>(jsonString, options);
             
-            jsonString = reader1.ReadToEnd();
-            var quizEvents = JsonSerializer.Deserialize<Dictionary<string, QuizEvent>>(jsonString);
+            jsonString = reader2.ReadToEnd();
+            var quizEvents = JsonSerializer.Deserialize<Dictionary<string, QuizEvent>>(jsonString, options);
 
-            foreach(var entry in textEvents)
+            foreach(var entry in Events){
+                entry.Value.setupGameRef(this);
+            }
+
+            foreach(var entry in textEvents){
                 Events.Add(entry.Key, entry.Value);
+                entry.Value.setupGameRef(this);
+            }
+            
+            foreach(var entry in quizEvents){
+                Events.Add(entry.Key, entry.Value);
+                entry.Value.setupGameRef(this);
+            }
 
             
-            foreach(var entry in quizEvents)
-                Events.Add(entry.Key, entry.Value);
         }
 
     
@@ -117,6 +143,12 @@ namespace WorldOfZuul
                         PrintHelp();
                         break;
 
+                    case "interact":
+                    case "i":
+                        ManageInteract(command.SecondWord);
+                        
+                        break;
+
                     default:
                         Console.WriteLine("I don't know what command.");
                         break;
@@ -124,6 +156,22 @@ namespace WorldOfZuul
             }
 
             Console.WriteLine("Thank you for playing World of Zuul!");
+        }
+
+        private void ManageInteract(string name)
+        {
+            if (currentRoom?.Interactables.ContainsKey(name) == true)
+            {
+                string id = currentRoom?.Interactables[name];
+                /*foreach(var inter in Interactables){
+                    Console.WriteLine(@$"{inter.Key} : {inter.Value}");
+                }*/
+                Interactables[id].Interact(); // the Interact() method needs to know the particular NPC you're referring to
+            }
+            else
+            {
+                Console.WriteLine("Nothing to interact with in here");
+            }
         }
 
         private void Move(string direction)
@@ -142,22 +190,20 @@ namespace WorldOfZuul
 
         private static void PrintWelcome()
         {
-            Console.WriteLine("Welcome to the World of Zuul!");
-            Console.WriteLine("World of Zuul is a new, incredibly boring adventure game.");
+            Console.WriteLine("Welcome to [the name of our world]");
+            Console.WriteLine("Viktor's lines");
             PrintHelp();
             Console.WriteLine();
         }
 
         private static void PrintHelp()
         {
-            Console.WriteLine("You are lost. You are alone. You wander");
-            Console.WriteLine("around the university.");
-            Console.WriteLine();
             Console.WriteLine("Navigate by typing 'north', 'south', 'east', or 'west'.");
             Console.WriteLine("Type 'look' for more details.");
             Console.WriteLine("Type 'back' to go to the previous room.");
             Console.WriteLine("Type 'help' to print this message again.");
             Console.WriteLine("Type 'quit' to exit the game.");
+            Console.WriteLine("Type 'interact' or 'i', press space and type in NPC's name to start events,\nfor example, i Petunia");
         }
     }
 }

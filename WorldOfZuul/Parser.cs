@@ -21,11 +21,12 @@ namespace WorldOfZuul
 
             if (words.Length > 1)
             {
-                return new Command(words[0], words[1]);
+                string secondPart = String.Join(" ", words.Skip(1));
+                return new Command(words[0], secondPart);
             }
 
             return new Command(words[0]);
         }
     }
-
+// we want the words[1] to be merged with words[2], words [3]... - we want that in case we have characters with multiple names, etc.
 }

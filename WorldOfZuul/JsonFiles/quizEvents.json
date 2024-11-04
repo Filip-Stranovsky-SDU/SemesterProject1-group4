@@ -1,52 +1,92 @@
 {
-    "Petunia": [
-      {
-        "id": "p1",
-        "text": "My gosh! I just can't believe it! \"My beautiful flowers dead like cattle!\" She hasn't yet noticed your presence.",
-        "options": [
-          {
-            "text": "Excuse me?",
-            "nextNode": "petunia_excuse"
+    "PetuniaQ1" :
+    {
+        "Text" : "My gosh! I just can't believe it! \"My beautiful flowers dead like cattle!\" She hasn't yet noticed your presence",
+        "Options" : [
+        {
+            "OptionText" : "Excuse me?",
+            "NextEventName" : "PetuniaQ2"
+        },
 
-          },
-          {
-            "text": "Hello, do you need help?",
-            "nextNode": "petunia_excuse"
-          },
-          {
-            "text": "Leave",
-            "nextNode": "petunia_leave"
-          },
-        
-        "isActive": false
-        ]
-      },
-      {
-        "id": "p2",
-        "text": "The woman proceeded to turn around \"My gosh dear, don't sneak up on me like that. I might have a heart attack!\" She exclaimed dramatically. \"My name is Petunia, this is my garden or was more accurately...\"",
-        "options": [
-          {
-            "text": "What happened?",
-            "nextNode": "petunia_what_happened"
-          },
-          {
-            "text": "I'm sure it could still be salvaged.",
-            "nextNode": "petunia_salvaged"
-          },
-          {
-            "text": "Looks like you should have taken a better care of it.",
-            "nextNode": "petunia_care"
-          }
-        ]
-      },
-      {
-        "id": "petunia_leave",
-        "text": "You decide to leave Petunia to her thoughts."
-      }
-    ],
+        {
+            "OptionText" : "Hello, do you need help?",
+            "NextEventName" : "PetuniaQ2"
+        },
 
-
+        {
+            "OptionText" : "Leave",
+            "NextEventName" : "enter_petunias_garden"
+        }
     
+        ],
+        "ParentInteractableName" : "petunia",
+        "IsActive" : true
+    },
 
-      
-  }
+    "PetuniaQ2" :
+    {
+        "Text" : "The woman proceeded to turn around \"My gosh dear, don't sneak up on me like that. I might have a heart attack!\" She exclaimed dramatically. \"My name is Petunia, this is my garden or was more accurately...\"",
+        "Options" : [
+        {
+            "OptionText" : "What happened?",
+            "NextEventName" : "PetuniaT1"
+        },
+
+        {
+            "OptionText" : "I'm sure it could still be salvaged",
+            "NextEventName" : "PetuniaT2"
+        },
+
+        {
+            "OptionText" : "Looks like you should have taken a better care of it.",
+            "NextEventName" : "PetuniaT3"
+        }
+    
+        ],
+        "ParentInteractableName" : "petunia",
+        "IsActive" : true
+    },
+
+    "PetuniaQ3" :
+    {
+        "Text" : "",
+        "Options" : [
+        {
+            "OptionText" : "That seems troubling",
+            "NextEventName" : "PetuniaQ4"
+        },
+
+        {
+            "OptionText" : "Flowers aren't worth that kind of effort",
+            "NextEventName" : "PetuniaQ4"
+        }
+        ],
+        "ParentInteractableName" : "petunia",
+        "IsActive" : false
+    },
+
+    "PetuniaQ4" :
+    {
+        "Text" : "That's quite true, but now that you're here I have an idea!\" Petunia beams, a devious smile adoring her wrinkled face. \"Destroy that dam for me sweetie, it would make my world so much easier\" \n>\"What? Why would I do that?\" \n>\"I heard about you, you're that fellow that is trying to fix this filthy world. Well I offer a deal. You destroy that dam and I will dedicate this garden to growing vegies and fruits that anyone may come pick out. So what do you say?\"",
+
+        "Options" : [
+        {
+            "OptionText" : "Accept the offer",
+            "NextEventName" : "PetuniaT5-PH"
+        },
+
+        {
+            "OptionText" : "Reject the offer",
+            "NextEventName" : "PetuniaT4"
+        }
+        ],
+        "ParentInteractableName" : "petunia",
+        "IsActive" : true
+    }
+
+
+
+
+
+}
+

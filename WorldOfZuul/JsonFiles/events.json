@@ -1,0 +1,8 @@
+{
+    "enter_petunias_garden":
+    {
+        "IsActive": true,
+        "ParentInteractableName": "petunia",
+        "ActivatesAfterFinish": ["PetuniaQ1"]
+    }
+}

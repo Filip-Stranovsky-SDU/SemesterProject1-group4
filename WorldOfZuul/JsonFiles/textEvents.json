@@ -1,0 +1,49 @@
+{
+    "PetuniaT1" :
+    {
+        "Text" : "Those blasted beavers happened that's what!\" Petunia crossed her arms boldly. \"Ever since they built that damn dam there has been very little water flowing down the river, I do not have enough to give to my flowers. I'm an old lady, I can't be going everyday uphill just for my plants.",
+        "ParentInteractableName" : "petunia",
+        "IsActive" : true,
+        "ActivatesAfterFinish": ["PetuniaQ3"]
+    },
+
+    "PetuniaT2" :
+    {
+        "Text" : "Not as long as those blasted beavers are around!\" Petunia crossed her arms boldly. \"Ever since they built that damn dam there has been very little water flowing down the river, I do not have enough to give to my flowers. I'm an old lady, I can't be going everyday uphill just for my plants.",
+
+        "ParentInteractableName" : "petunia",
+        "IsActive" : true,
+        "ActivatesAfterFinish": ["PetuniaQ3"]
+    },
+    "PetuniaT3":
+    {
+        "Text" : "Excuse you?! You better watch your tone mister!\" Petunia chastised. \"It's not my fault those dumb beavers came!\" Petunia crossed her arms boldly. \"Ever since they built that damn dam there has been very little water flowing down the river, I do not have enough to give to my flowers. I'm an old lady, I can't be going everyday uphill just for my plants.\"",
+
+        "IsActive": true,
+        "ParentInteractableName" : "petunia",
+        "ChangeInResources": {"Social": -5},
+        "ActivatesAfterFinish": ["PetuniaQ3"]
+    },
+
+    "PetuniaT4":
+    {
+        "Text": "Then be on your way!\" Petunia scowled as she seemed ready to chase you out. Man this lady doesn't take rejection well.",
+
+        "IsActive": true,
+        "ParentInteractableName" : "petunia",
+        "ChangeInResources": {"Social": -5, "Environment": 10}
+        
+    },
+
+    "PetuniaT5-PH":
+    {
+        "Text": "Quest Accepted, this is just a placeholder, TODO",
+        "IsActive": true,
+        "ParentInteractableName" : "petunia"
+        
+    }
+
+
+
+}
+
