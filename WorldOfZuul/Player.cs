@@ -50,4 +50,24 @@ public class Player{
         
     }
 
+// stat bar display:
+/*
+string statBar = "Social: " + Resources[Social] + " | Environment: " + Resources[Environment] + "
+| Money: $" Resources[Money] ?;
+Console.SetCursorPosition(0,1);
+Console.WriteLine(statBar);
+
+
+probably in the Game class, method:
+
+UpdateStatBar(string Player)
+{
+Player.
+}
+- and this method might need to be called to events because that's where after picking from
+multiple choices, you might increase or reduce your resources
+
+
+*/
+
 }

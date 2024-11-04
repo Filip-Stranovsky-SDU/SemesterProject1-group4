@@ -37,9 +37,10 @@
 
     "PetuniaT5-PH":
     {
-        "Text": "Quest Accepted, this is just a placeholder, TODO",
+        "Text": "Quest Accepted. Now, you need to go to the River Shore and destroy the beaver dam",
         "IsActive": true,
-        "ParentInteractableName" : "petunia"
+        "ParentInteractableName" : "petunia",
+        "ActivatesAfterFinish": ["BeaverQ1"]
         
     },
 
