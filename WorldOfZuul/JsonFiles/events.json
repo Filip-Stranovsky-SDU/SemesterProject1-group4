@@ -11,5 +11,11 @@
         "IsActive": true,
         "ParentInteractableName": "captain-bernard",
         "ActivatesAfterFinish": ["CaptainBernardQ1"]
+    },
+
+    "BernardRuinsNo":
+    {
+        "IsActive": true,
+        "ParentInteractableName": "captain-bernard"
     }
 }

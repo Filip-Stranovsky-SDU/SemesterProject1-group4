@@ -96,7 +96,7 @@
 
             {
                 "OptionText" : "No, thanks",
-                "NextEventName" : ""
+                "NextEventName" : "BernardRuinsNo"
             }
         ],
         "ParentInteractableName" : "captain-bernard",
