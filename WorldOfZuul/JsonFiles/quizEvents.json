@@ -101,7 +101,25 @@
         ],
         "ParentInteractableName" : "captain-bernard",
         "IsActive" : true
-    }
+    },
 
+    "BeaverQ1" :
+    {
+        "Text" : "",
+        "Options" : 
+        [
+            {
+                "OptionText" : "Destroy the beaver dam",
+                "NextEventName" : "PetuniaReward"
+            },
+
+            {
+                "OptionText" : "Leave the dam",
+                "NextEventName" : ""
+            }
+        ],
+        "ParentInteractableName" : "beaver",
+        "IsActive" : false
+    }
 }
 
