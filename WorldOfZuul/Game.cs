@@ -13,9 +13,10 @@ namespace WorldOfZuul
         public Dictionary<string, Interactable>? Interactables {get; private set;}
         public Dictionary<string, Event>? Events {get; private set;}
 
-
+        
         public Game()
         {
+
             Player = new Player(this);
             CreateRooms();
             CreateInteractibles();
@@ -82,6 +83,42 @@ namespace WorldOfZuul
             
         }
 
+
+        public void Menu()
+        {
+            while (true)
+            {
+                string choice = ShowMainMenu();
+                switch (choice)
+                {
+                    case "1":
+                        Play();
+                        break;
+                    case "2":
+                        Console.WriteLine("This feature is not yet implemented.");
+                        break;
+                    case "3":
+                        return;
+                }
+            }
+        }
+
+        private string ShowMainMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("================================");
+            Console.WriteLine("       WORLD OF ZUUL");
+            Console.WriteLine("================================");
+            Console.WriteLine("1. New Game");
+            Console.WriteLine("2. Load Game");
+            Console.WriteLine("3. Exit");
+            Console.WriteLine("================================");
+            Console.Write("Enter your choice (1-3): ");
+            
+            return Console.ReadLine() ?? "";
+        }
+        
+        
     
         public void Play()
         {   

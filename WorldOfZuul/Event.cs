@@ -131,13 +131,6 @@ public class QuizEvent: Event{
 
 }
 
-public class Option
-{
-    public string Text {get; set;} = "";
-    public string NextNode {get; set;} = "";
-
-
-}
 
     
 public class Option{
