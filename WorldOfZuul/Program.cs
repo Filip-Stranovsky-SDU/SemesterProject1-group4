@@ -82,7 +82,7 @@ namespace WorldOfZuul
     {
         public static void Main()
         {
-            string worldMap = ASCIImage.LoadImage("C:\\Users\\Gaja\\Desktop\\MAP.txt");
+            string worldMap = ASCIImage.LoadImage("MAP.txt"); // make a relative path - from your file
             Console.WriteLine(worldMap);
             Game game = new();
             game.Play();
