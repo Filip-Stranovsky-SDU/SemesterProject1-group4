@@ -82,6 +82,8 @@ namespace WorldOfZuul
     {
         public static void Main()
         {
+            string worldMap = ASCIImage.LoadImage("C:\\Users\\Gaja\\Desktop\\MAP.txt");
+            Console.WriteLine(worldMap);
             Game game = new();
             game.Play();
         }
