@@ -50,6 +50,17 @@ public class Player{
         
     }
 
+    public void DisplayResources(){
+        string result = "";
+        foreach(var resource in Resources){
+            result += @$"{resource.Key}: {resource.Value} | ";
+            
+        }
+
+        result = result.Remove(result.Length - 2);
+        Console.WriteLine(result);
+    }
+
 // stat bar display:
 /*
 string statBar = "Social: " + Resources[Social] + " | Environment: " + Resources[Environment] + "
