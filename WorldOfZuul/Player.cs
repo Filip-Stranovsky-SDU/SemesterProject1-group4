@@ -50,4 +50,35 @@ public class Player{
         
     }
 
+    public void DisplayResources(){
+        string result = "";
+        foreach(var resource in Resources){
+            result += @$"{resource.Key}: {resource.Value} | ";
+            
+        }
+
+        result = result.Remove(result.Length - 2);
+        Console.WriteLine(result);
+    }
+
+// stat bar display:
+/*
+string statBar = "Social: " + Resources[Social] + " | Environment: " + Resources[Environment] + "
+| Money: $" Resources[Money] ?;
+Console.SetCursorPosition(0,0);
+Console.WriteLine(statBar);
+
+
+probably in the Game class, method:
+
+UpdateStatBar(string something)
+{
+Player.something
+}
+- and this method might need to be called to player because that's where after picking from
+multiple choices, you might increase or reduce your resources
+
+
+*/
+
 }

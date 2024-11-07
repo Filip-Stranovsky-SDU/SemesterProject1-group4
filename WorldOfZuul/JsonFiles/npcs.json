@@ -8,12 +8,12 @@
     "captain-bernard" :
     {
         "Name" : "Captain Bernard",
-        "Events" : []
+        "Events" : ["CaptainBernardQ1"]
     },
 
-    "crowd" :
+    "beaver" :
     {
-        "Name" : "Crowd",
-        "Events" : []
+        "Name" : "Beaver",
+        "Events" : ["BeaverQ1"]
     }
 }

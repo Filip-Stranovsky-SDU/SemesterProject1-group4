@@ -11,7 +11,7 @@ public class Event
     public List<string> ActivatesAfterFinish { get; set; } = new();// list<string> instead of event, why?
     //public string Description { get; set; } = ""; // Default Val is empty, used for options in QuizEvent and for easier orientation
     public Dictionary<string, int> ChangeInResources {get; set;} = new(); // Dictionary to store how resources change when event happens 
-    
+    public int MoneyRequired {get; set;} = 0;
     [JsonIgnore]
     protected Game? gameRef; // gameRef.Events["Petunia1"].Activate();
 

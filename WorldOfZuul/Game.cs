@@ -193,6 +193,10 @@ namespace WorldOfZuul
                         
                         break;
 
+                    case "status":
+                        Player.DisplayResources();
+                        break;
+
                     default:
                         Console.WriteLine("I don't know what command.");
                         break;
