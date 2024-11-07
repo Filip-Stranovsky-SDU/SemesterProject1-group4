@@ -6,7 +6,7 @@ namespace WorldOfZuul
     {
         public Player Player {get; private set;}
         public bool ContinuePlaying {get; set;} = true;
-        private Room? currentRoom;
+        public Room currentRoom { get; internal set; }
         private Room? previousRoom;
 
         public Dictionary<string, Room>? Rooms {get; private set;}
@@ -95,13 +95,15 @@ namespace WorldOfZuul
                         Play();
                         break;
                     case "2":
-                        Console.WriteLine("This feature is not yet implemented.");
+                        SaveLoad.LoadGame(this);
+                        Play();
                         break;
                     case "3":
                         return;
                 }
             }
         }
+
 
         private string ShowMainMenu()
         {
@@ -122,10 +124,15 @@ namespace WorldOfZuul
     
         public void Play()
         {   
-            currentRoom = Rooms["village-of-ix"];
+            if (currentRoom == null)
+            {
+                currentRoom = Rooms["village-of-ix"];
+                PrintWelcome();
+            }
+            
             Parser parser = new();
 
-            PrintWelcome();
+        
 
             while (ContinuePlaying)
             {
@@ -189,6 +196,14 @@ namespace WorldOfZuul
                     default:
                         Console.WriteLine("I don't know what command.");
                         break;
+
+                    case "save":
+                        SaveLoad.SaveGame(this);
+                        break;
+
+                    case "load":
+                        SaveLoad.LoadGame(this);
+                        break;
                 }
             }
 
@@ -241,6 +256,16 @@ namespace WorldOfZuul
             Console.WriteLine("Type 'help' to print this message again.");
             Console.WriteLine("Type 'quit' to exit the game.");
             Console.WriteLine("Type 'interact' or 'i', press space and type in NPC's name to start events,\nfor example, i Petunia");
+        }
+
+        public static void TypewriterEffect(string text, int delayMilliseconds = 50)
+        {
+            foreach (char c in text)
+            {
+                Console.Write(c);
+                Thread.Sleep(delayMilliseconds);
+            }
+            Console.WriteLine(); // New line at the end
         }
     }
 }
