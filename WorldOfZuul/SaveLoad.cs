@@ -12,6 +12,7 @@ namespace WorldOfZuul
 
         public static bool LoadGame(Game game)
         {
+            // Guard clause for checking if the save file exists
             if (!File.Exists(SaveFilePath))
             {
                 Console.WriteLine("Save file does not exist.");
@@ -26,45 +27,42 @@ namespace WorldOfZuul
                 // Deserialize JSON to SaveData
                 SaveData? data = JsonSerializer.Deserialize<SaveData>(jsonString);
 
-                if (data != null)
-                {
-                    Game.TypewriterEffect("Loading game...");
-
-                    // Restore player's resources
-                    game.Player.Resources = new Dictionary<string, int>(data.PlayerResources);
-
-                    // Restore current room using RoomId for uniqueness
-                    var room = game.Rooms?.FirstOrDefault(r => r.Value.RoomId == data.CurrentRoomId).Value;
-                    if (room != null)
-                    {
-                        game.currentRoom = room;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Error: Saved room does not exist.");
-                        return false;
-                    }
-
-                    // Restore event states
-                    if (game.Events != null)
-                    {
-                        foreach (var evtState in data.EventStates)
-                        {
-                            if (game.Events.ContainsKey(evtState.Key))
-                            {
-                                game.Events[evtState.Key].IsActive = evtState.Value;
-                            }
-                        }
-                    }
-
-                    Game.TypewriterEffect("Game loaded successfully.");
-                    return true;
-                }
-                else
+                // Guard clause for checking if data is null
+                if (data == null)
                 {
                     Console.WriteLine("Failed to load game state.");
                     return false;
                 }
+
+                Game.TypewriterEffect("Loading game...");
+
+                // Restore player's resources
+                game.Player.Resources = new Dictionary<string, int>(data.PlayerResources);
+
+                // Restore current room using RoomId for uniqueness
+                var room = game.Rooms?.FirstOrDefault(r => r.Value.RoomId == data.CurrentRoomId).Value;
+                if (room == null)
+                {
+                    Console.WriteLine("Error: Saved room does not exist.");
+                    return false;
+                }
+
+                game.currentRoom = room;
+
+                // Restore event states
+                if (game.Events != null)
+                {
+                    foreach (var evtState in data.EventStates)
+                    {
+                        if (game.Events.ContainsKey(evtState.Key))
+                        {
+                            game.Events[evtState.Key].IsActive = evtState.Value;
+                        }
+                    }
+                }
+
+                Game.TypewriterEffect("Game loaded successfully.");
+                return true;
             }
             catch (Exception ex)
             {
