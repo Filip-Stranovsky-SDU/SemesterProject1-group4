@@ -10,13 +10,13 @@ public class Event
     public string? ParentInteractableName {get; set;} // event knows about the interactable
     public List<string> ActivatesAfterFinish { get; set; } = new();// list<string> instead of event, why?
     //public string Description { get; set; } = ""; // Default Val is empty, used for options in QuizEvent and for easier orientation
-    public Dictionary<string, int> ChangeInResources {get; set;} = new(); // Dictionary to store how resources change when event happens 
+    public Resources ChangeInResources {get; set;} = new(); // Dictionary to store how resources change when event happens 
     public int MoneyRequired {get; set;} = 0;
     [JsonIgnore]
     protected Game? gameRef; // gameRef.Events["Petunia1"].Activate();
 
 
-    public Event(Dictionary<string, int> changeInResources)
+    public Event(Resources changeInResources)
     {
         IsActive = false;
         ActivatesAfterFinish = new List<string>();
@@ -59,19 +59,16 @@ public class TextEvent : Event
 {   
     public string Text {get; set;} = "";
 
-    public TextEvent(string text, Dictionary<string, int> changeInResources) : base(changeInResources){
+    public TextEvent(string text, Resources changeInResources) : base(changeInResources){
         Text = text; // Text to be printed when event gets run
     } // Constructor, uses constructor of Event but with added Text var
     
     public TextEvent(){}
 
     public override bool Run(){
-        if (!IsActive)
-        {
-            return false;
-        }
+        base.Run();
+
         Console.WriteLine(Text);
-        CompleteEvent();
         return true;
     }
 }
@@ -82,7 +79,7 @@ public class QuizEvent: Event{
     public List<Option>? Options {get; set;} 
     
     
-    public QuizEvent(string text, List<Option> options, Dictionary<string, int> changeInResources) : base(changeInResources){
+    public QuizEvent(string text, List<Option> options, Resources changeInResources) : base(changeInResources){
         Text = text; // Text to be printed when event gets run
         Options = options;
 
@@ -90,12 +87,8 @@ public class QuizEvent: Event{
     public QuizEvent() { }
 
     public override bool Run(){
-        if (!IsActive)
-        {
-            return false;
-        }
-
-        CompleteEvent(); // NEEDS TO BE BEFORE OPTIONS, otherwise activates after finish doesn't work on *this*
+        
+        base.Run();
 
         Console.WriteLine(Text);
         Option? option;
