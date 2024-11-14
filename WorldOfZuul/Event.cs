@@ -66,12 +66,9 @@ public class TextEvent : Event
     public TextEvent(){}
 
     public override bool Run(){
-        if (!IsActive)
-        {
-            return false;
-        }
+        base.Run();
+
         Console.WriteLine(Text);
-        CompleteEvent();
         return true;
     }
 }
@@ -90,12 +87,8 @@ public class QuizEvent: Event{
     public QuizEvent() { }
 
     public override bool Run(){
-        if (!IsActive)
-        {
-            return false;
-        }
-
-        CompleteEvent(); // NEEDS TO BE BEFORE OPTIONS, otherwise activates after finish doesn't work on *this*
+        
+        base.Run();
 
         Console.WriteLine(Text);
         Option? option;
