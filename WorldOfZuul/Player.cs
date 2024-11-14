@@ -20,7 +20,7 @@ public class Player{
     public void ChangeResources(Resources changes)
     // where do I have my changes dictionary or where should I have it?
     {
-        WorldStats.Change(changes)
+        WorldStats.Change(changes);
     // ensure that resources can't be negative
         CheckResources();
     }
@@ -28,12 +28,12 @@ public class Player{
     // display the current state of resources
 
     private void CheckResources(){
-        if(WorldStats.Enviroment > 90 && WorldStats.Social > 90){
+        if(WorldStats.Environment > 90 && WorldStats.Social > 90){
             Console.Write("You won!");
             gameRef.ContinuePlaying = false;
             return;
         }
-        if(WorldStats.Enviroment < 20 || WorldStats.Social < 20){
+        if(WorldStats.Environment < 20 || WorldStats.Social < 20){
             Console.Write("You lost! XD");
             gameRef.ContinuePlaying = false;
             return;
@@ -41,7 +41,7 @@ public class Player{
         
     }
 
-    public string DisplayResources(){
+    public void DisplayResources(){
         Console.WriteLine(WorldStats.Display());
     }
 

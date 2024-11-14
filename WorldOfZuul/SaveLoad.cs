@@ -31,7 +31,7 @@ namespace WorldOfZuul
                     Game.TypewriterEffect("Loading game...");
 
                     // Restore player's resources
-                    game.Player.Resources = new Dictionary<string, int>(data.PlayerResources);
+                    game.Player.WorldStats = new Resources(data.PlayerResources);
 
                     // Restore current room using RoomId for uniqueness
                     var room = game.Rooms?.FirstOrDefault(r => r.Value.RoomId == data.CurrentRoomId).Value;
@@ -89,7 +89,7 @@ namespace WorldOfZuul
                 SaveData data = new SaveData
                 {
                     CurrentRoomId = game.currentRoom?.RoomId ?? "village-of-ix", // Use default room ID
-                    PlayerResources = new Dictionary<string, int>(game.Player.Resources),
+                    PlayerResources = game.Player.WorldStats.GetDictionary(),
                     EventStates = game.Events?.ToDictionary(e => e.Key, e => e.Value.IsActive) ?? new Dictionary<string, bool>()
                 };
 

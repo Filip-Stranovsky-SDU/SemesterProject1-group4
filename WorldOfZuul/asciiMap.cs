@@ -5,9 +5,9 @@ namespace WorldOfZuul;
 
 class ASCIImage
 {
-public static string LoadImage(string filePath)
-{
-    return File.ReadAllText(filePath);
-}
+    public static string LoadImage(string filePath)
+    {
+        return File.ReadAllText(filePath);
+    }
 
 }
