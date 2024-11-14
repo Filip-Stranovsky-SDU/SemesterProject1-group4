@@ -1,144 +1,124 @@
 {
-    "village-of-ix" :
-    {
-        "ShortDescription" : "Village of Ix",
-        "Interactables": { "Captain Bernard" : "captain-bernard"},
+    "village-of-ix": {
+        "RoomId": "village-of-ix",
+        "ShortDescription": "Village of Ix",
+        "Interactables": { "Captain Bernard": "captain-bernard" },
         "LongDescription": "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall. In the exits from the village there are small signs: To the south - river, to the east - red forest, to the north - crossroads of cordon and to the west - ruins of Galava castle.",
-        "Exits":
-        {
-            "north": "the-withering-forest-of-arberia", 
-            "south" : "galava-castle-ruins", 
-            "east" : "river-shore", 
-            "west" : "abandoned-mine"
+        "Exits": {
+            "north": "the-withering-forest-of-arberia",
+            "south": "galava-castle-ruins",
+            "east": "river-shore",
+            "west": "abandoned-mine"
         }
     },
 
-    "petunias-garden" :
-    {
-        "ShortDescription" : "Petunia's Garden",
-        "Interactables": { "Petunia" : "petunia", "i3" : "hoe"},
+    "petunias-garden": {
+        "RoomId": "petunias-garden",
+        "ShortDescription": "Petunia's Garden",
+        "Interactables": { "Petunia": "petunia", "i3": "hoe" },
         "LongDescription": "Upon entering you are greeted with the sight of wilted flowers and an older prissy lady standing next to them. Something seems to have caused the soil to dry out very quickly. An old well used hoe is placed to the side.",
-        "Exits":
-        {
-            "west" : "the-withering-forest-of-arberia"
+        "Exits": {
+            "west": "the-withering-forest-of-arberia"
         }
     },
 
-    "market-square-of-pelorn" :
-    {
-        "ShortDescription" : "Market Square of Pelorn",
+    "market-square-of-pelorn": {
+        "RoomId": "market-square-of-pelorn",
+        "ShortDescription": "Market Square of Pelorn",
         "Interactables": {},
-        
         "LongDescription": "",
-        "Exits":
-        {
-            "south" : "crossroads-of-cordon"
+        "Exits": {
+            "south": "crossroads-of-cordon"
         }
     },
 
-    "crossroads-of-cordon" :
-    {
-        "ShortDescription" : "Crossroads of Cordon",
+    "crossroads-of-cordon": {
+        "RoomId": "crossroads-of-cordon",
+        "ShortDescription": "Crossroads of Cordon",
         "Interactables": {},
-        
         "LongDescription": "",
-        "Exits":
-        {
-            "north" : "market-square-of-pelorn",
-            "west" : "dunes-of-raghar",
-            "south" : "abandoned-mine",
-            "east" : "the-withering-forest-of-arberia"
+        "Exits": {
+            "north": "market-square-of-pelorn",
+            "west": "dunes-of-raghar",
+            "south": "abandoned-mine",
+            "east": "the-withering-forest-of-arberia"
         }
     },
 
-    "dunes-of-raghar" :
-    {
-        "ShortDescription" : "Dunes of Raghar",
+    "dunes-of-raghar": {
+        "RoomId": "dunes-of-raghar",
+        "ShortDescription": "Dunes of Raghar",
         "Interactables": {},
-        
         "LongDescription": "",
-        "Exits":
-        {
-            "east" : "crossroads-of-cordon"
+        "Exits": {
+            "east": "crossroads-of-cordon"
         }
     },
 
-    "shallow-waters-of-aviora" :
-    {
-        "ShortDescription" : "Shallow Waters of Avoira",
+    "shallow-waters-of-aviora": {
+        "RoomId": "shallow-waters-of-aviora",
+        "ShortDescription": "Shallow Waters of Avoira",
         "Interactables": {},
-        
         "LongDescription": "",
-        "Exits":
-        {
-            "west" : "river-shore",
-            "south" : "distant-island"
+        "Exits": {
+            "west": "river-shore",
+            "south": "distant-island"
         }
     },
 
-    "river-shore" :
-    {
-        "ShortDescription" : "River Shore",
+    "river-shore": {
+        "RoomId": "river-shore",
+        "ShortDescription": "River Shore",
         "Interactables": {},
-        
         "LongDescription": "",
-        "Exits":
-        {
-            "east" : "shallow-waters-of-aviora",
-            "west" : "village-of-ix"
+        "Exits": {
+            "east": "shallow-waters-of-aviora",
+            "west": "village-of-ix"
         }
     },
 
-    "distant-island" :
-    {
-        "ShortDescription" : "Distant Island",
+    "distant-island": {
+        "RoomId": "distant-island",
+        "ShortDescription": "Distant Island",
         "Interactables": {},
-        
         "LongDescription": "",
-        "Exits":
-        {
-            "north" : "shallow-waters-of-aviora",
-            "west" : "galava-castle-ruins"
+        "Exits": {
+            "north": "shallow-waters-of-aviora",
+            "west": "galava-castle-ruins"
         }
     },
 
-    "galava-castle-ruins" :
-    {
-        "ShortDescription" : "Galava Castle Ruins",
+    "galava-castle-ruins": {
+        "RoomId": "galava-castle-ruins",
+        "ShortDescription": "Galava Castle Ruins",
         "Interactables": {},
-        
         "LongDescription": "",
-        "Exits":
-        {
-            "north" : "village-of-ix",
-            "east" : "distant-island"
+        "Exits": {
+            "north": "village-of-ix",
+            "east": "distant-island"
         }
     },
 
-    "the-withering-forest-of-arberia" :
-    {
-        "ShortDescription" : "The Withering Forest of Arberia",
+    "the-withering-forest-of-arberia": {
+        "RoomId": "the-withering-forest-of-arberia",
+        "ShortDescription": "The Withering Forest of Arberia",
         "Interactables": {},
-        
         "LongDescription": "",
-        "Exits":
-        {
-            "east":"petunias-garden",
-            "south" : "village-of-ix",
-            "west" : "crossroads-of-cordon"
+        "Exits": {
+            "east": "petunias-garden",
+            "south": "village-of-ix",
+            "west": "crossroads-of-cordon"
         }
     },
-    
-    "abandoned-mine" :
-    {
-        "ShortDescription" : "Abandoned Mine of Kaelor",
+
+    "abandoned-mine": {
+        "RoomId": "abandoned-mine",
+        "ShortDescription": "Abandoned Mine of Kaelor",
         "Interactables": {},
-        
         "LongDescription": "",
-        "Exits":
-        {
-            "east" : "village-of-ix",
-            "north" : "crossroads-of-cordon"
+        "Exits": {
+            "east": "village-of-ix",
+            "north": "crossroads-of-cordon"
         }
     }
 }

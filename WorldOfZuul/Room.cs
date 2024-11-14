@@ -2,6 +2,7 @@
 {
     public class Room
     {
+        public string CurrentRoomId { get; set; }
         public Dictionary<string, string>? Interactables { get; set; }
         // it's better for the rooms to know about the objects in them
         // what about this: public List<Interactable> Interactables {get; set; }
@@ -11,11 +12,12 @@
 
         public Game? GameRef;
 
-        /*public Room(string shortDesc, string longDesc, Dictionary<string, Interactable> interactables)
+        public string RoomId { get; set; }
+
+        public Room(string roomId)
         {
-            ShortDescription = shortDesc;
-            LongDescription = longDesc;
-        }*/
+            RoomId = roomId;
+        }
 
         public void SetExits(string? north, string? east, string? south, string? west)
         {

@@ -6,16 +6,17 @@ namespace WorldOfZuul
     {
         public Player Player {get; private set;}
         public bool ContinuePlaying {get; set;} = true;
-        private Room? currentRoom;
+        public Room currentRoom { get; internal set; }
         private Room? previousRoom;
 
         public Dictionary<string, Room>? Rooms {get; private set;}
         public Dictionary<string, Interactable>? Interactables {get; private set;}
         public Dictionary<string, Event>? Events {get; private set;}
 
-
+        
         public Game()
         {
+
             Player = new Player(this);
             CreateRooms();
             CreateInteractibles();
@@ -82,13 +83,56 @@ namespace WorldOfZuul
             
         }
 
+
+        public void Menu()
+        {
+            while (true)
+            {
+                string choice = ShowMainMenu();
+                switch (choice)
+                {
+                    case "1":
+                        Play();
+                        break;
+                    case "2":
+                        SaveLoad.LoadGame(this);
+                        Play();
+                        break;
+                    case "3":
+                        return;
+                }
+            }
+        }
+
+
+        private string ShowMainMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("================================");
+            Console.WriteLine("       WORLD OF ZUUL");
+            Console.WriteLine("================================");
+            Console.WriteLine("1. New Game");
+            Console.WriteLine("2. Load Game");
+            Console.WriteLine("3. Exit");
+            Console.WriteLine("================================");
+            Console.Write("Enter your choice (1-3): ");
+            
+            return Console.ReadLine() ?? "";
+        }
+        
+        
     
         public void Play()
         {   
-            currentRoom = Rooms["village-of-ix"];
+            if (currentRoom == null)
+            {
+                currentRoom = Rooms["village-of-ix"];
+                PrintWelcome();
+            }
+            
             Parser parser = new();
 
-            PrintWelcome();
+        
 
             while (ContinuePlaying)
             {
@@ -156,6 +200,14 @@ namespace WorldOfZuul
                     default:
                         Console.WriteLine("I don't know what command.");
                         break;
+
+                    case "save":
+                        SaveLoad.SaveGame(this);
+                        break;
+
+                    case "load":
+                        SaveLoad.LoadGame(this);
+                        break;
                 }
             }
 
@@ -208,6 +260,16 @@ namespace WorldOfZuul
             Console.WriteLine("Type 'help' to print this message again.");
             Console.WriteLine("Type 'quit' to exit the game.");
             Console.WriteLine("Type 'interact' or 'i', press space and type in NPC's name to start events,\nfor example, i Petunia");
+        }
+
+        public static void TypewriterEffect(string text, int delayMilliseconds = 50)
+        {
+            foreach (char c in text)
+            {
+                Console.Write(c);
+                Thread.Sleep(delayMilliseconds);
+            }
+            Console.WriteLine(); // New line at the end
         }
     }
 }

@@ -3,7 +3,6 @@ using System.Text.Json.Serialization;
 namespace WorldOfZuul;
 
 
-
 public class Event
 {
 
@@ -131,6 +130,8 @@ public class QuizEvent: Event{
     }
 
 }
+
+
     
 public class Option{
     public string OptionText {get; set;} = "";
