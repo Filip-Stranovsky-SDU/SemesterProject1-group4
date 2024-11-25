@@ -2,7 +2,7 @@
     "petunia" :
     {
         "Name" : "Petunia",
-        "Events" : ["PetuniaQ1", "PetuniaQ3"]
+        "Events" : ["PetuniaQ1", "PetuniaQ3", "PetuniaReward", "PetuniaAngry"]
     },
 
     "captain-bernard" :
@@ -11,9 +11,9 @@
         "Events" : ["CaptainBernardQ1"]
     },
 
-    "beaver" :
+    "dam":
     {
-        "Name" : "Beaver",
-        "Events" : ["BeaverQ1"]
+        "Name": "Dam",
+        "Events": ["DamDefault"]
     }
 }

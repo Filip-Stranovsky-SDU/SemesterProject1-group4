@@ -66,7 +66,10 @@ public class TextEvent : Event
     public TextEvent(){}
 
     public override bool Run(){
-        base.Run();
+        
+        if(!base.Run()){
+            return false;
+        }
 
         Console.WriteLine(Text);
         return true;
@@ -88,7 +91,9 @@ public class QuizEvent: Event{
 
     public override bool Run(){
         
-        base.Run();
+        if(!base.Run()){
+            return false;
+        }
 
         Console.WriteLine(Text);
         Option? option;

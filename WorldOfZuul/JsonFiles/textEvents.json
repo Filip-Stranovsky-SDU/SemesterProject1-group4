@@ -40,8 +40,39 @@
         "Text": "Quest Accepted. Now, you need to go to the River Shore and destroy the beaver dam",
         "IsActive": true,
         "ParentInteractableName" : "petunia",
-        "ActivatesAfterFinish": ["BeaverQ1"]
+        "ActivatesAfterFinish": ["DamDefault"]
         
+    },
+
+    "PetuniaReward":
+    {
+        "Text": "Great job!",
+        "IsActive": false,
+        "ParentInteractableName" : "petunia",
+        "ChangeInResources": {"Social": 10, "Environment": 3}
+        
+    },
+    "PetuniaAngry":
+    {
+        "Text": "KYS",
+        "IsActive": false,
+        "ParentInteractable" : "petunia",
+        "ChangeInResources":  {"Social": -5}
+    
+    },
+    "DestroyDam":{
+        "Text": "With unwavering determination you began swinging the bat over and over, cries of the wildlife filled your ears as the dam eventually gave out and water seeped through unobstructed.\n   At least Petunia will be happy...",
+        "ParentInteractableName" : "dam",
+        "ActivatesAfterFinish": ["PetuniaReward"],
+        "ChangeInResources": {"Environment": -10}
+
+    },
+
+    "LeaveDam":{
+        "Text": "What were you thinking? Only a monster could do something like this. Breathing a sigh of relief you began thinking about how you could explain this to Petunia later...",
+        "ParentInteractable": "dam",
+        "ActivatesAfterFinish": ["PetuniaAngry"],
+        "ChangeInResources": {"Environment": 15}
     },
 
     "CaptainBernardT1":

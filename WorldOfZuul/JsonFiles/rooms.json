@@ -69,8 +69,8 @@
     "river-shore": {
         "RoomId": "river-shore",
         "ShortDescription": "River Shore",
-        "Interactables": {},
-        "LongDescription": "",
+        "Interactables": {"Dam": "dam"},
+        "LongDescription": "Walking along the edge of the river you see a huge dam limiting the waterflow. There doesn't seem to be anyone around except for the occasional beaver running past you.",
         "Exits": {
             "east": "shallow-waters-of-aviora",
             "west": "village-of-ix"

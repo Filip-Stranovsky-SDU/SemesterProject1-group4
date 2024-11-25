@@ -103,19 +103,19 @@
         "IsActive" : true
     },
 
-    "BeaverQ1" :
+    "DamDefault" :
     {
-        "Text" : "",
+        "Text" : "Standing closer, clutching the baseball bat in your hands, you are face to face with the proof of hard labour that the beavers had created. Are you sure you want to do this?",
         "Options" : 
         [
             {
-                "OptionText" : "Destroy the beaver dam",
-                "NextEventName" : "PetuniaReward"
+                "OptionText" : "Yes",
+                "NextEventName" : "DestroyDam"
             },
 
             {
-                "OptionText" : "Leave the dam",
-                "NextEventName" : ""
+                "OptionText" : "No",
+                "NextEventName" : "LeaveDam"
             }
         ],
         "ParentInteractableName" : "beaver",
