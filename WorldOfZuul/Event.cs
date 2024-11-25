@@ -13,17 +13,21 @@ public class Event
     public Resources ChangeInResources {get; set;} = new(); // Dictionary to store how resources change when event happens 
     public int MoneyRequired {get; set;} = 0;
     [JsonIgnore]
-    protected Game? gameRef; // gameRef.Events["Petunia1"].Activate();
+    protected Game gameRef; // gameRef.Events["Petunia1"].Activate();
 
 
-    public Event(Resources changeInResources)
+    public Event(Resources changeInResources, Game gameRef)
     {
         IsActive = false;
         ActivatesAfterFinish = new List<string>();
         ChangeInResources = changeInResources; // resource changes to this event
+        this.gameRef=gameRef;
     }
+
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     public Event(){}
-   
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     public virtual bool Run() // Method to start the event
     //Virtual so it can be overriden for subclasses(C# magic)
     {
@@ -44,7 +48,7 @@ public class Event
         
         foreach (string nextEvent in ActivatesAfterFinish)
         {
-            gameRef.Events[nextEvent].IsActive = true;
+            gameRef.Events![nextEvent].IsActive = true;
         }
     }
 
@@ -59,7 +63,7 @@ public class TextEvent : Event
 {   
     public string Text {get; set;} = "";
 
-    public TextEvent(string text, Resources changeInResources) : base(changeInResources){
+    public TextEvent(string text, Resources changeInResources, Game gameRef) : base(changeInResources, gameRef){
         Text = text; // Text to be printed when event gets run
     } // Constructor, uses constructor of Event but with added Text var
     
@@ -79,10 +83,10 @@ public class TextEvent : Event
 public class QuizEvent: Event{
 
     public string Text {get; set;} = "";
-    public List<Option>? Options {get; set;} 
+    public List<Option> Options {get; set;} =[];
     
     
-    public QuizEvent(string text, List<Option> options, Resources changeInResources) : base(changeInResources){
+    public QuizEvent(string text, List<Option> options, Resources changeInResources, Game gameRef) : base(changeInResources, gameRef){
         Text = text; // Text to be printed when event gets run
         Options = options;
 

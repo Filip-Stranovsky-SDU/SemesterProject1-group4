@@ -6,28 +6,28 @@ namespace WorldOfZuul
     {
         public Player Player {get; private set;}
         public bool ContinuePlaying {get; set;} = true;
-        public Room currentRoom { get; internal set; }
+        public Room CurrentRoom { get; internal set; }
         private Room? previousRoom;
 
-        public Dictionary<string, Room>? Rooms {get; private set;}
-        public Dictionary<string, Interactable>? Interactables {get; private set;}
-        public Dictionary<string, Event>? Events {get; private set;}
+        public Dictionary<string, Room> Rooms {get; private set;} =[];
+        public Dictionary<string, Interactable> Interactables {get; private set;}=[];
+        public Dictionary<string, Event> Events {get; private set;}=[];
 
         
         public Game()
         {
-
             Player = new Player(this);
             CreateRooms();
             CreateInteractibles();
             CreateEvents();
+            CurrentRoom = Rooms["village-of-ix"];
         }
 
         private void CreateRooms()
         {       
-            using StreamReader reader = new(@$".\JsonFiles\rooms.json");
+            using StreamReader reader = new("./JsonFiles/rooms.json"); // forward '/' to not use @
             string? jsonString = reader.ReadToEnd();
-            Rooms = JsonSerializer.Deserialize<Dictionary<string, Room>>(jsonString);
+            Rooms = JsonSerializer.Deserialize<Dictionary<string, Room>>(jsonString)??throw new(""); // if this is null, it returns this value
         }
       
         private void CreateInteractibles()
@@ -41,7 +41,7 @@ namespace WorldOfZuul
                 IncludeFields = true
             };
 
-            Interactables = JsonSerializer.Deserialize<Dictionary<string, Interactable>>(jsonString, options);
+            Interactables = JsonSerializer.Deserialize<Dictionary<string, Interactable>>(jsonString, options)??throw new("TODO");
             
             foreach(var entry in Interactables){
                 entry.Value.setupGameRef(this);
@@ -58,13 +58,13 @@ namespace WorldOfZuul
             var options = new JsonSerializerOptions{ IncludeFields = true };
 
             string jsonString = reader.ReadToEnd();
-            Events = JsonSerializer.Deserialize<Dictionary<string, Event>>(jsonString, options);
+            Events = JsonSerializer.Deserialize<Dictionary<string, Event>>(jsonString, options)??throw new("TODO");
 
             jsonString = reader1.ReadToEnd();
-            var textEvents = JsonSerializer.Deserialize<Dictionary<string, TextEvent>>(jsonString, options);
+            var textEvents = JsonSerializer.Deserialize<Dictionary<string, TextEvent>>(jsonString, options)??throw new("TODO");
             
             jsonString = reader2.ReadToEnd();
-            var quizEvents = JsonSerializer.Deserialize<Dictionary<string, QuizEvent>>(jsonString, options);
+            var quizEvents = JsonSerializer.Deserialize<Dictionary<string, QuizEvent>>(jsonString, options)??throw new("TODO");
 
             foreach(var entry in Events){
                 entry.Value.setupGameRef(this);
@@ -124,11 +124,7 @@ namespace WorldOfZuul
     
         public void Play()
         {   
-            if (currentRoom == null)
-            {
-                currentRoom = Rooms["village-of-ix"];
-                PrintWelcome();
-            }
+            PrintWelcome();
             
             Parser parser = new();
 
@@ -136,7 +132,7 @@ namespace WorldOfZuul
 
             while (ContinuePlaying)
             {
-                Console.WriteLine(currentRoom?.ShortDescription);
+                Console.WriteLine(CurrentRoom?.ShortDescription);
                 Console.Write("> ");
 
                 string? input = Console.ReadLine();
@@ -158,7 +154,7 @@ namespace WorldOfZuul
                 switch(command.Name)
                 {
                     case "look":
-                        Console.WriteLine(currentRoom?.LongDescription);
+                        Console.WriteLine(CurrentRoom?.LongDescription);
                         break;
 
                     case "back":
@@ -166,8 +162,8 @@ namespace WorldOfZuul
                             Console.WriteLine("You can't go back from here!");
                         else
                         {
-                            Room? tmp = currentRoom;
-                            currentRoom = previousRoom;
+                            Room? tmp = CurrentRoom;
+                            CurrentRoom = previousRoom;
                             previousRoom = tmp;
                         }
                         break;
@@ -214,11 +210,12 @@ namespace WorldOfZuul
             Console.WriteLine("Thank you for playing World of Zuul!");
         }
 
-        private void ManageInteract(string name)
+        private void ManageInteract(string? name)
         {
-            if (currentRoom?.Interactables.ContainsKey(name) == true)
+            if(string.IsNullOrEmpty(name)) throw new("TODO");
+            if (CurrentRoom.Interactables.ContainsKey(name) == true)
             {
-                string id = currentRoom?.Interactables[name];
+                string id = CurrentRoom.Interactables[name];
                 /*foreach(var inter in Interactables){
                     Console.WriteLine(@$"{inter.Key} : {inter.Value}");
                 }*/
@@ -232,10 +229,10 @@ namespace WorldOfZuul
 
         private void Move(string direction)
         {
-            if (currentRoom?.Exits.ContainsKey(direction) == true)
+            if (CurrentRoom.Exits.ContainsKey(direction) == true)
             {
-                previousRoom = currentRoom;
-                currentRoom = Rooms[ currentRoom.Exits[direction] ];
+                previousRoom = CurrentRoom;
+                CurrentRoom = Rooms[ CurrentRoom.Exits[direction] ];
             }
             else
             {

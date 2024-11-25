@@ -47,7 +47,7 @@ public static class SaveLoad
                 return false;
             }
 
-            game.currentRoom = room;
+            game.CurrentRoom = room;
 
             // Restore event states
             if (game.Events != null)
@@ -76,7 +76,7 @@ public static class SaveLoad
         try
         {
             // Ensure the directory exists
-            string directory = Path.GetDirectoryName(SaveFilePath);
+            string directory = Path.GetDirectoryName(SaveFilePath)??new("TODO");
             if (!Directory.Exists(directory))
             {
                 Directory.CreateDirectory(directory);
@@ -86,7 +86,7 @@ public static class SaveLoad
             // Initialize SaveData with current game state
             SaveData data = new SaveData
             {
-                CurrentRoomId = game.currentRoom?.RoomId ?? "village-of-ix", // Use default room ID
+                CurrentRoomId = game.CurrentRoom?.RoomId ?? "village-of-ix", // Use default room ID
                 PlayerResources = game.Player.WorldStats.GetDictionary(),
                 EventStates = game.Events?.ToDictionary(e => e.Key, e => e.Value.IsActive) ?? new Dictionary<string, bool>()
             };
