@@ -81,7 +81,30 @@
         "IsActive" : true,
         "ParentInteractableName" : "captain-bernard"
         
-    }
+    },
 
+    "MerchantT1":
+    {
+        "Text" : "Not another one - ''The merchant sighs and forces a smile'' Sorry but the manager isn't available at the moment, I'm sure I can help you instead!",
+        "ParentInteractable" : "merchant",
+        "ActivatesAfterFinish" : ["MerchantQ3"],
+        "ChangeInResources" : {"Social" : -5}
+    },
+
+    "MerchantT2":
+    {
+        "Text": "I understand... Anyways there's nothing I can do about the price so if there's nothing else I will have to ask you to leave.\" He exclaimed politely, you don't think there's anything else of note here.",
+        "ParentInteractable" : "merchant",
+        "IsActive": false,
+        "ChangeInResources" : {"Money" : -5, "Environment" : -4}
+    },
+
+    "MerchantT3":
+    {
+        "Text": "Oh thank you! He's in the back, talk to him when you're ready!\" He beamed. Seems like you need to prepare for a negotiation.",
+        "ParentInteractable" : "merchant",
+        "IsActive": false,
+        "ActivatesAfterFinish" : ["MerchantQ5"]
+    }
 }
 

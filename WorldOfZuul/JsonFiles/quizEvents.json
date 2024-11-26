@@ -120,6 +120,92 @@
         ],
         "ParentInteractableName" : "beaver",
         "IsActive" : false
+    },
+
+    "MerchantQ1" :
+    {
+        "Text": "An energetic man in a purple suit and a large top hat spots you\n'Welcome welcome! What may I interest you in today?'",
+        "Options":
+        [
+            {
+                "OptionText" : "Oh I'm just looking around.",
+                "NextEventName" : "MerchantQ2"
+            },
+
+            {
+                "OptionText" : "What do you offer?",
+                "NextEventName" : "MerchantQ2"
+            },
+
+            {
+                "OptionText" : "leave",
+                "NextEventName" : "enter_market_square_of_Pelorn"
+            }
+        ],
+        "ParentInteractableName" : "merchant",
+        "IsActive" : false
+    },
+
+    "MerchantQ2" :
+    {
+        "Text": "'Feel free to check out anything you want! I'll be right over here if you need anything.\"glancing over the selection of items the first thing that caught your attention was the ridiculous price under each and every item.",
+        "Options":
+        [
+            {
+                "OptionText" : "This is absurd I DEMAND to speak to your manager!",
+                "NextEventName" : "MerchantT1"
+            },
+
+            {
+                "OptionText" : "Oh wow... Sorry but is the price negotiable?",
+                "NextEventName" : "MerchantQ3"
+            },
+
+            {
+                "OptionText" : "I can't pay for this.",
+                "NextEventName" : "MerchantQ3"
+            }
+        ],
+        "ParentInteractableName" : "merchant",
+        "IsActive" : false
+    },
+
+    "MerchantQ3":
+    {
+        "Text": "My apologies, I'm aware that it's expensive but there's nothing I can do about it.\" Resources have been getting scarce which sky rocketed inflation on even the most mundane items, - he bows apologetically.",
+        "Options": 
+        [
+            {
+                "OptionText": "Is there anything I can do to help?",
+                "NextEventName" : "MerchantQ4"
+            }
+        ],
+        "ParentInteractableName" : "merchant",
+        "IsActive" : false
+    },
+
+    "MerchantQ4":
+    {
+        "Text": "''I tried talking to my boss about maybe producing our own renewable items, but he seems dead-set on importing all our products.\"It seems he gave up on making anything with what little we have'', the merchant answered, dejected.\"''But maybe you could talk some sense into him?''",
+        "Options":
+        [
+            {
+                "OptionsText": "I'll try",
+                "NextEventName": "MerchantT3"
+            },
+
+            {
+                "OptionsText": "Sorry, you're on your own",
+                "NextEventName": "MerchantT2"
+            }
+        ],
+        "ParentInteractableName" : "merchant",
+        "IsActive" : false
+    },
+
+    "MerchantQ5":
+    {
+        "Text": "Busy streets with shops lining up at every corner and crowds looking forward to the next big thing as far as the eyes can see. This is the market square of Perlorn,\"though at first everything seems to be the same, the look of desperation in everyone's eyes speaks volume."
     }
 }
 

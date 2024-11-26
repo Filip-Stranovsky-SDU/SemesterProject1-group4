@@ -17,5 +17,12 @@
     {
         "IsActive": true,
         "ParentInteractableName": "captain-bernard"
+    },
+
+    "enter_market_square_of_Pelorn":
+    {
+        "IsActive": true,
+        "ParentInteractableName": "merchant",  
+        "ActivatesAfterFinish": ["MerchantQ1"]
     }
 }

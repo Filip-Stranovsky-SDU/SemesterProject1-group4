@@ -15,5 +15,17 @@
     {
         "Name": "Dam",
         "Events": ["DamDefault"]
+    },
+
+    "merchant":
+    {
+        "Name": "Merchant",
+        "Events": []
+    },
+
+    "boss":
+    {
+        "Name": "Boss",
+        "Events": []
     }
 }

@@ -25,8 +25,8 @@
     "market-square-of-pelorn": {
         "RoomId": "market-square-of-pelorn",
         "ShortDescription": "Market Square of Pelorn",
-        "Interactables": {},
-        "LongDescription": "",
+        "Interactables": {"Merchant": "merchant", "Boss": "boss"},
+        "LongDescription": "Busy streets with shops lining up at every corner and crowds looking forward to the next big thing as far as the eyes can see.\nThis is the market square of Perlorn, though at first everything seems to be the same, the look of desperation in everyone's eyes speaks volume.",
         "Exits": {
             "south": "crossroads-of-cordon"
         }
