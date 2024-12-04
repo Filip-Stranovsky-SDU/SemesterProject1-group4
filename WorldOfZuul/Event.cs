@@ -24,9 +24,7 @@ public class Event
         this.gameRef=gameRef;
     }
 
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     public Event(){}
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
 
     public virtual bool Run() // Method to start the event
     //Virtual so it can be overriden for subclasses(C# magic)
@@ -98,7 +96,7 @@ public class QuizEvent: Event{
         if(!base.Run()){
             return false;
         }
-
+        
         Console.WriteLine(Text);
         Option? option;
         
