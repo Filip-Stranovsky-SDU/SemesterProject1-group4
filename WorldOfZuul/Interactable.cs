@@ -6,6 +6,8 @@ public class Interactable
     public string Name {get; set; }="";
     public List<string> Events {get; set; }=[]; // Only Events to be Run sequentially, don't put in QuizEvent branches
 
+    public bool IsAvailable {get; set;}=true;
+
     [JsonIgnore]
     protected Game gameRef=null!; // a funny operator that allows us to initialise this later than the constructor;DD
     public Interactable(Game game, string name)
