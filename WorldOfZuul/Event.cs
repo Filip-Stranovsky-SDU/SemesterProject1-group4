@@ -14,6 +14,7 @@ public class Event
     public int MoneyRequired {get; set;} = 0;
     [JsonIgnore]
     protected Game gameRef; // gameRef.Events["Petunia1"].Activate();
+    public EventHelper? Helper;
 
 
     public Event(Resources changeInResources, Game gameRef)
@@ -34,6 +35,8 @@ public class Event
 
         
         CompleteEvent();
+        Helper?.Execute(gameRef);
+
         return true;
     }
 

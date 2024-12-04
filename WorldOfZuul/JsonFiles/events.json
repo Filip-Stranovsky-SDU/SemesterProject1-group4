@@ -24,5 +24,6 @@
         "IsActive": true,
         "ParentInteractableName": "merchant",  
         "ActivatesAfterFinish": ["MerchantQ1"]
+        
     }
 }
