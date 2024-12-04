@@ -4,7 +4,6 @@ namespace WorldOfZuul;
 public class Interactable
 {
     public string Name {get; set; }="";
-    
     public List<string> Events {get; set; }=[]; // Only Events to be Run sequentially, don't put in QuizEvent branches
 
     public bool IsAvailable {get; set;}=true;
