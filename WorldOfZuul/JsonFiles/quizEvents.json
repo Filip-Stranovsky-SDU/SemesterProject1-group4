@@ -112,7 +112,7 @@
             }
         ],
         "ParentInteractableName" : "petunia",
-        "IsActive" : true
+        "IsActive" : false
     },
 
     "CaptainBernardQ1":

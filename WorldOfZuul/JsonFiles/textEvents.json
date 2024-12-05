@@ -46,7 +46,7 @@
     "PetuniaReward":
     {
         "Text": "Petunia beamed 'Wonderful! To be honest I'm not even sure why I asked, I can see the river flowing nicely. This will make my garden flourish once more!' she exclaimed. Don't think I forgot about our deal, as promised I will dedicate this opportunity to make sure others have some food on their plate.' She reassured you, well at least some good came out of this. Though truthfully you'd rather forget what you had to do get here...",
-        "IsActive": false,
+        "IsActive": true,
         "ParentInteractableName" : "petunia",
         "ChangeInResources": {"Social": 10, "Environment": 3}
         
@@ -71,7 +71,7 @@
         "ParentInteractableName" : "dam",
         "ActivatesAfterFinish": ["PetuniaAskAboutDam"],
         "ChangeInResources": {"Environment": -10},
-        "Helper" : {"DescriptionChanges" : {"river-shore" : "You see a beautiful flowing river..."}
+        "Helper" : {"DescriptionChanges" : {"river-shore" : "You see a beautiful flowing river..."}}
 
     },
 
@@ -113,6 +113,5 @@
         "IsActive": false,
         "ActivatesAfterFinish" : ["MerchantQ5"]
     }
-}
 }
 

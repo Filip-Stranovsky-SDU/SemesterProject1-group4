@@ -2,7 +2,7 @@
     "petunia" :
     {
         "Name" : "Petunia",
-        "Events" : ["PetuniaQ1", "PetuniaQ3", "PetuniaReward", "PetuniaAngry"]
+        "Events" : ["PetuniaQ1", "PetuniaQ3", "PetuniaAngry", "PetuniaAskAboutDam"]
     },
 
     "captain-bernard" :
