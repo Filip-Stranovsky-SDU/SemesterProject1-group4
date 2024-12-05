@@ -40,13 +40,12 @@
         "Text": "Quest Accepted. Now, you need to go to the River Shore and destroy the beaver dam",
         "IsActive": true,
         "ParentInteractableName" : "petunia",
-        "ActivatesAfterFinish": ["DamDefault"]
-        
+        "ActivatesAfterFinish": ["DamDefault", "PetuniaQ5"]
     },
 
     "PetuniaReward":
     {
-        "Text": "Great job!",
+        "Text": "Petunia beamed 'Wonderful! To be honest I'm not even sure why I asked, I can see the river flowing nicely. This will make my garden flourish once more!' she exclaimed. Don't think I forgot about our deal, as promised I will dedicate this opportunity to make sure others have some food on their plate.' She reassured you, well at least some good came out of this. Though truthfully you'd rather forget what you had to do get here...",
         "IsActive": false,
         "ParentInteractableName" : "petunia",
         "ChangeInResources": {"Social": 10, "Environment": 3}
@@ -54,17 +53,25 @@
     },
     "PetuniaAngry":
     {
-        "Text": "KYS",
+        "Text": "How dare you! Get out of here, I don't want to see your face again! Petunia scowled as she seemed ready to chase you out. Man this lady doesn't take rejection well...",
         "IsActive": false,
         "ParentInteractable" : "petunia",
         "ChangeInResources":  {"Social": -5}
     
     },
+    "PetuniaWaiting":
+    {
+        "Text" : "She sighed heavily 'Get back to me when it's over.'",
+        "IsActive" : false,
+        "ParentInteractable" : "petunia"
+    },
+
     "DestroyDam":{
         "Text": "With unwavering determination you began swinging the bat over and over, cries of the wildlife filled your ears as the dam eventually gave out and water seeped through unobstructed.\n   At least Petunia will be happy...",
         "ParentInteractableName" : "dam",
-        "ActivatesAfterFinish": ["PetuniaReward"],
-        "ChangeInResources": {"Environment": -10}
+        "ActivatesAfterFinish": ["PetuniaAskAboutDam"],
+        "ChangeInResources": {"Environment": -10},
+        "Helper" : {"DescriptionChanges" : {"river-shore" : "You see a beautiful flowing river..."}
 
     },
 
@@ -106,5 +113,6 @@
         "IsActive": false,
         "ActivatesAfterFinish" : ["MerchantQ5"]
     }
+}
 }
 

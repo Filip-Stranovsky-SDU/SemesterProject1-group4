@@ -84,6 +84,37 @@
         "IsActive" : true
     },
 
+    "PetuniaQ5" :
+    {
+        "Text" : "Petunia looked up at you with anticipation 'Yes dear? Is it done?'",
+        "Options" : [
+            {
+                "OptionText" : "Not yet",
+                "NextEventName" : "PetuniaWaiting"
+            },
+
+            {
+                "OptionText" : "I'm not doing it",
+                "NextEventName" : "PetuniaAngry"
+            }
+        ],
+        "ParentInteractableName" : "petunia",
+        "IsActive" : true
+    },
+
+    "PetuniaAskAboutDam" :
+    {
+        "Text" : "Petunia looked up at you with anticipation 'Yes dear? Is it done?'",
+        "Options" : [
+            {
+                "OptionText" : "Yes, it is over...",
+                "NextEventName" : "PetuniaReward"
+            }
+        ],
+        "ParentInteractableName" : "petunia",
+        "IsActive" : true
+    },
+
     "CaptainBernardQ1":
     {
         "Text" : "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall. In the exits from the village there are small signs: To the south - river, to the east - red forest, to the north - crossroads of cordon and to the west - ruins of Galava castle. Welcome Traveler, haven't seen you here yet. I'm Captain Bernard, the mayor of this Village.",
@@ -111,6 +142,7 @@
             {
                 "OptionText" : "Yes",
                 "NextEventName" : "DestroyDam"
+
             },
 
             {
@@ -118,8 +150,8 @@
                 "NextEventName" : "LeaveDam"
             }
         ],
-        "ParentInteractableName" : "beaver",
-        "IsActive" : false
+        "ParentInteractableName" : "dam",
+        "IsActive" : true
     },
 
     "MerchantQ1" :
