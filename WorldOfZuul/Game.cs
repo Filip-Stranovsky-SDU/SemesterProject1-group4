@@ -204,6 +204,14 @@ namespace WorldOfZuul
                     case "load":
                         SaveLoad.LoadGame(this);
                         break;
+
+                    case "map":
+                        string Map = ASCIImage.LoadImage(@$".\JsonFiles\MAP.txt"); 
+                        Console.WriteLine(Map);
+                        break;
+
+
+                    
                 }
             }
 
@@ -243,8 +251,8 @@ namespace WorldOfZuul
 
         private static void PrintWelcome()
         {
-            Console.WriteLine("Welcome to [the name of our world]");
-            Console.WriteLine("Viktor's lines");
+            Console.WriteLine("Welcome to the SustainQuest world.");
+            Console.WriteLine("");
             PrintHelp();
             Console.WriteLine();
         }
@@ -257,6 +265,7 @@ namespace WorldOfZuul
             Console.WriteLine("Type 'help' to print this message again.");
             Console.WriteLine("Type 'quit' to exit the game.");
             Console.WriteLine("Type 'interact' or 'i', press space and type in NPC's name to start events,\nfor example, i Petunia");
+            Console.WriteLine("Type 'map' for a game map.");
         }
 
         public static void TypewriterEffect(string text, int delayMilliseconds = 50)
