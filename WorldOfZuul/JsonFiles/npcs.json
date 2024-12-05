@@ -28,5 +28,11 @@
         "Name": "Boss",
         "Events": [],
         "IsAvailable": false
+    },
+    "ixcrowd":
+    {
+        "Name": "Crowd",
+        "Events": "",
+        "IsAvailable": true
     }
 }
