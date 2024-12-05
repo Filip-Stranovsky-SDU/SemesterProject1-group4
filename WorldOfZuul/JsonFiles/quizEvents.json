@@ -294,6 +294,14 @@
                 "NextEventName": "BandagesS"
             }
         ]
+    },
+    "BandagesE1":
+    {
+        "Text": ""
+    },
+    "BandagesS1":
+    {
+        "Text": ""
     }
 }
 

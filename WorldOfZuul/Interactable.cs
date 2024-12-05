@@ -24,6 +24,10 @@ public class Interactable
     // through the gameRef and run it 
     public void Interact()   // this is what happens when the player in the game interacts with the interactable
     {
+        if(!IsAvailable){
+            Console.WriteLine("Nothing to interact with in here");
+            return;
+        }
         Console.WriteLine($"Interacting with {Name}"); // To be removed
         foreach (string current_event_name in Events)
         {       
