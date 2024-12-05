@@ -32,7 +32,13 @@
     "ixcrowd":
     {
         "Name": "Crowd",
-        "Events": "",
+        "Events": ["CrowdApproachQ"],
         "IsAvailable": true
+    },
+    "cordon-merchant":
+    {
+        "Name": "Merchant",
+        "Events": ["BandagesE1", "BandagesS1"],
+        "IsAvailable" : false
     }
 }

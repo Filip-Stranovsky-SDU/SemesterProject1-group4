@@ -30,5 +30,26 @@
     {
         "IsActive": false,
         "ParentInteractableName": "captain-bernard"
+    },
+    "BandagesE":
+    {
+        "ParentInteractableName": "crowd",
+        "IsActive": true,
+        "Helper": {"ChangeInteractables": {"cordon-merchant" : true}},
+        "ActivatesAfterFinish": ["BandagesE1"]
+
+    },
+    "BandagesS":
+    {
+        "ParentInteractableName": "crowd",
+        "IsActive": true,
+        "Helper": {"ChangeInteractables": {"cordon-merchant" : true}},
+        "ActivatesAfterFinish": ["BandagesS1"]
+    },
+    "LeaveCrowd":
+    {
+        "ParentInteractableName": "crowd",
+        "IsActive": true,
+        "ActivatesAfterFinish" : ["CrowdApproachQ", "LeaveCrowd"]
     }
 }

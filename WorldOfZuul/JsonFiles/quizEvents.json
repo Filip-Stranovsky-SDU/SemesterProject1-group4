@@ -246,12 +246,12 @@
         "Options":
         [
             {
-                "OptionsText": "I'll try",
+                "OptionText": "I'll try",
                 "NextEventName": "MerchantT3"
             },
 
             {
-                "OptionsText": "Sorry, you're on your own",
+                "OptionText": "Sorry, you're on your own",
                 "NextEventName": "MerchantT2"
             }
         ],
@@ -262,6 +262,38 @@
     "MerchantQ5":
     {
         "Text": "Busy streets with shops lining up at every corner and crowds looking forward to the next big thing as far as the eyes can see. This is the market square of Perlorn,\"though at first everything seems to be the same, the look of desperation in everyone's eyes speaks volume."
+    },
+    "CrowdApproachQ":
+    {
+        "Text" : "There are 2 man with bruises, they are both wrapped in dirty clothing",
+        "Options": [
+            {
+                "OptionText": "What happened?",
+                "NextEventName": "CrowdQuestOptions"
+            },
+
+            {
+                "OptionText": "Leave",
+                "NextEventName": "LeaveCrowd"
+            }
+        ],
+        "ActivatesAfterFinish": ["BernardQ1-afterCrowd"],
+        "Helper" : {"DeactivatesAfterFinish": ["BernardQ1"]}
+    },
+    "CrowdQuestOptions":
+    {
+        "Text": "Our men got seriously injured by a falling tree in the forest. Without them we can't finish building the water channel for our fields. They need some clean bandages, there was a merchant in our village but he left yesterday and headed north. We would be forever thankful for your help, you might catch him on the crossroads and he might have some.",
+        "Options": [
+            {
+                "OptionText": "I can bring you a pair, but you have to stop chopping down the trees, the environment is important.",
+                "NextEventName": "BandagesE"
+            },
+
+            {
+                "OptionText": "I can bring you a pair, the channel needs to be finished.",
+                "NextEventName": "BandagesS"
+            }
+        ]
     }
 }
 
