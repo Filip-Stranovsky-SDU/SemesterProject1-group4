@@ -6,17 +6,17 @@
         "ActivatesAfterFinish": ["PetuniaQ1"]
     },
 
-    "enter_town_hall":
+    "LeaveBernard":
     {
         "IsActive": true,
         "ParentInteractableName": "captain-bernard",
-        "ActivatesAfterFinish": ["CaptainBernardQ1"]
+        "ActivatesAfterFinish" : ["BernardQ1"]
     },
-
-    "BernardRuinsNo":
+    "LeaveBernard-afterCrowd":
     {
         "IsActive": true,
-        "ParentInteractableName": "captain-bernard"
+        "ParentInteractableName": "captain-bernard",
+        "ActivatesAfterFinish" : ["BernardQ1-afterCrowd"]
     },
 
     "enter_market_square_of_Pelorn":
@@ -25,5 +25,10 @@
         "ParentInteractableName": "merchant",  
         "ActivatesAfterFinish": ["MerchantQ1"]
         
+    },
+    "GalavaQuest" : 
+    {
+        "IsActive": false,
+        "ParentInteractableName": "captain-bernard"
     }
 }

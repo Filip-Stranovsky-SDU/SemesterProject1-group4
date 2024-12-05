@@ -75,14 +75,6 @@
         "ChangeInResources": {"Environment": 15}
     },
 
-    "CaptainBernardT1":
-    {
-        "Text" : "We would like to disassemble the ruins to the west and use the materials to build some shelters and a dam. However we lack the equipment, we have a great offer, but we don't have any money left. If you would help us, we could give you some of our resources.",
-        "IsActive" : true,
-        "ParentInteractableName" : "captain-bernard"
-        
-    },
-
     "MerchantT1":
     {
         "Text" : "Not another one - ''The merchant sighs and forces a smile'' Sorry but the manager isn't available at the moment, I'm sure I can help you instead!",
@@ -105,6 +97,26 @@
         "ParentInteractable" : "merchant",
         "IsActive": false,
         "ActivatesAfterFinish" : ["MerchantQ5"]
+    },
+    "BernardCrowd":
+    {
+        "Text": "Our 2 lumberjacks got injured. People try to help as they can but most just stand around and worry. I would love to get the issue resolved. For more details go ask them.",
+        "ParentInteractable" : "captain-bernard",
+        "ActivatesAfterFinish" : ["BernardQ1-afterCrowd"]
+    },
+    "BernardT1":
+    {
+        "Text" : "Well, I would appreciate my people getting back to work, go ask them what they need.\nWe would like to disassemble the ruins to the west and use the materials to build some shelters and a dam. However we lack the equipment, we have a great offer but we don't have any money left. If you would help us, we could give you some of our resources.",
+        "ParentInteractable" : "captain-bernard",
+        "ActivatesAfterFinish" : ["GalavaQuest", "BernardT1", "BernardQ1"]
+    },
+    "BernardT1-afterCrowd":
+    {
+        "Text" : "Well, I would appreciate my people getting back to work, go ask them what they need.\nWe would like to disassemble the ruins to the west and use the materials to build some shelters and a dam. However we lack the equipment, we have a great offer but we don't have any money left. If you would help us, we could give you some of our resources.",
+        "ParentInteractable" : "captain-bernard",
+        "ActivatesAfterFinish" : ["GalavaQuest", "BernardT1-afterCrowd", "BernardQ1-afterCrowd"]
     }
+    
+
 }
 

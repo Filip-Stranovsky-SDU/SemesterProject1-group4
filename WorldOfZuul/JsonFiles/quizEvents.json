@@ -84,23 +84,48 @@
         "IsActive" : true
     },
 
-    "CaptainBernardQ1":
+    "BernardQ1-afterCrowd":
     {
-        "Text" : "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall. In the exits from the village there are small signs: To the south - river, to the east - red forest, to the north - crossroads of cordon and to the west - ruins of Galava castle. Welcome Traveler, haven't seen you here yet. I'm Captain Bernard, the mayor of this Village.",
+        "Text" : "Welcome Traveler, haven't seen you here yet. I'm Captain Bernard, the mayor of this Village.",
         "Options" :
         [
             {
                 "OptionText" : "Do you need any help?",
-                "NextEventName" : "CaptainBernardT1"
+                "NextEventName" : "BernardT1-afterCrowd"
             },
 
             {
                 "OptionText" : "No, thanks",
-                "NextEventName" : "BernardRuinsNo"
+                "NextEventName" : "LeaveBernard-afterCrowd"
             }
         ],
         "ParentInteractableName" : "captain-bernard",
-        "IsActive" : true
+        "IsActive" : false,
+        "ActivatesAfterFinish" : ["LeaveBernard", "BernardQ1-afterCrowd"]
+    },
+    "BernardQ1":
+    {
+        "Text" : "Welcome Traveler, haven't seen you here yet. I'm Captain Bernard, the mayor of this Village.",
+        "Options" :
+        [
+            {
+                "OptionText" : "Do you need any help?",
+                "NextEventName" : "BernardT1"
+            },
+
+            {
+                "OptionText" : "What is the crowd outside?",
+                "NextEventName" : "BernardCrowd"
+            },
+
+            {
+                "OptionText" : "No, thanks",
+                "NextEventName" : "LeaveBernard"
+            }
+        ],
+        "ParentInteractableName" : "captain-bernard",
+        "IsActive" : true,
+        "ActivatesAfterFinish" : []
     },
 
     "DamDefault" :

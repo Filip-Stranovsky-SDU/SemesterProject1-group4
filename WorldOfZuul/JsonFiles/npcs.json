@@ -8,7 +8,7 @@
     "captain-bernard" :
     {
         "Name" : "Captain Bernard",
-        "Events" : ["CaptainBernardQ1"]
+        "Events" : ["BernardQ1", "BernardQ1-afterCrowd"]
     },
 
     "dam":
