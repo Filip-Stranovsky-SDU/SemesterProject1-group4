@@ -208,6 +208,7 @@ namespace WorldOfZuul
                     case "map":
                         string Map = ASCIImage.LoadImage(@$".\JsonFiles\MAP.txt"); 
                         Console.WriteLine(Map);
+                        Console.WriteLine();
                         break;
 
 
