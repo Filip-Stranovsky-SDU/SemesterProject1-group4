@@ -108,6 +108,9 @@ namespace WorldOfZuul
         private string ShowMainMenu()
         {
             Console.Clear();
+            string worldMap = ASCIImage.LoadImage(@$".\JsonFiles\MAP.txt"); // make a relative path - from your file
+            Console.WriteLine(worldMap);
+            Console.WriteLine();
             Console.WriteLine("================================");
             Console.WriteLine("       WORLD OF ZUUL");
             Console.WriteLine("================================");
@@ -206,8 +209,8 @@ namespace WorldOfZuul
                         break;
 
                     case "map":
-                        string Map = ASCIImage.LoadImage(@$".\JsonFiles\MAP.txt"); 
-                        Console.WriteLine(Map);
+                        string map = ASCIImage.LoadImage(@$".\JsonFiles\MAP.txt"); 
+                        Console.WriteLine(map);
                         break;
 
 
