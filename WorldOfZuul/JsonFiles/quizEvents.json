@@ -360,7 +360,7 @@
                 "NextEventName": "MinesLeave"
             }
         ],
-        "ActivatesAfterFinish" : ["MinersQ2"]
+        "ActivatesAfterFinish" : ["MineQuiz"]
     },
     "MineQuiz": 
     {
@@ -433,6 +433,10 @@
             }
         ],
         "ActivatesAfterFinish": ["MineQuiz2"]
+    },
+    "MineQuiz3":
+    {
+        
     }
 }
 

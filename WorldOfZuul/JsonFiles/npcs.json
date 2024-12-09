@@ -44,7 +44,7 @@
     "miners":
     {
         "Name": "Miner",
-        "Events": ["MinersQ2", "MinersQ1"],
+        "Events": ["MineQuiz", "MinersQ1"],
         "IsAvailable": true
     }
 }
