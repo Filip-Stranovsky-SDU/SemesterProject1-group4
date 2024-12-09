@@ -346,6 +346,93 @@
             }
         ],
         "ActivatesAfterFinish": ["BandagesS1"]
+    },
+    "MinersQ1":
+    {
+        "Text": "Hi, could you help us fix this equipment. We would like to reopen the mine and recycle this old stuff. So far it looks like piece of junk displaying some nonsense.",
+        "Options": [
+            {
+                "OptionText": "Sure",
+                "NextEventName": "MineQuiz"
+            },
+            {
+                "OptionText": "Leave",
+                "NextEventName": "MinesLeave"
+            }
+        ],
+        "ActivatesAfterFinish" : ["MinersQ2"]
+    },
+    "MineQuiz": 
+    {
+        "Text": "You see a small display with few buttons below, after pressing the biggest one it come to life and displays something that looks like a question:\n0, 0, 1, 1, 2, 4, 7, 13, 24, 44, __, 149",
+        "IsActive": false,
+        "Options": [
+            {
+                "OptionText": "87",
+                "NextEventName": "MineQuizFail"
+            },
+            {
+                "OptionText": "69",
+                "NextEventName": "MineQuizFail"
+            },
+            {
+                "OptionText": "81",
+                "NextEventName": "MineQuiz1"
+            },
+            {
+                "OptionText": "67",
+                "NextEventName": "MineQuizFail"
+            }
+        ],
+        "ActivatesAfterFinish": ["MineQuiz"]
+    },
+    "MineQuiz1":
+    {
+        "Text": "21 18 16 15 __ 16",
+        "IsActive": true,
+        "Options": [
+            {
+                "OptionText": "16",
+                "NextEventName": "MineQuizFail"
+            },
+            {
+                "OptionText": "15",
+                "NextEventName": "MineQuiz2"
+            },
+            {
+                "OptionText": "14",
+                "NextEventName": "MineQuizFail"
+            },
+            {
+                "OptionText": "12",
+                "NextEventName": "MineQuizFail"
+            }
+        ],
+        "ActivatesAfterFinish": ["MineQuiz1"]
+    },
+    "MineQuiz2":
+    {
+        "Text": "Which of these strategies could have the greatest long-term impact on achieving SDG 12?",
+        "IsActive": true,
+        "Options": [
+            {
+                "OptionText": "Encouraging individuals to recycle more often.",
+                "NextEventName": "MineQuizFail"
+            },
+            {
+                "OptionText": "Educating consumers about the environmental impact of their choices.",
+                "NextEventName": "MineQuizFail"
+            },
+            {
+                "OptionText": "Imposing higher taxes on businesses with unsustainable practices.",
+                "NextEventName": "MineQuizFail"
+            },
+            {
+                "OptionText": "Shifting global production systems toward circular economy models.",
+                "NextEventName": "MineQuiz3"
+            }
+        ],
+        "ActivatesAfterFinish": ["MineQuiz2"]
     }
 }
 
