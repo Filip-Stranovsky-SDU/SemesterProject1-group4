@@ -157,6 +157,23 @@
         "IsActive" : true,
         "ActivatesAfterFinish" : []
     },
+    "GalavaQuest":
+    {
+        "Text": "Could you help us?",
+        "IsActive": false,
+        "ParentInteractableName": "captain-bernard",
+        "Options": [
+            {
+                "OptionText": "Here you go!(60 gold)",
+                "NextEventName": "GalavaFinish"
+            },
+            {
+                "OptionText": "Don't have enough money yet, sorry.",
+                "NextEventName": "GalavaLeave"
+            }
+        ],
+        "ActivatesAfterFinish": ["GalavaQuest"]
+    },
 
     "DamDefault" :
     {
@@ -297,11 +314,38 @@
     },
     "BandagesE1":
     {
-        "Text": ""
+        "Text": "Welcome Traveler, would you like to buy something?",
+        "IsActive": false,
+        "Options": [
+            {
+                "OptionText": "Yeah, 2 bandages please(10 gold)",
+                "NextEventName": "BandagesE2"
+            },
+
+            {
+                "OptionText": "Nothing, thanks",
+                "NextEventName": "BandagesELeave"
+            }
+
+        ],
+        "ActivatesAfterFinish": ["BandagesE1"]
     },
     "BandagesS1":
     {
-        "Text": ""
+        "Text": "Welcome Traveler, would you like to buy something?",
+        "IsActive": false,
+        "Options": [
+            {
+                "OptionText": "Yeah, 2 bandages please(10 gold)",
+                "NextEventName": "BandagesS2"
+            },
+
+            {
+                "OptionText": "Nothing, thanks",
+                "NextEventName": "BandagesSLeave"
+            }
+        ],
+        "ActivatesAfterFinish": ["BandagesS1"]
     }
 }
 

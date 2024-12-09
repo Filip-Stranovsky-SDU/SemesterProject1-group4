@@ -35,7 +35,7 @@
     "crossroads-of-cordon": {
         "RoomId": "crossroads-of-cordon",
         "ShortDescription": "Crossroads of Cordon",
-        "Interactables": {},
+        "Interactables": {"Merchant": "cordon-merchant"},
         "LongDescription": "",
         "Exits": {
             "north": "market-square-of-pelorn",
@@ -114,7 +114,7 @@
     "abandoned-mine": {
         "RoomId": "abandoned-mine",
         "ShortDescription": "Abandoned Mine of Kaelor",
-        "Interactables": {},
+        "Interactables": {"Miners": "miners"},
         "LongDescription": "",
         "Exits": {
             "east": "village-of-ix",

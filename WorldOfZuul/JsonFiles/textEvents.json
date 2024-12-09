@@ -122,6 +122,37 @@
         "Text" : "Well, I would appreciate my people getting back to work, go ask them what they need.\nWe would like to disassemble the ruins to the west and use the materials to build some shelters and a dam. However we lack the equipment, we have a great offer but we don't have any money left. If you would help us, we could give you some of our resources.",
         "ParentInteractable" : "captain-bernard",
         "ActivatesAfterFinish" : ["GalavaQuest", "BernardT1-afterCrowd", "BernardQ1-afterCrowd"]
+    },
+    "BandagesS2":{
+        "Text": "Here you go!",
+        "MoneyRequired": 10,
+        "ActivatesAfterFinish": ["BandagesS3", "BandagesS2"]
+    },
+    "BandagesE2":{
+        "Text": "Here you go!",
+        "MoneyRequired": 10,
+        "ActivatesAfterFinish": ["BandagesE3", "BandagesE2"]
+    },
+    "BandagesS3":{
+        "Text": "Thank you, we can now proceed with our work!",
+        "IsActive": false,
+        "ChangeInResources": {"Environment": -10, "Social": 10},
+        "Helper": {}
+    },
+    "BandagesE3":{
+        "Text": "Thank you, we have talked and agreed to bring the forest of arberia to its former glory. We will start planting new trees as soon as possible.",
+        "IsActive": false,
+        "ChangeInResources": {"Environment": 10, "Social": -5},
+        "Helper": {} 
+    },
+    
+    "GalavaFinish":
+    {
+        "Text": "Thank you, we will start working as soon as possible",
+        "ChangeInResources" : {"Social" : 15},
+        "MoneyRequired": 60,
+        "Helper": {"DescriptionChanges" : {},
+                    "DeactivatesAfterFinish" : ["GalavaQuest"]}
     }
     
 

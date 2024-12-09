@@ -25,7 +25,11 @@ public class Event
         if (!IsActive)
             return false;
 
-        
+        if(gameRef.Player.WorldStats.Money < MoneyRequired){
+            Console.WriteLine("Not enough money");
+            return false;
+        }
+        gameRef.Player.WorldStats.Money -= MoneyRequired;
         CompleteEvent();
         Helper?.Execute(gameRef);
 
