@@ -64,7 +64,8 @@
     },
     "MinesLeave":
     {
-
+        "ActivatesAfterFinish": ["MinersQ1", "MinesLeave"],
+        "Helper": {"DeactivatesAfterFinish": ["MineQuiz"]}
     },
     "MineQuizFail":
     {

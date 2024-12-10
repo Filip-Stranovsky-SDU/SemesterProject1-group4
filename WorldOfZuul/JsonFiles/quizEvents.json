@@ -429,14 +429,11 @@
             },
             {
                 "OptionText": "Shifting global production systems toward circular economy models.",
-                "NextEventName": "MineQuiz3"
+                "NextEventName": "MineQuizFinish"
             }
         ],
         "ActivatesAfterFinish": ["MineQuiz2"]
-    },
-    "MineQuiz3":
-    {
-        
     }
+    
 }
 

@@ -153,6 +153,13 @@
         "MoneyRequired": 60,
         "Helper": {"DescriptionChanges" : {},
                     "DeactivatesAfterFinish" : ["GalavaQuest"]}
+    },
+    "MineQuizFinish":
+    {
+        "Text" : "The display flashes and proceeds to boot to what looks like main menu.\nMiner: \"Thank you! Here is part of money we were given to fix this. (+30 Gold)\"",
+        "ActivatesAfterFinish" : [],
+        "Helper": {"DeactivatesAfterFinish": ["MineQuiz"], "DescriptionChanges": {}},
+        "ChangeInResources": {"Money": 30}
     }
     
 
