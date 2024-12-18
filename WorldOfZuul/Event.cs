@@ -100,6 +100,7 @@ public class QuizEvent: Event{
 
         while(input == ""){
             input = Console.ReadLine();
+            input = input?.ToLower();
             if(input == null || input.Length != 1){
                 input = "";
                 continue;
