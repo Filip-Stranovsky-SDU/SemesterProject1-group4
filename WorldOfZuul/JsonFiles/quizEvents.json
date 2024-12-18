@@ -157,6 +157,23 @@
         "IsActive" : true,
         "ActivatesAfterFinish" : []
     },
+    "GalavaQuest":
+    {
+        "Text": "Could you help us?",
+        "IsActive": false,
+        "ParentInteractableName": "captain-bernard",
+        "Options": [
+            {
+                "OptionText": "Here you go!(60 gold)",
+                "NextEventName": "GalavaFinish"
+            },
+            {
+                "OptionText": "Don't have enough money yet, sorry.",
+                "NextEventName": "GalavaLeave"
+            }
+        ],
+        "ActivatesAfterFinish": ["GalavaQuest"]
+    },
 
     "DamDefault" :
     {
@@ -246,12 +263,12 @@
         "Options":
         [
             {
-                "OptionsText": "I'll try",
+                "OptionText": "I'll try",
                 "NextEventName": "MerchantT3"
             },
 
             {
-                "OptionsText": "Sorry, you're on your own",
+                "OptionText": "Sorry, you're on your own",
                 "NextEventName": "MerchantT2"
             }
         ],
@@ -262,6 +279,161 @@
     "MerchantQ5":
     {
         "Text": "Busy streets with shops lining up at every corner and crowds looking forward to the next big thing as far as the eyes can see. This is the market square of Perlorn,\"though at first everything seems to be the same, the look of desperation in everyone's eyes speaks volume."
+    },
+    "CrowdApproachQ":
+    {
+        "Text" : "There are 2 man with bruises, they are both wrapped in dirty clothing",
+        "Options": [
+            {
+                "OptionText": "What happened?",
+                "NextEventName": "CrowdQuestOptions"
+            },
+
+            {
+                "OptionText": "Leave",
+                "NextEventName": "LeaveCrowd"
+            }
+        ],
+        "ActivatesAfterFinish": ["BernardQ1-afterCrowd"],
+        "Helper" : {"DeactivatesAfterFinish": ["BernardQ1"]}
+    },
+    "CrowdQuestOptions":
+    {
+        "Text": "Our men got seriously injured by a falling tree in the forest. Without them we can't finish building the water channel for our fields. They need some clean bandages, there was a merchant in our village but he left yesterday and headed north. We would be forever thankful for your help, you might catch him on the crossroads and he might have some.",
+        "Options": [
+            {
+                "OptionText": "I can bring you a pair, but you have to stop chopping down the trees, the environment is important.",
+                "NextEventName": "BandagesE"
+            },
+
+            {
+                "OptionText": "I can bring you a pair, the channel needs to be finished.",
+                "NextEventName": "BandagesS"
+            }
+        ]
+    },
+    "BandagesE1":
+    {
+        "Text": "Welcome Traveler, would you like to buy something?",
+        "IsActive": false,
+        "Options": [
+            {
+                "OptionText": "Yeah, 2 bandages please(10 gold)",
+                "NextEventName": "BandagesE2"
+            },
+
+            {
+                "OptionText": "Nothing, thanks",
+                "NextEventName": "BandagesELeave"
+            }
+
+        ],
+        "ActivatesAfterFinish": ["BandagesE1"]
+    },
+    "BandagesS1":
+    {
+        "Text": "Welcome Traveler, would you like to buy something?",
+        "IsActive": false,
+        "Options": [
+            {
+                "OptionText": "Yeah, 2 bandages please(10 gold)",
+                "NextEventName": "BandagesS2"
+            },
+
+            {
+                "OptionText": "Nothing, thanks",
+                "NextEventName": "BandagesSLeave"
+            }
+        ],
+        "ActivatesAfterFinish": ["BandagesS1"]
+    },
+    "MinersQ1":
+    {
+        "Text": "Hi, could you help us fix this equipment. We would like to reopen the mine and recycle this old stuff. So far it looks like piece of junk displaying some nonsense.",
+        "Options": [
+            {
+                "OptionText": "Sure",
+                "NextEventName": "MineQuiz"
+            },
+            {
+                "OptionText": "Leave",
+                "NextEventName": "MinesLeave"
+            }
+        ],
+        "ActivatesAfterFinish" : ["MineQuiz"]
+    },
+    "MineQuiz": 
+    {
+        "Text": "You see a small display with few buttons below, after pressing the biggest one it come to life and displays something that looks like a question:\n0, 0, 1, 1, 2, 4, 7, 13, 24, 44, __, 149",
+        "IsActive": false,
+        "Options": [
+            {
+                "OptionText": "87",
+                "NextEventName": "MineQuizFail"
+            },
+            {
+                "OptionText": "69",
+                "NextEventName": "MineQuizFail"
+            },
+            {
+                "OptionText": "81",
+                "NextEventName": "MineQuiz1"
+            },
+            {
+                "OptionText": "67",
+                "NextEventName": "MineQuizFail"
+            }
+        ],
+        "ActivatesAfterFinish": ["MineQuiz"]
+    },
+    "MineQuiz1":
+    {
+        "Text": "21 18 16 15 __ 16",
+        "IsActive": true,
+        "Options": [
+            {
+                "OptionText": "16",
+                "NextEventName": "MineQuizFail"
+            },
+            {
+                "OptionText": "15",
+                "NextEventName": "MineQuiz2"
+            },
+            {
+                "OptionText": "14",
+                "NextEventName": "MineQuizFail"
+            },
+            {
+                "OptionText": "12",
+                "NextEventName": "MineQuizFail"
+            }
+        ],
+        "ActivatesAfterFinish": ["MineQuiz1"]
+    },
+    "MineQuiz2":
+    {
+        "Text": "Which of these strategies could have the greatest long-term impact on achieving SDG 12?",
+        "IsActive": true,
+        "Options": [
+            {
+                "OptionText": "Encouraging individuals to recycle more often.",
+                "NextEventName": "MineQuizFail"
+            },
+            {
+                "OptionText": "Educating consumers about the environmental impact of their choices.",
+                "NextEventName": "MineQuizFail"
+            },
+            {
+                "OptionText": "Imposing higher taxes on businesses with unsustainable practices.",
+                "NextEventName": "MineQuizFail"
+            },
+            {
+                "OptionText": "Shifting global production systems toward circular economy models.",
+                "NextEventName": "MineQuizFinish"
+            }
+        ],
+        "ActivatesAfterFinish": ["MineQuiz2"]
     }
+    
 }
 

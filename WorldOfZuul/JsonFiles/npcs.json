@@ -8,7 +8,7 @@
     "captain-bernard" :
     {
         "Name" : "Captain Bernard",
-        "Events" : ["BernardQ1", "BernardQ1-afterCrowd"]
+        "Events" : ["BernardQ1", "BernardQ1-afterCrowd", "GalavaQuest"]
     },
 
     "dam":
@@ -28,5 +28,23 @@
         "Name": "Boss",
         "Events": [],
         "IsAvailable": false
+    },
+    "ixcrowd":
+    {
+        "Name": "Crowd",
+        "Events": ["CrowdApproachQ", "BandagesE3", "BandagesS3"],
+        "IsAvailable": true
+    },
+    "cordon-merchant":
+    {
+        "Name": "Merchant",
+        "Events": ["BandagesE1", "BandagesS1"],
+        "IsAvailable" : false
+    },
+    "miners":
+    {
+        "Name": "Miner",
+        "Events": ["MineQuiz", "MinersQ1"],
+        "IsAvailable": true
     }
 }

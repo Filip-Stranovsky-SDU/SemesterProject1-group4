@@ -13,17 +13,9 @@ public class Event
     public Resources ChangeInResources {get; set;} = new(); // Dictionary to store how resources change when event happens 
     public int MoneyRequired {get; set;} = 0;
     [JsonIgnore]
-    protected Game gameRef; // gameRef.Events["Petunia1"].Activate();
+    protected Game gameRef = null!; // gameRef.Events["Petunia1"].Activate();
     public EventHelper? Helper;
 
-
-    public Event(Resources changeInResources, Game gameRef)
-    {
-        IsActive = false;
-        ActivatesAfterFinish = new List<string>();
-        ChangeInResources = changeInResources; // resource changes to this event
-        this.gameRef=gameRef;
-    }
 
     public Event(){}
 
@@ -33,7 +25,11 @@ public class Event
         if (!IsActive)
             return false;
 
-        
+        if(gameRef.Player.WorldStats.Money < MoneyRequired){
+            Console.WriteLine("Not enough money");
+            return false;
+        }
+        gameRef.Player.WorldStats.Money -= MoneyRequired;
         CompleteEvent();
         Helper?.Execute(gameRef);
 
@@ -64,10 +60,6 @@ public class TextEvent : Event
 {   
     public string Text {get; set;} = "";
 
-    public TextEvent(string text, Resources changeInResources, Game gameRef) : base(changeInResources, gameRef){
-        Text = text; // Text to be printed when event gets run
-    } // Constructor, uses constructor of Event but with added Text var
-    
     public TextEvent(){}
 
     public override bool Run(){
@@ -87,11 +79,6 @@ public class QuizEvent: Event{
     public List<Option> Options {get; set;} =[];
     
     
-    public QuizEvent(string text, List<Option> options, Resources changeInResources, Game gameRef) : base(changeInResources, gameRef){
-        Text = text; // Text to be printed when event gets run
-        Options = options;
-
-    }
     public QuizEvent() { }
 
     public override bool Run(){
@@ -113,6 +100,7 @@ public class QuizEvent: Event{
 
         while(input == ""){
             input = Console.ReadLine();
+            input = input?.ToLower();
             if(input == null || input.Length != 1){
                 input = "";
                 continue;

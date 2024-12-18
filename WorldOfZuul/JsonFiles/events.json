@@ -10,13 +10,15 @@
     {
         "IsActive": true,
         "ParentInteractableName": "captain-bernard",
-        "ActivatesAfterFinish" : ["BernardQ1"]
+        "ActivatesAfterFinish" : ["BernardQ1"],
+        "Helper": {"DeactivatesAfterFinish": ["GalavaQuest"]}
     },
     "LeaveBernard-afterCrowd":
     {
         "IsActive": true,
         "ParentInteractableName": "captain-bernard",
-        "ActivatesAfterFinish" : ["BernardQ1-afterCrowd"]
+        "ActivatesAfterFinish" : ["BernardQ1-afterCrowd"],
+        "Helper": {"DeactivatesAfterFinish": ["GalavaQuest"]}
     },
 
     "enter_market_square_of_Pelorn":
@@ -26,9 +28,47 @@
         "ActivatesAfterFinish": ["MerchantQ1"]
         
     },
-    "GalavaQuest" : 
+
+    "BandagesE":
     {
-        "IsActive": false,
-        "ParentInteractableName": "captain-bernard"
+        "ParentInteractableName": "crowd",
+        "IsActive": true,
+        "Helper": {"ChangeInteractables": {"cordon-merchant" : true}},
+        "ActivatesAfterFinish": ["BandagesE1"]
+
+    },
+    "BandagesS":
+    {
+        "ParentInteractableName": "crowd",
+        "IsActive": true,
+        "Helper": {"ChangeInteractables": {"cordon-merchant" : true}},
+        "ActivatesAfterFinish": ["BandagesS1"]
+    },
+    "LeaveCrowd":
+    {
+        "ParentInteractableName": "crowd",
+        "IsActive": true,
+        "ActivatesAfterFinish" : ["CrowdApproachQ", "LeaveCrowd"]
+    },
+    "BandagesELeave":
+    {
+        "ActivatesAfterFinish": ["BandagesELeave", "BandagesE1"]
+    },
+    "BandagesSLeave":
+    {
+        "ActivatesAfterFinish": ["BandagesSLeave", "BandagesS1"]
+    },
+    "GalavaLeave":
+    {
+
+    },
+    "MinesLeave":
+    {
+        "ActivatesAfterFinish": ["MinersQ1", "MinesLeave"],
+        "Helper": {"DeactivatesAfterFinish": ["MineQuiz"]}
+    },
+    "MineQuizFail":
+    {
+        
     }
 }
