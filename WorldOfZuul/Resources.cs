@@ -46,7 +46,7 @@ public class Resources{
         Dictionary<string, int> output = new();
 
         foreach(var property in this.GetType().GetProperties()){
-            output[property.Name] = (int)property.GetValue(this);
+            output[property.Name] = (int) (property.GetValue(this)?? 0);
             
         }
 
