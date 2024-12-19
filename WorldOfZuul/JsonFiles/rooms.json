@@ -16,7 +16,7 @@
         "RoomId": "petunias-garden",
         "ShortDescription": "Petunia's Garden",
         "Interactables": { "Petunia": "petunia", "i3": "hoe" },
-        "LongDescription": "Upon entering you are greeted with the sight of wilted flowers and an older prissy lady standing next to them. Something seems to have caused the soil to dry out very quickly. An old well used hoe is placed to the side.",
+        "LongDescription": "Upon entering you are greeted with the sight of wilted flowers and an older prissy lady, called [Petunia], standing next to them. Something seems to have caused the soil to dry out very quickly. An old well used hoe is placed to the side.",
         "Exits": {
             "west": "the-withering-forest-of-arberia"
         }
@@ -26,7 +26,7 @@
         "RoomId": "market-square-of-pelorn",
         "ShortDescription": "Market Square of Pelorn",
         "Interactables": {"Merchant": "merchant", "Boss": "boss"},
-        "LongDescription": "Busy streets with shops lining up at every corner and crowds looking forward to the next big thing as far as the eyes can see.\nThis is the market square of Perlorn, though at first everything seems to be the same, the look of desperation in everyone's eyes speaks volume.",
+        "LongDescription": "Busy streets with shops lining up at every corner and crowds looking forward to the next big thing as far as the eyes can see.\nThis is the market square of Perlorn, though at first everything seems to be the same, the look of desperation in everyone's eyes speaks volume.\nYou see a [Merchant] peaking from a corner",
         "Exits": {
             "south": "crossroads-of-cordon"
         }

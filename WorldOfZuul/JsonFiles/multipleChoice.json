@@ -1,0 +1,36 @@
+{
+    "BossMultiple":
+    {
+        "Text" : "He narrows his eyes on you\n\"Listen I'm a busy man, you have 3 minutes to say what you have to say.\"\n...well that's something at least, better make it count.\n\nIf you rely on renewable resources...",
+        "OptionsIterations" : 3,
+        "Options" :
+        [
+            "... You won't be reliant on import from other countries.",
+            "... More people will be able to afford your goods.",
+            "... People will start worshipping you.",
+            "... Your store will be unique from others in this village.",
+            "... You will feel good about yourself.",
+            "... You will make more money!",
+            "... You will get credit as an ecologically friendly store.",
+            "... I will stop bothering you."
+        ],
+        "CorrectOptions" :
+        [
+            true,
+            true,
+            false,
+            true,
+            false,
+            false,
+            true,
+            false
+        ],
+        "FollowingEvents" : 
+        {
+            "3": "BossAllCorrect",
+            "2": "BossSomeCorrect",
+            "1": "BossSomeCorrect",
+            "0": "BossFail"
+        }
+    }
+}

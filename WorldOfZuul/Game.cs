@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace WorldOfZuul
 {
@@ -53,7 +54,7 @@ namespace WorldOfZuul
             using StreamReader reader = new(@$".\JsonFiles\events.json");
             using StreamReader reader1 = new(@$".\JsonFiles\textEvents.json");
             using StreamReader reader2 = new(@$".\JsonFiles\quizEvents.json");
-            
+            using StreamReader reader3 = new(@$".\JsonFiles\multipleChoice.json"); // added this to be able to deserialise
 
             var options = new JsonSerializerOptions{ IncludeFields = true };
 
@@ -65,6 +66,9 @@ namespace WorldOfZuul
             
             jsonString = reader2.ReadToEnd();
             var quizEvents = JsonSerializer.Deserialize<Dictionary<string, QuizEvent>>(jsonString, options)??throw new("TODO");
+
+            jsonString = reader3.ReadToEnd();
+            var multipleChoice = JsonSerializer.Deserialize<Dictionary<string, MultipleChoiceEvent>>(jsonString, options)??throw new("TODO");
 
             foreach(var entry in Events){
                 entry.Value.setupGameRef(this);
@@ -80,6 +84,10 @@ namespace WorldOfZuul
                 entry.Value.setupGameRef(this);
             }
 
+            foreach(var entry in multipleChoice){
+                Events.Add(entry.Key, entry.Value);
+                entry.Value.setupGameRef(this);
+            }
             
         }
 
@@ -268,6 +276,7 @@ namespace WorldOfZuul
             Console.WriteLine("Type 'help' to print this message again.");
             Console.WriteLine("Type 'quit' to exit the game.");
             Console.WriteLine("Type 'interact' or 'i', press space and type in NPC's name to start events,\nfor example, i Petunia");
+            Console.WriteLine("You can interact with characters [mentioned] in square brackets");
             Console.WriteLine("Type 'map' for a game map.");
         }
 

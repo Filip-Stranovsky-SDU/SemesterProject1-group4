@@ -20,13 +20,13 @@
     "merchant":
     {
         "Name": "Merchant",
-        "Events": []
+        "Events": ["MerchantQ6", "MerchantQ5", "MerchantQ1", "MerchantQ3"]
     },
 
     "boss":
     {
         "Name": "Boss",
-        "Events": [],
+        "Events": ["BossQ1"],
         "IsAvailable": false
     }
 }

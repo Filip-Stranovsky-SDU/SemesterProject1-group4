@@ -199,7 +199,7 @@
             }
         ],
         "ParentInteractableName" : "merchant",
-        "IsActive" : false
+        "IsActive" : true
     },
 
     "MerchantQ2" :
@@ -213,22 +213,22 @@
             },
 
             {
-                "OptionText" : "Oh wow... Sorry but is the price negotiable?",
+                "OptionText" : "Oh wow... Sorry but is the price negotiable?", 
                 "NextEventName" : "MerchantQ3"
             },
 
             {
-                "OptionText" : "I can't pay for this.",
+                "OptionText" : "I can't pay for this.", 
                 "NextEventName" : "MerchantQ3"
             }
         ],
         "ParentInteractableName" : "merchant",
-        "IsActive" : false
+        "IsActive" : true
     },
 
     "MerchantQ3":
     {
-        "Text": "My apologies, I'm aware that it's expensive but there's nothing I can do about it.\" Resources have been getting scarce which sky rocketed inflation on even the most mundane items, - he bows apologetically.",
+        "Text": "\"My apologies, I'm aware that it's expensive but there's nothing I can do about it.\"\n\"Resources have been getting scarce which sky rocketed inflation on even the most mundane items\", - he bows apologetically.",
         "Options": 
         [
             {
@@ -237,31 +237,113 @@
             }
         ],
         "ParentInteractableName" : "merchant",
-        "IsActive" : false
+        "IsActive" : true
     },
 
     "MerchantQ4":
     {
-        "Text": "''I tried talking to my boss about maybe producing our own renewable items, but he seems dead-set on importing all our products.\"It seems he gave up on making anything with what little we have'', the merchant answered, dejected.\"''But maybe you could talk some sense into him?''",
+        "Text": "\"I tried talking to my [Boss] about maybe producing our own renewable items, but he seems dead-set on importing all our products. It seems he gave up on making anything with what little we have\", the merchant answered, dejected.\n\"But maybe you could talk some sense into him?\"",
         "Options":
         [
             {
-                "OptionsText": "I'll try",
+                "OptionText": "I'll try",
                 "NextEventName": "MerchantT3"
             },
 
             {
-                "OptionsText": "Sorry, you're on your own",
+                "OptionText": "Sorry, you're on your own",
                 "NextEventName": "MerchantT2"
             }
         ],
         "ParentInteractableName" : "merchant",
-        "IsActive" : false
+        "IsActive" : true
     },
 
     "MerchantQ5":
     {
-        "Text": "Busy streets with shops lining up at every corner and crowds looking forward to the next big thing as far as the eyes can see. This is the market square of Perlorn,\"though at first everything seems to be the same, the look of desperation in everyone's eyes speaks volume."
+        "Text": "'Did you talk to the Boss yet?' The merchant inquired.",
+        "Options":[
+            {
+                "OptionText": "Sorry I can't do this",
+                "NextEventName":  "MerchantT2"
+            },
+
+            {
+                "OptionText": "Not yet",
+                "NextEventName": "MerchantT4"
+            }
+        ],
+        "IsActive" : false
+    },
+
+    "MerchantQ6":
+    {
+        "Text": "'Did you talk to Boss yet?', the merchant inquired.",
+        "Options":
+        [
+            {
+                "OptionText": "Yes and he agreed to change his ways!",
+                "NextEventName" : "BossEventComplete"
+            }
+        ],
+        "IsActive" : false
+    },
+    
+
+    "BossQ1":
+    {
+        "Text": "Entering the room in the back you are greeted with the sight of an older gentleman sitting in a very comfortable chair:\n\"Yes, what is it?\"\nYou should be careful with what you say from now on.",
+        "Options":
+        [
+            {
+                "OptionText": "Hi, I'd like to talk to you about a solution for your business.",
+                "NextEventName": "BossQ2"
+            },
+            
+            {
+                "OptionText": "You're overcharging your customers! Just get cheaper materials!",
+                "NextEventName": "BossT1"
+            }
+        ],
+        "IsActive": false
+    },
+    
+    "BossQ2":
+    {
+        "Text": "\"Oh god not this again.\", the old man sighed heavily.\n\"Listen I'm guessing you're here because of the prices and I'm certain you already heard from my employee that there's nothing we can do, so I suggest you leave.\"",
+        "Options":
+        [
+            {
+                "OptionText": "Do you truly think this kind of attitude is sustainable? Eventually you'll lose all your customers",
+                "NextEventName": "BossMultiple"
+            },
+
+            {
+                "OptionText": "This is outrageous just listen to me!",
+                "NextEventName": "BossT2"
+            },
+
+            {
+                "OptionText": "I promise what I have in mind will benefit you.",
+                "NextEventName": "BossMultiple" 
+            }
+        ]
+    },
+    "BossSomeCorrect":
+    {
+        "Text": "You make some interesting points... Alright how about this, I'll consider it if you give me some kind of... Insurance.\nWell, at least he's listening, what now?",
+        "Options":
+        [
+        {
+            "OptionText": "Alright",
+            "NextEventName": "BossT3"
+        },
+
+        {
+            "OptionText": "No way",
+            "NextEventName": "BossT4"
+        }
+        ]
     }
 }
 

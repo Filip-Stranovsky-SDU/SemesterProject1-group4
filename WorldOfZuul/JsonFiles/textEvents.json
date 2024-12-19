@@ -84,7 +84,7 @@
 
     "MerchantT1":
     {
-        "Text" : "Not another one - ''The merchant sighs and forces a smile'' Sorry but the manager isn't available at the moment, I'm sure I can help you instead!",
+        "Text" : "Not another one...\nthe merchant sighs and forces a smile,\n\"Sorry but the manager isn't available at the moment, let me see what I can do for you...\"\n",
         "ParentInteractable" : "merchant",
         "ActivatesAfterFinish" : ["MerchantQ3"],
         "ChangeInResources" : {"Social" : -5}
@@ -100,11 +100,64 @@
 
     "MerchantT3":
     {
-        "Text": "Oh thank you! He's in the back, talk to him when you're ready!\" He beamed. Seems like you need to prepare for a negotiation.",
+        "Text": "\"Oh thank you! [Boss] is in the back, talk to him when you're ready!\", he beamed.\nSeems like you need to prepare for a negotiation.",
         "ParentInteractable" : "merchant",
-        "IsActive": false,
-        "ActivatesAfterFinish" : ["MerchantQ5"]
+        "IsActive": true,
+        "ActivatesAfterFinish" : ["MerchantQ5", "BossQ1"],
+        "Helper": {"ChangeInteractables" : {"boss" : true, "merchant" : true}}
     },
+
+    "MerchantT4":
+    {
+        "Text": "'Okay, talk to me when you're done' He returns to his duties.",
+        "IsActive" : false
+    },
+
+    "BossT1":
+    {
+        "Text": " QUEST FAILED TODO 'How dare you?! Get out of here right this instance!' Uh oh, he did not seem happy with that.'",
+        "IsActive": true
+    },
+
+    "BossT2":
+    {
+        "Text": " QUEST FAILED TODO'And you're done, get out of my office before I call security.' Uh oh, seems like he didn't appreciate the outburst.",
+        "IsActive": true
+    },
+
+    "BossFail":
+    {
+        "Text": "'I said I would hear you out, I can see now that it was a mistake. Leave my office.' \n Seems like that's it...",
+        "IsActive": true
+    },
+
+    "BossT3":
+    {
+        "Text": "\"Pleasure doing business with you!\"\nYou can't help but think about how much of a greedy bastard this guy is, but at least it's done with...",
+        "IsActive": true,
+        "ChangeInResources" : {"Money" : -20}
+    },
+
+    "BossT4":
+    {
+        "Text": "Then I will have to ask you to leave, I am sorry that we could not come to an agreement.\nYou tried your best, nothing else you can do.",
+        "IsActive": true
+    },
+
+    "BossAllCorrect":
+    {
+        "Text": "'Alright, alright! I see your point, I will do what I can.'\nBoss agreed to your proposal, you walk out of there with a rightfully deserved grin on your face.\nYou want to go back and talk to the [Merchant] again",
+        "IsActive": true,
+        "ActivatesAfterFinish": ["MerchantQ6"]
+    },
+
+    "BossEventComplete":
+    {
+        "Text": "'HE DID!', he merchant yelled in surprise.\nThat's fantastic news! Thank you so much!\nHere have this, it's not a lot but I want to show you my thanks!",
+        "IsActive": true,
+        "ChangeInResources": {"Environment": 5, "Money":20 , "Social": 9}
+    },
+
     "BernardCrowd":
     {
         "Text": "Our 2 lumberjacks got injured. People try to help as they can but most just stand around and worry. I would love to get the issue resolved. For more details go ask them.",
