@@ -148,6 +148,7 @@
     {
         "Text": "'Alright, alright! I see your point, I will do what I can.'\nBoss agreed to your proposal, you walk out of there with a rightfully deserved grin on your face.\nYou want to go back and talk to the [Merchant] again",
         "IsActive": true,
+        "Helper": {"DeactivatesAfterFinish": ["MerchantQ5"]},
         "ActivatesAfterFinish": ["MerchantQ6"]
     },
 
