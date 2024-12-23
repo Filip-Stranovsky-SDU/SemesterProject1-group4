@@ -171,7 +171,7 @@ public class MultipleChoiceEvent : Event
 
             string? input = Console.ReadLine();
             
-            if (string.IsNullOrEmpty(input) || input.Length != 1) // or should this come first
+            if (string.IsNullOrEmpty(input) || input.Length != 1)
             {
                 Console.WriteLine("");
                 continue;
@@ -184,11 +184,11 @@ public class MultipleChoiceEvent : Event
                 continue;
             }
             
-        if (remainingCorrect[selectedIndex]) // find an element of index i
-        // here because of how bool works this essentially says: if 'true'
+        if (remainingCorrect[selectedIndex])
             {
                 successCounter++;
-                Console.WriteLine("\nBoss nods along, he appears to be genuinely intrigued.\n");
+                Console.WriteLine("\nHmm...Boss nods along, he appears to be genuinely intrigued.\n");
+                // I know that this is only for the boss quest, but if we're gonna use this event type more, I'll just write "AnswerText" variable that could be dynamic
             }
             else
             {

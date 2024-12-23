@@ -176,8 +176,62 @@
         "Text" : "Well, I would appreciate my people getting back to work, go ask them what they need.\nWe would like to disassemble the ruins to the west and use the materials to build some shelters and a dam. However we lack the equipment, we have a great offer but we don't have any money left. If you would help us, we could give you some of our resources.",
         "ParentInteractable" : "captain-bernard",
         "ActivatesAfterFinish" : ["GalavaQuest", "BernardT1-afterCrowd", "BernardQ1-afterCrowd"]
-    }
-    
+    },
 
+    "HutsT1":
+    {
+        "ChangeInResources": {"Social": -5},
+        "Helper" : {"DeactivatesAfterFinish": ["WoodworkersQ1"]},
+        "ActivatesAfterFinish" : ["HutsQ1-2"]
+    },
+
+    "YouReturned":
+    {
+        "Text" : "\"Nice to see you here again, fella, do you remember what I was talking about with you before, maybe you changed your mind...\"",
+        "IsActive" : false,
+        "ActivatesAfterFinish" : ["WoodworkersQ2-2"]
+    },
+
+    "ThankYou":
+    {
+        "Text" : "\"Very well, then!\"",
+        "IsActive" : true,
+        "ChangeInResources": {"Money": 30, "Environment": -6, "Social": -6},
+        "Helper" :
+                    {
+                    "ConnectRooms": {"east": "dunes-of-raghar"},
+                    "DeactivatesAfterFinish": ["HutsQ1-1"],
+                    "DescriptionChanges": {"distant-island":"Interesting, a bunch of wood shreads laying around, some household items on the ground...\n...seems like a lot of people have passed through there while moving away from the island..."}
+                    }
+    },
+
+    "Finally":
+    {
+        "Text": "\"Well, finally\"",
+        "IsActive" : true,
+        "ChangeInResources": {"Money": 30, "Environment": -6, "Social": -6},
+        "Helper" :
+            {
+            "ConnectRooms": {"east": "dunes-of-raghar" },
+            "DeactivatesAfterFinish": ["HutsQ1-1", "WoodworkersQ1"],
+            "DescriptionChanges": {"distant-island":"Interesting, a bunch of wood shreads laying around, some household items on the ground...\n...seems like a lot of people have passed through there while moving away from the island..."}
+            }
+    },
+
+    "HutsT2":
+    {   
+        "ChangeInResources": {"Environment": 5, "Social": 3},
+        "Helper" : {"DescriptionChanges" : {"distant-island":"Woodworking has stopped here, at least it will be peaceful here for a while..."}, "DeactivatesAfterFinish" : ["HutsQ1-1", "WoodworkersQ1"]}
+    },
+
+    "HutsT3":
+    {
+        "ChangeInResources": {"Environment": 6, "Social": 6, "Money": -30},
+        "Helper" : {
+            "DisconnectRooms" : ["north"],
+            "DescriptionChanges" : {"distant-island": "Though this island can only be entered from one side of the mainland, people here how have sturdy homes...\nit's nice to see smiling faces from afar..."},
+            "DeactivatesAfterFinish" : ["HutsQ1-1", "WoodworkersQ1"]
+            }
+    }
 }
 

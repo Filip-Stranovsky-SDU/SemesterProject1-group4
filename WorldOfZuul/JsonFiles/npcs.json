@@ -28,5 +28,17 @@
         "Name": "Boss",
         "Events": ["BossQ1"],
         "IsAvailable": false
+    },
+
+    "woodworkers":
+    {
+        "Name": "Woodworkers",
+        "Events": ["WoodworkersQ1", "YouReturned"]
+    },
+
+    "huts":
+    {
+        "Name": "Huts",
+        "Events": ["HutsQ1-1", "HutsQ1-2"]
     }
 }

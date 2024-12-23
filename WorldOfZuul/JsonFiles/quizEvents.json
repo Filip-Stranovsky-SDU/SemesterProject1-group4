@@ -344,6 +344,123 @@
             "NextEventName": "BossT4"
         }
         ]
+    },
+
+    "WoodworkersQ1":
+    {
+        "Text" : "An old rugged person acknowledges you:\n\"Hey! Are you another worker they sent over here? We have a lot of work to do and we won't be able to complete more bridges without you. Imagine reaching Dunes of Raghar from here!\"",
+        "Options":
+        [
+            {
+                "OptionText": "Sure, tell me more and I'll help you",
+                "NextEventName": "WoodworkersQ2-1"
+            },
+
+            {
+                "OptionText": "I am not a worker, I was just passing by. What is going on?",
+                "NextEventName": "WoodworkersQ2-1"
+            },
+
+            {
+                "OptionText": "Sorry, I'm heading somewhere",
+                "NextEventName": "HutsQ1-1"
+            }
+        ]
+    },
+
+    "WoodworkersQ2-1":
+    {
+        "Text" : "\"We want to be able to reach every part of the main land from here; we'll get to trade quicker!\"",
+        "Options":
+        [
+            {
+                "OptionText": "Help them with bridges",
+                "NextEventName": "ThankYou"
+            },
+
+            {
+                "OptionText": "Go checkout the huts first",
+                "NextEventName": "HutsQ1-1"
+            }
+        ]
+
+    },
+
+    "WoodworkersQ2-2":
+    {
+        "Text" : "\"We want to be able to reach every part of the main land from here, did you now decide to help us?\"",
+        "Options":
+        [
+            {
+                "OptionText": "For sure, I'll help you with the bridges",
+                "NextEventName": "Finally"
+            },
+
+            {
+                "OptionText": "Go to the huts once more",
+                "NextEventName": "HutsQ1-2"
+            }
+        ]
+
+    },
+
+    "HutsQ1-1":
+    {
+        "Text": "You decide to walk to the huts. You see tired people, brittle huts and one of those people approach you.\nShe seems very angry and yells at you:\n\"Go away, we don't need more people here, we barely have resources to build our own houses.\nLeave! Vanish! Get lost!\"",
+        "Options":
+        [
+            {
+                "OptionText": "Walk away",
+                "NextEventName": "HutsT1"
+            },
+
+            {
+                "OptionText": "I'm sorry, I just came to ask about what happened ",
+                "NextEventName": "HutsQ2"
+            }
+        ]
+    },
+
+    "HutsQ1-2":
+    {
+        "Text": "You return to the huts. The same tired lady approaches you...\n\"So, you changed your mind...\"\n\"Do you now know what happened?\"",
+        "Options":
+        [
+            {
+                "OptionText": "Yes, I want to know what happened ",
+                "NextEventName": "HutsQ2"
+            }
+        ],
+        "IsActive": false
+    },
+
+    "HutsQ2":
+    {
+        "Text": "\"You probably noticed our bleak looking island, we just want to live here, but with all of the constructions going on, we don't have people or materials to improve our houses.\"",
+        "Options":
+        [
+            {
+                "OptionText": "Is there any way I could help?",
+                "NextEventName": "HutsQ3"
+            }
+        ]
+    },
+
+    "HutsQ3":
+    {
+        "Text": "\"There is, if the wood they're using for the bridges could be used to repair our homes, that'd improve all of our lives.\"\n\"But for that we'd need to stop the woodworkers or disassemble some bridges, we don't need that many to live well.\"",
+        "Options":
+        [
+            {
+                "OptionText": "Stop the woodworkers",
+                "NextEventName": "HutsT2"    
+            },
+
+            {
+                "OptionText": "IFNOTENOUGHMONEY//Dissasemble the bridge to The Shallow Waters of Avoira...\nBut you must have some money to pull this off",
+                "NextEventName": "HutsT3"
+            }
+        ]
     }
 }
 
