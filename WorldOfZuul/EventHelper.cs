@@ -4,7 +4,8 @@ public class EventHelper{
     public Dictionary<string, string>? DescriptionChanges {get; set;}
     public Dictionary<string, bool>? ChangeInteractables {get; set;}
     public List<string>? DeactivatesAfterFinish {get; set;}
-    public List<string>? ConnectRooms {get; set;}
+    public Dictionary<string, string> ConnectRooms { get; set; }
+    public Dictionary<string, string> DisconnectRooms {get; set;}
     
     
     public EventHelper(){}
@@ -25,7 +26,43 @@ public class EventHelper{
             }
         }
         if(ConnectRooms != null){
-            //TODO
+        foreach((string direction, string destination) in ConnectRooms)
+            {
+            if (!gameRef.CurrentRoom.Exits.ContainsKey(direction))
+                {
+                gameRef.CurrentRoom.Exits.Add(direction, destination);
+                string reverseDirection = GetOppositeDirection(direction); // so that you could go backwards
+                gameRef.Rooms[destination].Exits[reverseDirection] = gameRef.CurrentRoom.RoomId;
+                }
+            }
         }
-    } 
+
+        if(DisconnectRooms != null) {
+            foreach((string direction, string destination) in DisconnectRooms) {
+                if (gameRef.CurrentRoom.Exits.ContainsKey(direction))
+                {
+                    gameRef.CurrentRoom.Exits.Remove(direction);
+                    string reverseDirection = GetOppositeDirection(direction); // so that you couldn't go back from another end
+                    if (gameRef.Rooms[destination].Exits.ContainsKey(reverseDirection))
+                    {
+                    gameRef.Rooms[destination].Exits.Remove(reverseDirection);
+                    } 
+                }
+            }
+    }   
+}
+
+
+private string GetOppositeDirection(string direction)
+{
+    return direction switch
+    {
+        "north" => "south",
+        "south" => "north",
+        "east" => "west",
+        "west" => "east",
+        _ => throw new ArgumentException("Invalid direction")
+    };
+}
+
 }

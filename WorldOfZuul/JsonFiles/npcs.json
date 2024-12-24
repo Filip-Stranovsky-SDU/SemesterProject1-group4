@@ -29,6 +29,18 @@
         "Events": [],
         "IsAvailable": false
     },
+
+    "woodworkers":
+    {
+        "Name": "Woodworkers",
+        "Events": ["WoodworkersQ2-2", "WoodworkersQ1"]
+    },
+
+    "huts":
+    {
+        "Name": "Huts",
+        "Events": ["HutsQ1-1", "HutsQ1-2"]
+    },
     "ixcrowd":
     {
         "Name": "Crowd",
