@@ -33,7 +33,7 @@
     "woodworkers":
     {
         "Name": "Woodworkers",
-        "Events": ["WoodworkersQ1", "YouReturned"]
+        "Events": ["WoodworkersQ2-2", "WoodworkersQ1", "YouReturned"]
     },
 
     "huts":

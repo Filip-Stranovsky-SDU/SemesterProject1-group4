@@ -405,7 +405,7 @@
 
     "WoodworkersQ2-2":
     {
-        "Text" : "\"We want to be able to reach every part of the main land from here, did you now decide to help us?\"",
+        "Text" : "\"Hey again! Did you now decide to help us with the bridges?\"",
         "Options":
         [
             {
@@ -417,7 +417,9 @@
                 "OptionText": "Go to the huts once more",
                 "NextEventName": "HutsQ1-2"
             }
-        ]
+        ],
+
+        "IsActive" : false
 
     },
 
@@ -440,7 +442,7 @@
 
     "HutsQ1-2":
     {
-        "Text": "You return to the huts. The same tired lady approaches you...\n\"So, you changed your mind...\"\n\"Do you now know what happened?\"",
+        "Text": "You return to the huts. The same tired lady approaches you...\n\"So, you changed your mind...\"\n\"Do you now want to know what happened?\"",
         "Options":
         [
             {

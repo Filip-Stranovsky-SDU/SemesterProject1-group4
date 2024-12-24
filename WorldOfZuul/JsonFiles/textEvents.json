@@ -220,7 +220,7 @@
     {
         "ChangeInResources": {"Social": -5},
         "Helper" : {"DeactivatesAfterFinish": ["WoodworkersQ1"]},
-        "ActivatesAfterFinish" : ["HutsQ1-2"]
+        "ActivatesAfterFinish" : ["HutsQ1-2", "WoodworkersQ2-2"]
     },
 
     "YouReturned":
