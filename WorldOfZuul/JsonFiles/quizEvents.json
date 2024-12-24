@@ -476,7 +476,7 @@
             },
 
             {
-                "OptionText": "IFNOTENOUGHMONEY//Dissasemble the bridge to The Shallow Waters of Avoira...\nBut you must have some money to pull this off",
+                "OptionText": "Dissasemble the bridge to The Shallow Waters of Avoira...\nBut you must have some money to pull this off",
                 "NextEventName": "HutsT3"
             }
         ]

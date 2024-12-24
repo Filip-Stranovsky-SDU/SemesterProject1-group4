@@ -116,13 +116,13 @@
 
     "BossT1":
     {
-        "Text": " QUEST FAILED TODO 'How dare you?! Get out of here right this instance!' Uh oh, he did not seem happy with that.'",
+        "Text": "\"How dare you?! Get out of here right this instance!\"\nUh oh, he did not seem happy with that.",
         "IsActive": true
     },
 
     "BossT2":
     {
-        "Text": " QUEST FAILED TODO'And you're done, get out of my office before I call security.' Uh oh, seems like he didn't appreciate the outburst.",
+        "Text": "\"And you're done, get out of my office before I call security.\"\nUh oh, seems like he didn't appreciate the outburst.",
         "IsActive": true
     },
 
