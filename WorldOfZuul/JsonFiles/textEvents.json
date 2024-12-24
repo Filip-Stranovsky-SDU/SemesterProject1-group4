@@ -266,7 +266,7 @@
     {
         "ChangeInResources": {"Environment": 6, "Social": 6, "Money": -30},
         "Helper" : {
-            "DisconnectRooms" : ["north"],
+            "DisconnectRooms": {"north": "shallow-waters-of-aviora" },
             "DescriptionChanges" : {"distant-island": "Though this island can only be entered from one side of the mainland, people here how have sturdy homes...\nit's nice to see smiling faces from afar..."},
             "DeactivatesAfterFinish" : ["HutsQ1-1", "WoodworkersQ1"]
             }

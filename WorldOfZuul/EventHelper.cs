@@ -5,7 +5,7 @@ public class EventHelper{
     public Dictionary<string, bool>? ChangeInteractables {get; set;}
     public List<string>? DeactivatesAfterFinish {get; set;}
     public Dictionary<string, string> ConnectRooms { get; set; }
-    public List<string> DisconnectRooms {get; set;}
+    public Dictionary<string, string> DisconnectRooms {get; set;}
     
     
     public EventHelper(){}
@@ -39,14 +39,19 @@ public class EventHelper{
         }
 
         if(DisconnectRooms != null) {
-            foreach(string direction in DisconnectRooms) {
-                if (gameRef.CurrentRoom.Exits.ContainsKey(direction)) {
+            foreach((string direction, string destination) in DisconnectRooms) {
+                if (gameRef.CurrentRoom.Exits.ContainsKey(direction))
+                {
                     gameRef.CurrentRoom.Exits.Remove(direction);
-                    // so that you couldn't go back from another end
-                } 
+                    string reverseDirection = GetOppositeDirection(direction); // so that you couldn't go back from another end
+                    if (gameRef.Rooms[destination].Exits.ContainsKey(reverseDirection))
+                    {
+                    gameRef.Rooms[destination].Exits.Remove(reverseDirection);
+                    } 
+                }
             }
-        }
-    }
+    }   
+}
 
 
 private string GetOppositeDirection(string direction)
