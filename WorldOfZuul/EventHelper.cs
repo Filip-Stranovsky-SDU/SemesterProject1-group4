@@ -25,6 +25,7 @@ public class EventHelper{
                 gameRef.Events[key].IsActive=false;
             }
         }
+
         if(ConnectRooms != null){
         foreach((string direction, string destination) in ConnectRooms)
             {
