@@ -16,7 +16,7 @@
         "RoomId": "petunias-garden",
         "ShortDescription": "Petunia's Garden",
         "Interactables": { "Petunia": "petunia", "i3": "hoe" },
-        "LongDescription": "Upon entering you are greeted with the sight of wilted flowers and an older prissy lady standing next to them. Something seems to have caused the soil to dry out very quickly. An old well used hoe is placed to the side.",
+        "LongDescription": "Upon entering you are greeted with the sight of wilted flowers and an older prissy lady, called [Petunia], standing next to them. Something seems to have caused the soil to dry out very quickly. An old well used hoe is placed to the side.",
         "Exits": {
             "west": "the-withering-forest-of-arberia"
         }
@@ -26,7 +26,7 @@
         "RoomId": "market-square-of-pelorn",
         "ShortDescription": "Market Square of Pelorn",
         "Interactables": {"Merchant": "merchant", "Boss": "boss"},
-        "LongDescription": "Busy streets with shops lining up at every corner and crowds looking forward to the next big thing as far as the eyes can see.\nThis is the market square of Perlorn, though at first everything seems to be the same, the look of desperation in everyone's eyes speaks volume.",
+        "LongDescription": "Busy streets with shops lining up at every corner and crowds looking forward to the next big thing as far as the eyes can see.\nThis is the market square of Perlorn, though at first everything seems to be the same, the look of desperation in everyone's eyes speaks volume.\nYou see a [Merchant] peaking from a corner",
         "Exits": {
             "south": "crossroads-of-cordon"
         }
@@ -70,7 +70,7 @@
         "RoomId": "river-shore",
         "ShortDescription": "River Shore",
         "Interactables": {"Dam": "dam"},
-        "LongDescription": "Walking along the edge of the river you see a huge dam limiting the waterflow. There doesn't seem to be anyone around except for the occasional beaver running past you.",
+        "LongDescription": "Walking along the edge of the river you see a huge [Dam] limiting the waterflow. There doesn't seem to be anyone around except for the occasional beaver running past you.",
         "Exits": {
             "east": "shallow-waters-of-aviora",
             "west": "village-of-ix"
@@ -80,8 +80,8 @@
     "distant-island": {
         "RoomId": "distant-island",
         "ShortDescription": "Distant Island",
-        "Interactables": {},
-        "LongDescription": "",
+        "Interactables": {"Woodworkers" : "woodworkers", "Huts" : "huts"},
+        "LongDescription": "You reached the Distant Island. It would seem enough to have one wide bridge from here to the mainland, but people here must think otherwise...\nThis island does not strike as a particularly green one, nor does it seem like a lot of people live here.\n\nYou look around and see a bunch of tree bark laying around.\nYou also see some [Woodworkers]...\n\nWandering somethings catches your eye in the distance... small, shabby [Huts]",
         "Exits": {
             "north": "shallow-waters-of-aviora",
             "west": "galava-castle-ruins"
