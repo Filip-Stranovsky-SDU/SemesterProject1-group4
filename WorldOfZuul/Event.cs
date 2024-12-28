@@ -122,6 +122,70 @@ public class QuizEvent: Event{
 
 }
 
+public class MultipleChoiceEvent : Event
+{
+    public string Text {get; set;} = "";
+    
+    // how many times to itterate the options list number
+    public int OptionsIterations {get; set;}
+    public List<string> Options {get; set;} =[];
+
+    public List<bool> CorrectOptions {get; set;} =[];
+    public Dictionary<int, string> FollowingEvents {get; set;} = [];
+    public MultipleChoiceEvent() { } 
+
+    public override bool Run()
+    {
+        if (!base.Run())
+        {
+            return false;
+        }
+        Console.WriteLine(Text);
+        int successCounter = 0;
+        List<string> remainingOptions = [.. Options];
+        List<bool> remainingCorrect = [.. CorrectOptions]; // I don't know this expression, but that's what quick fix did with ...= new List<bool>(CorrectOptions)
+    while(OptionsIterations > 0)
+    {
+        // the same Options display logic as in quiz events; (for...in)
+        for (int j = 0; j < remainingOptions.Count; j++)
+            {
+                Console.WriteLine($"{(char)(j + 'a')}: {remainingOptions[j]}");
+            }
+            string? input = Console.ReadLine();
+            
+            if (string.IsNullOrEmpty(input) || input.Length != 1) // or should this come first
+            {
+                Console.WriteLine("");
+                continue;
+            }
+        int selectedIndex = input[0] - 'a'; // now the input is an index
+        if ( selectedIndex < 0 || selectedIndex >= remainingOptions.Count)
+            {
+                Console.WriteLine("");
+                continue;
+            }
+            
+        if (remainingCorrect[selectedIndex]) // find an element of index i
+        // here because of how bool works this essentially says: if 'true'
+            {
+                successCounter++;
+                Console.WriteLine("\nBoss nods along, he appears to be genuinely intrigued.\n");
+            }
+            else
+            {
+            Console.WriteLine("\nBoss rolls his eyes, uh oh it seems that just made him more annoyed.\n");
+            }
+        remainingOptions.RemoveAt(selectedIndex);
+        remainingCorrect.RemoveAt(selectedIndex);
+        OptionsIterations--;        
+    }
+    if (FollowingEvents.TryGetValue(successCounter, out var nextEventName))
+        {
+            gameRef.Events[nextEventName].Run();
+        }
+    return true;
+    } 
+}
 
     
 public class Option{
