@@ -82,7 +82,6 @@
         "ChangeInResources": {"Environment": 15}
     },
 
-    
     "MerchantT1":
     {
         "Text" : "Not another one...\nthe merchant sighs and forces a smile,\n\"Sorry but the manager isn't available at the moment, let me see what I can do for you...\"\n",
@@ -116,13 +115,13 @@
 
     "BossT1":
     {
-        "Text": "\"How dare you?! Get out of here right this instance!\"\nUh oh, he did not seem happy with that.",
+        "Text": " QUEST FAILED TODO 'How dare you?! Get out of here right this instance!' Uh oh, he did not seem happy with that.'",
         "IsActive": true
     },
 
     "BossT2":
     {
-        "Text": "\"And you're done, get out of my office before I call security.\"\nUh oh, seems like he didn't appreciate the outburst.",
+        "Text": " QUEST FAILED TODO'And you're done, get out of my office before I call security.' Uh oh, seems like he didn't appreciate the outburst.",
         "IsActive": true
     },
 
@@ -222,6 +221,13 @@
         "ChangeInResources": {"Social": -5},
         "Helper" : {"DeactivatesAfterFinish": ["WoodworkersQ1"]},
         "ActivatesAfterFinish" : ["HutsQ1-2", "WoodworkersQ2-2"]
+    },
+
+    "YouReturned":
+    {
+        "Text" : "\"Nice to see you here again, fella, do you remember what I was talking about with you before, maybe you changed your mind...\"",
+        "IsActive" : false,
+        "ActivatesAfterFinish" : ["WoodworkersQ2-2"]
     },
 
     "ThankYou":
