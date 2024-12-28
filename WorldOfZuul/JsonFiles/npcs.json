@@ -20,20 +20,20 @@
     "merchant":
     {
         "Name": "Merchant",
-        "Events": []
+        "Events": ["MerchantQ5", "MerchantQ6", "MerchantQ1", "MerchantQ3"]
     },
 
     "boss":
     {
         "Name": "Boss",
-        "Events": [],
+        "Events": ["BossQ1"],
         "IsAvailable": false
     },
 
     "woodworkers":
     {
         "Name": "Woodworkers",
-        "Events": ["WoodworkersQ2-2", "WoodworkersQ1"]
+        "Events": ["WoodworkersQ2-2", "WoodworkersQ1", "YouReturned"]
     },
 
     "huts":
