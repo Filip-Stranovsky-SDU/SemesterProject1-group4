@@ -124,6 +124,7 @@ public class QuizEvent: Event{
 
 public class MultipleChoiceEvent : Event
 {
+
     public string Text {get; set;} = "";
     
     // how many times to itterate the options list number
@@ -131,19 +132,23 @@ public class MultipleChoiceEvent : Event
     public List<string> Options {get; set;} =[];
 
     public List<bool> CorrectOptions {get; set;} =[];
-    public Dictionary<int, string> FollowingEvents {get; set;} = [];
-    public MultipleChoiceEvent() { } 
 
+    public Dictionary<int, string> FollowingEvents {get; set;} = [];
+
+    public MultipleChoiceEvent() { } 
+    
     public override bool Run()
     {
         if (!base.Run())
         {
             return false;
         }
+
         Console.WriteLine(Text);
         int successCounter = 0;
         List<string> remainingOptions = [.. Options];
         List<bool> remainingCorrect = [.. CorrectOptions]; // I don't know this expression, but that's what quick fix did with ...= new List<bool>(CorrectOptions)
+
     while(OptionsIterations > 0)
     {
         // the same Options display logic as in quiz events; (for...in)
@@ -151,13 +156,15 @@ public class MultipleChoiceEvent : Event
             {
                 Console.WriteLine($"{(char)(j + 'a')}: {remainingOptions[j]}");
             }
+
             string? input = Console.ReadLine();
             
-            if (string.IsNullOrEmpty(input) || input.Length != 1) // or should this come first
+            if (string.IsNullOrEmpty(input) || input.Length != 1)
             {
                 Console.WriteLine("");
                 continue;
             }
+
         int selectedIndex = input[0] - 'a'; // now the input is an index
         if ( selectedIndex < 0 || selectedIndex >= remainingOptions.Count)
             {
@@ -165,29 +172,32 @@ public class MultipleChoiceEvent : Event
                 continue;
             }
             
-        if (remainingCorrect[selectedIndex]) // find an element of index i
-        // here because of how bool works this essentially says: if 'true'
+        if (remainingCorrect[selectedIndex])
             {
                 successCounter++;
-                Console.WriteLine("\nBoss nods along, he appears to be genuinely intrigued.\n");
+                Console.WriteLine("\nHmm...Boss nods along, he appears to be genuinely intrigued.\n");
+                // I know that this is only for the boss quest, but if we're gonna use this event type more, I'll just write "AnswerText" variable that could be dynamic
             }
             else
             {
             Console.WriteLine("\nBoss rolls his eyes, uh oh it seems that just made him more annoyed.\n");
             }
+
         remainingOptions.RemoveAt(selectedIndex);
         remainingCorrect.RemoveAt(selectedIndex);
+
         OptionsIterations--;        
     }
+
     if (FollowingEvents.TryGetValue(successCounter, out var nextEventName))
         {
             gameRef.Events[nextEventName].Run();
         }
+
     return true;
     } 
 }
 
-    
 public class Option{
     public string OptionText {get; set;} = "";
     public string NextEventName {get; set;} = "";
