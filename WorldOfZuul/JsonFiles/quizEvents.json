@@ -216,7 +216,7 @@
             }
         ],
         "ParentInteractableName" : "merchant",
-        "IsActive" : false
+        "IsActive" : true
     },
 
     "MerchantQ2" :
@@ -230,22 +230,22 @@
             },
 
             {
-                "OptionText" : "Oh wow... Sorry but is the price negotiable?",
+                "OptionText" : "Oh wow... Sorry but is the price negotiable?", 
                 "NextEventName" : "MerchantQ3"
             },
 
             {
-                "OptionText" : "I can't pay for this.",
+                "OptionText" : "I can't pay for this.", 
                 "NextEventName" : "MerchantQ3"
             }
         ],
         "ParentInteractableName" : "merchant",
-        "IsActive" : false
+        "IsActive" : true
     },
 
     "MerchantQ3":
     {
-        "Text": "My apologies, I'm aware that it's expensive but there's nothing I can do about it.\" Resources have been getting scarce which sky rocketed inflation on even the most mundane items, - he bows apologetically.",
+        "Text": "\"My apologies, I'm aware that it's expensive but there's nothing I can do about it.\"\n\"Resources have been getting scarce which sky rocketed inflation on even the most mundane items\", - he bows apologetically.",
         "Options": 
         [
             {
@@ -254,12 +254,12 @@
             }
         ],
         "ParentInteractableName" : "merchant",
-        "IsActive" : false
+        "IsActive" : true
     },
 
     "MerchantQ4":
     {
-        "Text": "''I tried talking to my boss about maybe producing our own renewable items, but he seems dead-set on importing all our products.\"It seems he gave up on making anything with what little we have'', the merchant answered, dejected.\"''But maybe you could talk some sense into him?''",
+        "Text": "\"I tried talking to my [Boss] about maybe producing our own renewable items, but he seems dead-set on importing all our products. It seems he gave up on making anything with what little we have\", the merchant answered, dejected.\n\"But maybe you could talk some sense into him?\"",
         "Options":
         [
             {
@@ -273,7 +273,7 @@
             }
         ],
         "ParentInteractableName" : "merchant",
-        "IsActive" : false
+        "IsActive" : true
     },
 
     "MerchantQ5":
@@ -476,7 +476,7 @@
             },
 
             {
-                "OptionText": "Dissasemble the bridge to The Shallow Waters of Avoira...\nBut you must have some money to pull this off",
+                "OptionText": "IFNOTENOUGHMONEY//Dissasemble the bridge to The Shallow Waters of Avoira...\nBut you must have some money to pull this off",
                 "NextEventName": "HutsT3"
             }
         ]
