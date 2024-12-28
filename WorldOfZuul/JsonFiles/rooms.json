@@ -113,7 +113,7 @@
 
     "abandoned-mine": {
         "RoomId": "abandoned-mine",
-        "ShortDescription": "Abandoned Mine of Kaelor",
+        "ShortDescription": "Abandoned Mine of Kalor",
         "Interactables": {"Miners": "miners"},
         "LongDescription": "",
         "Exits": {
