@@ -130,12 +130,9 @@ public class MultipleChoiceEvent : Event
     // how many times to itterate the options list number
     public int OptionsIterations {get; set;}
     public List<string> Options {get; set;} =[];
-
     public List<bool> CorrectOptions {get; set;} =[];
-
     public Dictionary<int, string> FollowingEvents {get; set;} = [];
-
-    public MultipleChoiceEvent() { } 
+    public MultipleChoiceEvent() { }
     
     public override bool Run()
     {
@@ -149,10 +146,10 @@ public class MultipleChoiceEvent : Event
         List<string> remainingOptions = [.. Options];
         List<bool> remainingCorrect = [.. CorrectOptions]; // I don't know this expression, but that's what quick fix did with ...= new List<bool>(CorrectOptions)
 
-    while(OptionsIterations > 0)
-    {
-        // the same Options display logic as in quiz events; (for...in)
-        for (int j = 0; j < remainingOptions.Count; j++)
+        while(OptionsIterations > 0)
+        {
+            // the same Options display logic as in quiz events; (for...in)
+            for (int j = 0; j < remainingOptions.Count; j++)
             {
                 Console.WriteLine($"{(char)(j + 'a')}: {remainingOptions[j]}");
             }
@@ -165,14 +162,14 @@ public class MultipleChoiceEvent : Event
                 continue;
             }
 
-        int selectedIndex = input[0] - 'a'; // now the input is an index
-        if ( selectedIndex < 0 || selectedIndex >= remainingOptions.Count)
+            int selectedIndex = input[0] - 'a'; // now the input is an index
+            if ( selectedIndex < 0 || selectedIndex >= remainingOptions.Count)
             {
                 Console.WriteLine("");
                 continue;
             }
-            
-        if (remainingCorrect[selectedIndex])
+                
+            if (remainingCorrect[selectedIndex])
             {
                 successCounter++;
                 Console.WriteLine("\nHmm...Boss nods along, he appears to be genuinely intrigued.\n");
@@ -180,21 +177,21 @@ public class MultipleChoiceEvent : Event
             }
             else
             {
-            Console.WriteLine("\nBoss rolls his eyes, uh oh it seems that just made him more annoyed.\n");
+                Console.WriteLine("\nBoss rolls his eyes, uh oh it seems that just made him more annoyed.\n");
             }
 
-        remainingOptions.RemoveAt(selectedIndex);
-        remainingCorrect.RemoveAt(selectedIndex);
+            remainingOptions.RemoveAt(selectedIndex);
+            remainingCorrect.RemoveAt(selectedIndex);
 
-        OptionsIterations--;        
-    }
+            OptionsIterations--;
+        }
 
-    if (FollowingEvents.TryGetValue(successCounter, out var nextEventName))
+        if (FollowingEvents.TryGetValue(successCounter, out var nextEventName))
         {
             gameRef.Events[nextEventName].Run();
         }
 
-    return true;
+        return true;
     } 
 }
 
