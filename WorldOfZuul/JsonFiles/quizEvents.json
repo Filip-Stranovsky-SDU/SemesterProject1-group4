@@ -112,7 +112,8 @@
             }
         ],
         "ParentInteractableName" : "petunia",
-        "IsActive" : false
+        "IsActive" : false,
+        "ActivatesAfterFinish" : ["PetuniaFight"]
     },
     "BernardQ1-afterCrowd":
     {
@@ -634,6 +635,35 @@
             }
         ],
         "ActivatesAfterFinish": ["MineQuiz2"]
+    },
+    "PetuniaFight": {
+        "Text": "Petunia: \"Anything else?\"",
+        "IsActive": false,
+        "Options": [
+            {
+                "OptionText": "You shall die!",
+                "NextEventName": "StartFight"
+            },
+            {
+                "OptionText": "Nothing",
+                "NextEventName": "LeaveFight"
+            }
+        ]
+    },
+    "PetuniaWon":
+    {
+        "Text": "Petunia lies on the ground not moving. On her neck there is magically looking medalion.",
+        "Options": [
+            {
+                "OptionText": "Look closer",
+                "NextEventName": "RickRoll"
+            },
+            {
+                "OptionText": "Leave",
+                "NextEventName": "Empty"
+            }
+        ],
+        "ActivatesAfterFinish": ["PetuniaWon"]
     }
     
 }
