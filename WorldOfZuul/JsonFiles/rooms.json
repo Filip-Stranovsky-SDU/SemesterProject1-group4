@@ -44,7 +44,6 @@
             "east": "the-withering-forest-of-arberia"
         }
     },
-
     "dunes-of-raghar": {
         "RoomId": "dunes-of-raghar",
         "ShortDescription": "Dunes of Raghar",
@@ -115,7 +114,7 @@
         "RoomId": "abandoned-mine",
         "ShortDescription": "Abandoned Mine of Kalor",
         "Interactables": {"Miners": "miners"},
-        "LongDescription": "",
+        "LongDescription": "You walked into a tunnel through a mountain Kalor. Some time ago it was used as mine. Now there are just remnants of old equipment and pair of [ Miners ].",
         "Exits": {
             "east": "village-of-ix",
             "north": "crossroads-of-cordon"
