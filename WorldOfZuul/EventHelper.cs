@@ -4,8 +4,8 @@ public class EventHelper{
     public Dictionary<string, string>? DescriptionChanges {get; set;}
     public Dictionary<string, bool>? ChangeInteractables {get; set;}
     public List<string>? DeactivatesAfterFinish {get; set;}
-    public Dictionary<string, string> ConnectRooms { get; set; }
-    public Dictionary<string, string> DisconnectRooms {get; set;}
+    public Dictionary<string, string>? ConnectRooms { get; set; }
+    public Dictionary<string, string>? DisconnectRooms {get; set;}
     
     
     public EventHelper(){}
