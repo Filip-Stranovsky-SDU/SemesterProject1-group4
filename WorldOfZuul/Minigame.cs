@@ -21,6 +21,9 @@ public class Minigame{
         Console.WriteLine("Move left and right by using arrows, throw a dart by pressing arrow UP. When ready press ENTER");
         Console.ReadLine();
         Console.WriteLine("");
+        for(int i = 0; i<Console.WindowHeight; i++){
+            Console.WriteLine("");
+        }
         Console.Clear();
         (int n, int m) = Console.GetCursorPosition();
 
