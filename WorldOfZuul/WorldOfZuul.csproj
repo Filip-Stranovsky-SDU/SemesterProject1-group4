@@ -8,9 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="JsonFiles\\*">
+    <None Update="JsonFiles\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="SaveFiles\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="SaveFiles\**\*">
+      <Pack>true</Pack>
+      <PackagePath>contentFiles\any\</PackagePath>
+    </Content>
   </ItemGroup>
 
 </Project>

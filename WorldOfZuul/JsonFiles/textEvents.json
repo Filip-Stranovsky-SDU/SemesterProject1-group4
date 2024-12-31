@@ -191,13 +191,21 @@
         "Text": "Thank you, we can now proceed with our work!",
         "IsActive": false,
         "ChangeInResources": {"Environment": -10, "Social": 10},
-        "Helper": {}
+        "Helper": {
+            "DescriptionChanges": {"the-withering-forest-of-arberia": "The forest, from your childhood, seemed to be nothing more than a distant memory, as you look around the narrow trees barely spanning for more than a few miles. Diving deeper you stumble upon a campfire surrounded by mournful lumberjacks.",
+                                    "village-of-ix": "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall, standing in front is the [ Captain Bernard ]."
+                                    }
+        }
     },
     "BandagesE3":{
         "Text": "Thank you, we have talked and agreed to bring the forest of arberia to its former glory. We will start planting new trees as soon as possible.",
         "IsActive": false,
         "ChangeInResources": {"Environment": 10, "Social": -5},
-        "Helper": {} 
+        "Helper": {
+            "DescriptionChanges": {"the-withering-forest-of-arberia": "Passing by the forest it almost feels brighter, as you see the lumberjacks from before as well as some of the other townsfolk working together to replant new life into this forest. You're certain that as the time goes it will become bigger and better then ever before!",
+                                    "village-of-ix": "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall, standing in front is the [ Captain Bernard ]."
+                                    }
+        } 
     },
     
     "GalavaFinish":
@@ -205,14 +213,14 @@
         "Text": "Thank you, we will start working as soon as possible",
         "ChangeInResources" : {"Social" : 15},
         "MoneyRequired": 60,
-        "Helper": {"DescriptionChanges" : {},
+        "Helper": {"DescriptionChanges" : {"galava-castle-ruins" : "With many hands on deck you watch as the crew set out their work and carefully disassemble the historical ruin. While the locals might not be pleased, you remind yourself that in tough times hard choices sometimes are necessary for the greater good."},
                     "DeactivatesAfterFinish" : ["GalavaQuest"]}
     },
     "MineQuizFinish":
     {
         "Text" : "The display flashes and proceeds to boot to what looks like main menu.\nMiner: \"Thank you! Here is part of money we were given to fix this. (+30 Gold)\"",
         "ActivatesAfterFinish" : [],
-        "Helper": {"DeactivatesAfterFinish": ["MineQuiz"], "DescriptionChanges": {}},
+        "Helper": {"DeactivatesAfterFinish": ["MineQuiz"], "DescriptionChanges": {"abandoned-mine" : "Damp corridors lit up by torches, stretching deep down into the mines, are filled with sounds of pickaxes hitting hard rocks. Miners greet you with grateful smiles for the help you have provided, you can't help but feel a little proud of yourself."}},
         "ChangeInResources": {"Money": 30}
     },
 

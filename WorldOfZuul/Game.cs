@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.ComponentModel.Design;
+using System.Text.Json;
 using System.Text.Json.Nodes;
 
 namespace WorldOfZuul
@@ -18,78 +19,14 @@ namespace WorldOfZuul
         public Game()
         {
             Player = new Player(this);
-            CreateRooms();
-            CreateInteractibles();
-            CreateEvents();
+            SaveLoad sl = new();
+            
+            (Rooms, Interactables, Events) = sl.LoadGame(this, null)!.Value;
+
             CurrentRoom = Rooms["village-of-ix"];
         }
 
-        private void CreateRooms()
-        {       
-            using StreamReader reader = new("./JsonFiles/rooms.json"); // forward '/' to not use @
-            string? jsonString = reader.ReadToEnd();
-            Rooms = JsonSerializer.Deserialize<Dictionary<string, Room>>(jsonString)??throw new(""); // if this is null, it returns this value
-        }
-      
-        private void CreateInteractibles()
-        {       
-            using StreamReader reader = new(@$".\JsonFiles\npcs.json");
-            string jsonString = reader.ReadToEnd();
-            
-
-            var options = new JsonSerializerOptions
-            {
-                IncludeFields = true
-            };
-
-            Interactables = JsonSerializer.Deserialize<Dictionary<string, Interactable>>(jsonString, options)??throw new("TODO");
-            
-            foreach(var entry in Interactables){
-                entry.Value.setupGameRef(this);
-            }
-        }
-
-        private void CreateEvents()
-        {       
-            using StreamReader reader = new(@$".\JsonFiles\events.json");
-            using StreamReader reader1 = new(@$".\JsonFiles\textEvents.json");
-            using StreamReader reader2 = new(@$".\JsonFiles\quizEvents.json");
-            using StreamReader reader3 = new(@$".\JsonFiles\multipleChoice.json"); // added this to be able to deserialise
-
-            var options = new JsonSerializerOptions{ IncludeFields = true };
-
-            string jsonString = reader.ReadToEnd();
-            Events = JsonSerializer.Deserialize<Dictionary<string, Event>>(jsonString, options)??throw new("TODO");
-
-            jsonString = reader1.ReadToEnd();
-            var textEvents = JsonSerializer.Deserialize<Dictionary<string, TextEvent>>(jsonString, options)??throw new("TODO");
-            
-            jsonString = reader2.ReadToEnd();
-            var quizEvents = JsonSerializer.Deserialize<Dictionary<string, QuizEvent>>(jsonString, options)??throw new("TODO");
-
-            jsonString = reader3.ReadToEnd();
-            var multipleChoice = JsonSerializer.Deserialize<Dictionary<string, MultipleChoiceEvent>>(jsonString, options)??throw new("TODO");
-
-            foreach(var entry in Events){
-                entry.Value.setupGameRef(this);
-            }
-
-            foreach(var entry in textEvents){
-                Events.Add(entry.Key, entry.Value);
-                entry.Value.setupGameRef(this);
-            }
-            
-            foreach(var entry in quizEvents){
-                Events.Add(entry.Key, entry.Value);
-                entry.Value.setupGameRef(this);
-            }
-
-            foreach(var entry in multipleChoice){
-                Events.Add(entry.Key, entry.Value);
-                entry.Value.setupGameRef(this);
-            }
-            
-        }
+        
 
 
         public void Menu()
@@ -103,7 +40,7 @@ namespace WorldOfZuul
                         Play();
                         break;
                     case "2":
-                        SaveLoad.LoadGame(this);
+
                         Play();
                         break;
                     case "3":
@@ -209,13 +146,15 @@ namespace WorldOfZuul
                         break;
 
                     case "save":
-                        SaveLoad.SaveGame(this);
+                        SaveLoad s = new();
+                        s.SaveGame(this, command.SecondWord);
                         break;
-
+                    
                     case "load":
-                        SaveLoad.LoadGame(this);
+                        SaveLoad l = new();
+                        (Rooms, Interactables, Events) = l.LoadGame(this, command.SecondWord)!.Value;
                         break;
-
+                    
                     case "map":
                         string map = ASCIImage.LoadImage(@$".\JsonFiles\MAP.txt"); 
                         Console.WriteLine(map);

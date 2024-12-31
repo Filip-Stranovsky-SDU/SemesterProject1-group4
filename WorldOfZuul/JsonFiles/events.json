@@ -60,7 +60,7 @@
     },
     "GalavaLeave":
     {
-
+        "ActivatesAfterFinish": ["GalavaQuest"]
     },
     "MinesLeave":
     {
