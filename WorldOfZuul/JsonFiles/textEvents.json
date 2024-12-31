@@ -56,7 +56,8 @@
         "Text": "How dare you! Get out of here, I don't want to see your face again! Petunia scowled as she seemed ready to chase you out. Man this lady doesn't take rejection well...",
         "IsActive": false,
         "ParentInteractable" : "petunia",
-        "ChangeInResources":  {"Social": -5}
+        "ChangeInResources":  {"Social": -5},
+        "ActivatesAfterFinish": ["PetuniaFight"]
     
     },
     "PetuniaWaiting":
@@ -278,6 +279,32 @@
             "DescriptionChanges" : {"distant-island": "Though this island can only be entered from one side of the mainland, people here how have sturdy homes...\nit's nice to see smiling faces from afar..."},
             "DeactivatesAfterFinish" : ["HutsQ1-1", "WoodworkersQ1"]
             }
+    },
+    "StartFight":
+    {
+        "Text": "",
+        "IsActive": true,
+        "Helper":{
+            "BossFight" : true 
+        }
+    },
+    "LeaveFight":
+    {   
+        "Text": "She looks abit annoyed. But better annoyed than angry. I am not ready for this... yet.",
+        "ActivatesAfterFinish" : ["PetuniaFight", "LeaveFight"],
+        "IsActive": true
+    },
+    "PetuniaLost":
+    {
+        "Text": "Petunia laughs: \"You couldnt't have possible thought you could defeat me, right? I will give you one more chance to leave.\" Damn, this lady is scary, better get away before she changes her mind.",
+        "IsActive": true
+    },
+    "RickRoll":
+    {
+        "Text": "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣶⣿⣿⣿⣿⣿⣄\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⠿⠟⠛⠻⣿⠆\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣆⣀⣀⠀⣿⠂\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠻⣿⣿⣿⠅⠛⠋⠈\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢼⣿⣿⣿⣃⠠\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣟⡿⠃\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣛⣛⣫⡄⠀⢸⣦⣀\n⠀⠀⠀⠀⠀⠀⢀⣠⣴⣾⡆⠸⣿⣿⣿⡷⠂⠨⣿⣿⣿⣿⣶⣦⣤⣀\n⠀⠀⠀⠀⣤⣾⣿⣿⣿⣿⡇⢀⣿⡿⠋⠁⢀⡶⠪⣉⢸⣿⣿⣿⣿⣿⣇\n⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⡏⢸⣿⣷⣿⣿⣷⣦⡙⣿⣿⣿⣿⣿⡏\n⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣇⢸⣿⣿⣿⣿⣿⣷⣦⣿⣿⣿⣿⣿⡇\n⠀⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇\n⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣄\n⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿\n⠀⠀⠀⢹⣿⣵⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⡁",
+        "IsActive": true,
+        "ActivatesAfterFinish" : ["RickRoll"]
     }
+
 }
 

@@ -6,6 +6,7 @@ public class EventHelper{
     public List<string>? DeactivatesAfterFinish {get; set;}
     public Dictionary<string, string>? ConnectRooms { get; set; }
     public Dictionary<string, string>? DisconnectRooms {get; set;}
+    public bool BossFight = false;
     
     
     public EventHelper(){}
@@ -50,7 +51,14 @@ public class EventHelper{
                     } 
                 }
             }
-    }   
+        }   
+        if(BossFight){
+            Minigame m = new();
+            //Console.Clear();
+            Console.WriteLine(" ");
+            Console.Clear();
+            gameRef.Events[m.returnEventName].Run();
+        }
 }
 
 
