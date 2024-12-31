@@ -72,7 +72,7 @@
         "ParentInteractableName" : "dam",
         "ActivatesAfterFinish": ["PetuniaAskAboutDam"],
         "ChangeInResources": {"Environment": -10},
-        "Helper" : {"DescriptionChanges" : {"river-shore" : "You see a beautiful flowing river..."}}
+        "Helper" : {"DescriptionChanges" : {"river-shore" : "You see a beautiful flowing river...", "petunias-garden": "[Petunia] is looking around with excitement... tell her... "}}
 
     },
 
