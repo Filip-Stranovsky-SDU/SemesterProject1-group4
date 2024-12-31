@@ -3,7 +3,7 @@
         "RoomId": "village-of-ix",
         "ShortDescription": "Village of Ix",
         "Interactables": { "Captain Bernard": "captain-bernard", "Crowd" : "ixcrowd" },
-        "LongDescription": "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall, standing in front is the [ Captain Bernard ]. A large [ crowd ] seems to be surrounding the building, you can't quite make out the reason as of yet.",
+        "LongDescription": "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall, standing in front is the [ Captain Bernard ]. A large [ Crowd ] seems to be surrounding the building, you can't quite make out the reason as of yet.",
         "Exits": {
             "north": "the-withering-forest-of-arberia",
             "south": "galava-castle-ruins",

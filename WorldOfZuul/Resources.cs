@@ -22,9 +22,12 @@ public class Resources{
 
     public void Change(Resources changeInResources){
 
-        Money += changeInResources.Money;
-        Environment += changeInResources.Environment;
-        Social += changeInResources.Social;
+        //Money += changeInResources.Money;
+        //Environment += changeInResources.Environment;
+        //Social += changeInResources.Social;
+        Money = Math.Max(0, Money + changeInResources.Money);
+        Environment = Math.Max(0, Environment + changeInResources.Environment);
+        Social = Math.Max(0, Social + changeInResources.Social);
     }
 
     public string Display(){

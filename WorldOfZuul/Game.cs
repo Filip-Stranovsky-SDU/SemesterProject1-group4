@@ -71,7 +71,7 @@ namespace WorldOfZuul
             Console.WriteLine(worldMap);
             Console.WriteLine();
             Console.WriteLine("================================");
-            Console.WriteLine("       WORLD OF ZUUL");
+            Console.WriteLine("       SUSTAINTOPIA");
             Console.WriteLine("================================");
             Console.WriteLine("1. New Game");
             Console.WriteLine("2. Load Game");
@@ -189,7 +189,7 @@ namespace WorldOfZuul
                 }
             }
 
-            Console.WriteLine("Thank you for playing World of Zuul!");
+            Console.WriteLine("Thank you for playing SustainQuest!");
         }
 
         private void ManageInteract(string? name)
@@ -205,7 +205,7 @@ namespace WorldOfZuul
             }
             else
             {
-                Console.WriteLine("Nothing to interact with in here");
+                Console.WriteLine("Nothing to interact with in here or you typed in a wrong name");
             }
         }
 
@@ -225,7 +225,9 @@ namespace WorldOfZuul
 
         private static void PrintWelcome()
         {
-            Console.WriteLine("Welcome to the SustainQuest world.");
+            Console.WriteLine("Welcome to the Sustaintopia!");
+            Console.WriteLine("You were born here and now, after 15 years, you finally returned to your birthplace, a small island called Sustaintopia.\nThe island, once a flourishing secluded heaven, is now a mere memory.\n\"What happened?\", you exclaim as tears dropped down your cheeks...\nYou decide to help restore your homeland by completing quests that aid the island's nature and people.\nBeware of limited resources and the state of the island's environment and inhabitants.\nThere are 11 locations in the island, most of them have NPCs, e.g., Petunia, Captain Bernard, Woodworkers, Merchant, etc., with whom you can interact and join their quests.");
+            Console.WriteLine("You are aware of three different resources, which start at 50.\nYour goal is to IMPROVE the state of Social and Environment resources of your home island.\nWhile you also have Money as an available resource and you need it to complete some events, it's only if you deplete the other two resources, will you lose the game.\nIf you don't have enough money, you can try to explore different locations, there might be quests that can earn you some...");
             Console.WriteLine("");
             PrintHelp();
             Console.WriteLine();
@@ -237,6 +239,7 @@ namespace WorldOfZuul
             Console.WriteLine("Type 'look' for more details.");
             Console.WriteLine("Type 'back' to go to the previous room.");
             Console.WriteLine("Type 'help' to print this message again.");
+            Console.WriteLine("Type 'status' to check you resources.");
             Console.WriteLine("Type 'quit' to exit the game.");
             Console.WriteLine("Type 'interact' or 'i', press space and type in NPC's name to start events,\nfor example, i Petunia");
             Console.WriteLine("You can interact with characters [mentioned] in square brackets");
