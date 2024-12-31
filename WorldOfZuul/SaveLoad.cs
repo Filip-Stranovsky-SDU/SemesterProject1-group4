@@ -6,7 +6,7 @@ using System.Linq; // Ensure this is included for FirstOrDefault
 using System.Text.Json;
 
 namespace WorldOfZuul;
-using LoadData = (Dictionary<string, Room>, Dictionary<string, Interactable>, Dictionary<string, Event>);
+using LoadData = (Dictionary<string, Room>, Dictionary<string, Interactable>, Dictionary<string, Event>, string);
 public class SaveLoad
 {
     private const string SaveFilePath = @".\SaveFiles\";
@@ -20,7 +20,7 @@ public class SaveLoad
             var rooms = CreateRooms(DefaultPath);
             var interactables = CreateInteractibles(game, DefaultPath);
 
-            return (rooms, interactables, events);
+            return (rooms, interactables, events, "village-of-ix");
         }
 
         // Guard clause for checking if the save file exists
@@ -42,11 +42,16 @@ public class SaveLoad
 
             string? jsonString = File.ReadAllText($@"{SaveFilePath}{saveName}\stats.json"); // forward '/' to not use @
             
-            Resources worldStats = JsonSerializer.Deserialize<Resources>(jsonString)??throw new("Failed to load world stats");
+            Resources worldStats;
+            string roomID;
+            KeyValuePair<string, Resources> temp;
+            temp = JsonSerializer.Deserialize<KeyValuePair<string, Resources>>(jsonString);
+            roomID = temp.Key;
+            worldStats = temp.Value;
 
             game.Player.WorldStats = worldStats;
 
-            return (rooms, interactables, events);
+            return (rooms, interactables, events, roomID);
         }
         catch (Exception ex)
         {
@@ -107,7 +112,10 @@ public class SaveLoad
             string sMCEvents = JsonSerializer.Serialize(mcevents, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(@$"{SaveFilePath}\{saveName}\multipleChoice.json", sMCEvents);
 
-            string sWorldStats = JsonSerializer.Serialize(game.Player.WorldStats, new JsonSerializerOptions { WriteIndented = true });
+
+
+            KeyValuePair<string, Resources> temp = new(game.CurrentRoom.RoomId, game.Player.WorldStats);
+            string sWorldStats = JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(@$"{SaveFilePath}\{saveName}\stats.json", sWorldStats);
             
             //File.WriteAllText(SaveFilePath, jsonString);

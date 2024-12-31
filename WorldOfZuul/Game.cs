@@ -20,8 +20,8 @@ namespace WorldOfZuul
         {
             Player = new Player(this);
             SaveLoad sl = new();
-            
-            (Rooms, Interactables, Events) = sl.LoadGame(this, null)!.Value;
+            string xd;
+            (Rooms, Interactables, Events, xd) = sl.LoadGame(this, null)!.Value;
 
             CurrentRoom = Rooms["village-of-ix"];
         }
@@ -48,7 +48,9 @@ namespace WorldOfZuul
                             SaveLoad l = new();
                             var data = l.LoadGame(this, s); 
                             if(data != null){
-                                (Rooms, Interactables, Events) = data.Value;
+                                string temp;
+                                (Rooms, Interactables, Events, temp) = data.Value;
+                                CurrentRoom = Rooms[temp];
                                 isLoaded = true;
                             }
                             
@@ -166,7 +168,9 @@ namespace WorldOfZuul
                         SaveLoad l = new();
                         var data = l.LoadGame(this, command.SecondWord);
                         if(data != null){
-                            (Rooms, Interactables, Events) = data.Value;
+                            string temp;
+                            (Rooms, Interactables, Events, temp) = data.Value;
+                            CurrentRoom = Rooms[temp];
                             
                             Console.WriteLine("Game loaded succesfully");
                         }
