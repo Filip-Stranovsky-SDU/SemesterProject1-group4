@@ -40,7 +40,19 @@ namespace WorldOfZuul
                         Play();
                         break;
                     case "2":
-
+                        bool isLoaded = false;
+                        string? s;
+                        while(!isLoaded){
+                            Console.WriteLine("Please write the name of you save: "); 
+                            s = Console.ReadLine();
+                            SaveLoad l = new();
+                            var data = l.LoadGame(this, s); 
+                            if(data != null){
+                                (Rooms, Interactables, Events) = data.Value;
+                                isLoaded = true;
+                            }
+                            
+                        }
                         Play();
                         break;
                     case "3":
@@ -152,7 +164,15 @@ namespace WorldOfZuul
                     
                     case "load":
                         SaveLoad l = new();
-                        (Rooms, Interactables, Events) = l.LoadGame(this, command.SecondWord)!.Value;
+                        var data = l.LoadGame(this, command.SecondWord);
+                        if(data != null){
+                            (Rooms, Interactables, Events) = data.Value;
+                            
+                            Console.WriteLine("Game loaded succesfully");
+                        }
+                        else{
+                            Console.WriteLine("Failed to load a save!");
+                        }
                         break;
                     
                     case "map":

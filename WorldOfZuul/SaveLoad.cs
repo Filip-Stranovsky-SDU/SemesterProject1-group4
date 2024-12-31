@@ -15,8 +15,6 @@ public class SaveLoad
 
     public LoadData? LoadGame(Game game, string? saveName)
     {   
-
-
         if(saveName == null){
             var events = CreateEvents(game, DefaultPath);
             var rooms = CreateRooms(DefaultPath);
@@ -42,15 +40,12 @@ public class SaveLoad
             var interactables = CreateInteractibles(game, $@"{SaveFilePath}{saveName}\");
 
 
-            using StreamReader reader = new($@"{SaveFilePath}{saveName}\stats.json"); // forward '/' to not use @
-            string? jsonString = reader.ReadToEnd();
+            string? jsonString = File.ReadAllText($@"{SaveFilePath}{saveName}\stats.json"); // forward '/' to not use @
+            
             Resources worldStats = JsonSerializer.Deserialize<Resources>(jsonString)??throw new("Failed to load world stats");
 
             game.Player.WorldStats = worldStats;
 
-
-
-            Game.TypewriterEffect("Game loaded successfully.");
             return (rooms, interactables, events);
         }
         catch (Exception ex)
@@ -68,9 +63,8 @@ public class SaveLoad
         try
         {
             // Ensure the directory exists
-            string directory = Path.GetDirectoryName(SaveFilePath)??throw new("Save folder not found");
             
-            Directory.CreateDirectory(@$"{directory}\{saveName}");
+            Directory.CreateDirectory(@$"{SaveFilePath}\{saveName}");
 
             string sRooms = JsonSerializer.Serialize(game.Rooms);
             File.WriteAllText(@$"{SaveFilePath}\{saveName}\rooms.json", sRooms);
@@ -101,19 +95,19 @@ public class SaveLoad
                 }
             }
             
-            string sEvents = JsonSerializer.Serialize(events);
+            string sEvents = JsonSerializer.Serialize(events, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(@$"{SaveFilePath}\{saveName}\events.json", sEvents);
             
-            string sTEvents = JsonSerializer.Serialize(tevents);
+            string sTEvents = JsonSerializer.Serialize(tevents, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(@$"{SaveFilePath}\{saveName}\textEvents.json", sTEvents);
             
-            string sQEvents = JsonSerializer.Serialize(qevents);
+            string sQEvents = JsonSerializer.Serialize(qevents, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(@$"{SaveFilePath}\{saveName}\quizEvents.json", sQEvents);
             
-            string sMCEvents = JsonSerializer.Serialize(mcevents);
+            string sMCEvents = JsonSerializer.Serialize(mcevents, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(@$"{SaveFilePath}\{saveName}\multipleChoice.json", sMCEvents);
 
-            string sWorldStats = JsonSerializer.Serialize(game.Player.WorldStats);
+            string sWorldStats = JsonSerializer.Serialize(game.Player.WorldStats, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(@$"{SaveFilePath}\{saveName}\stats.json", sWorldStats);
             
             //File.WriteAllText(SaveFilePath, jsonString);
@@ -126,16 +120,14 @@ public class SaveLoad
     }
 
     private Dictionary<string, Room> CreateRooms(string filePath)
-    {       
-        using StreamReader reader = new(filePath + "rooms.json"); // forward '/' to not use @
-        string? jsonString = reader.ReadToEnd();
+    {
+        string? jsonString = File.ReadAllText(filePath+"rooms.json"); 
         return JsonSerializer.Deserialize<Dictionary<string, Room>>(jsonString)??throw new("Failed to load rooms"); // if this is null, it returns this value
     }
     
     private Dictionary<string, Interactable> CreateInteractibles(Game gameRef, string filePath)
-    {       
-        using StreamReader reader = new(filePath + "npcs.json");
-        string jsonString = reader.ReadToEnd();
+    {
+        string jsonString = File.ReadAllText(filePath+"npcs.json");
         
 
         var options = new JsonSerializerOptions
@@ -153,24 +145,19 @@ public class SaveLoad
     }
 
     private Dictionary<string, Event> CreateEvents(Game gameRef, string filePath)
-    {       
-        using StreamReader reader = new(filePath+"events.json");
-        using StreamReader reader1 = new(filePath+"textEvents.json");
-        using StreamReader reader2 = new(filePath+"quizEvents.json");
-        using StreamReader reader3 = new(filePath+"multipleChoice.json"); // added this to be able to deserialise
-
+    {   
+        string? jsonString = File.ReadAllText(filePath+"events.json");
         var options = new JsonSerializerOptions{ IncludeFields = true };
 
-        string jsonString = reader.ReadToEnd();
         var Events = JsonSerializer.Deserialize<Dictionary<string, Event>>(jsonString, options)??throw new("Failed to load events");
 
-        jsonString = reader1.ReadToEnd();
+        jsonString = File.ReadAllText(filePath+"textEvents.json");
         var textEvents = JsonSerializer.Deserialize<Dictionary<string, TextEvent>>(jsonString, options)??throw new("Failed to load text events");
         
-        jsonString = reader2.ReadToEnd();
+        jsonString = File.ReadAllText(filePath+"quizEvents.json"); 
         var quizEvents = JsonSerializer.Deserialize<Dictionary<string, QuizEvent>>(jsonString, options)??throw new("Failed to load quiz events");
 
-        jsonString = reader3.ReadToEnd();
+        jsonString = File.ReadAllText(filePath+"multipleChoice.json"); 
         var multipleChoice = JsonSerializer.Deserialize<Dictionary<string, MultipleChoiceEvent>>(jsonString, options)??throw new("Failed to load mutliple choice events");
 
         foreach(var entry in Events){
