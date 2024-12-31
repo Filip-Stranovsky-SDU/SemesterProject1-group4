@@ -450,7 +450,8 @@
                 "NextEventName": "HutsQ2"
             }
         ],
-        "IsActive": false
+        "IsActive": false,
+        "ActivatesAfterFinish": ["HutsQ1-2", "HutsQ2"]
     },
 
     "HutsQ2":
@@ -462,7 +463,8 @@
                 "OptionText": "Is there any way I could help?",
                 "NextEventName": "HutsQ3"
             }
-        ]
+        ],
+        "ActivatesAfterFinish": ["HutsQ2", "HutsQ3"]
     },
 
     "HutsQ3":
@@ -476,10 +478,11 @@
             },
 
             {
-                "OptionText": "IFNOTENOUGHMONEY//Dissasemble the bridge to The Shallow Waters of Avoira...\nBut you must have some money to pull this off",
+                "OptionText": "Dissasemble the bridge to The Shallow Waters of Avoira...\nBut you must have some money (30 gold) to pull this off",
                 "NextEventName": "HutsT3"
             }
-        ]
+        ],
+        "ActivatesAfterFinish": ["HutsQ3"]
     },
     "CrowdApproachQ":
     {
@@ -500,10 +503,10 @@
     },
     "CrowdQuestOptions":
     {
-        "Text": "Our men got seriously injured by a falling tree in the forest. Without them we can't finish building the water channel for our fields. They need some clean bandages, there was a merchant in our village but he left yesterday and headed north. We would be forever thankful for your help, you might catch him on the crossroads and he might have some.",
+        "Text": "Our men got seriously injured by a falling tree in the forest. Without them we can't finish building the water channel for our fields. They need some clean bandages, there was a Merchant in our village but he left yesterday and headed north. We would be forever thankful for your help, you might catch him on the crossroads and he might have some.",
         "Options": [
             {
-                "OptionText": "I can bring you a pair, but you have to stop chopping down the trees, the environment is important.",
+                "OptionText": "I will catch the Merchant in the Crossroads of Cordon to bring you a pair, but you have to stop chopping down the trees, the environment is important.",
                 "NextEventName": "BandagesE"
             },
 
@@ -511,7 +514,10 @@
                 "OptionText": "I can bring you a pair, the channel needs to be finished.",
                 "NextEventName": "BandagesS"
             }
-        ]
+        ],
+        "Helper": {
+            "DescriptionChanges": {"crossroads-of-cordon": "Your in luck, you notice a man on a horse with a bunch of travelling bags.\nThis must be a [Merchant]!"}
+        }
     },
     "BandagesE1":
     {
@@ -550,7 +556,7 @@
     },
     "MinersQ1":
     {
-        "Text": "Hi, could you help us fix this equipment. We would like to reopen the mine and recycle this old stuff. So far it looks like piece of junk displaying some nonsense.",
+        "Text": "Hi, could you help us fix this equipment. We would like to re-open the mine and recycle this old stuff. So far it looks like piece of junk displaying some nonsense.",
         "Options": [
             {
                 "OptionText": "Sure",
@@ -565,7 +571,7 @@
     },
     "MineQuiz": 
     {
-        "Text": "You see a small display with few buttons below, after pressing the biggest one it come to life and displays something that looks like a question:\n0, 0, 1, 1, 2, 4, 7, 13, 24, 44, __, 149",
+        "Text": "You see a small display with few buttons below, after pressing the biggest one it come to life and displays something that looks like a question:\n0, 0, 1, 1, 2, 4, 7, 13, 24, 44, __, 149\nJust be careful, one wrong answer, and you will fail this quest!",
         "IsActive": false,
         "Options": [
             {

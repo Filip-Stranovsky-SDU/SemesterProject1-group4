@@ -115,13 +115,13 @@
 
     "BossT1":
     {
-        "Text": " QUEST FAILED TODO 'How dare you?! Get out of here right this instance!' Uh oh, he did not seem happy with that.'",
+        "Text": "\"How dare you?! Get out of here right this instance!\"\nUh oh, he did not seem happy with that.'",
         "IsActive": true
     },
 
     "BossT2":
     {
-        "Text": " QUEST FAILED TODO'And you're done, get out of my office before I call security.' Uh oh, seems like he didn't appreciate the outburst.",
+        "Text": "\"And you're done, get out of my office before I call security.\"\nUh oh, seems like he didn't appreciate the outburst.",
         "IsActive": true
     },
 
@@ -177,15 +177,19 @@
         "ParentInteractable" : "captain-bernard",
         "ActivatesAfterFinish" : ["GalavaQuest", "BernardT1-afterCrowd", "BernardQ1-afterCrowd"]
     },
+
     "BandagesS2":{
         "Text": "Here you go!",
         "MoneyRequired": 10,
         "ActivatesAfterFinish": ["BandagesS3", "BandagesS2"]
     },
     "BandagesE2":{
-        "Text": "Here you go!",
+        "Text": "\"Here you go!\"\nYou've got the bandages, should you buy more?\nWhatever you decide, you should not delay your return to the Village of Ix, injured men need your help!",
         "MoneyRequired": 10,
-        "ActivatesAfterFinish": ["BandagesE3", "BandagesE2"]
+        "ActivatesAfterFinish": ["BandagesE3", "BandagesE2"],
+        "Helper": {
+            "DescriptionChanges": {"village-of-ix": "The Village of Ix... Hmmm... now that you have the bandages, you should probably return to the injured men in the [Crowd]. Maybe after you give the bandages to the workers you could approach this mysterious man, [Captain Bernard]."}
+        }
     },
     "BandagesS3":{
         "Text": "Thank you, we can now proceed with our work!",
@@ -197,7 +201,9 @@
         "Text": "Thank you, we have talked and agreed to bring the forest of arberia to its former glory. We will start planting new trees as soon as possible.",
         "IsActive": false,
         "ChangeInResources": {"Environment": 10, "Social": -5},
-        "Helper": {} 
+        "Helper": {
+            "DescriptionChanges": {"village-of-ix": "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall... Hmmm... is there anyone you could still talk to here?"}
+        } 
     },
     
     "GalavaFinish":
@@ -212,7 +218,7 @@
     {
         "Text" : "The display flashes and proceeds to boot to what looks like main menu.\nMiner: \"Thank you! Here is part of money we were given to fix this. (+30 Gold)\"",
         "ActivatesAfterFinish" : [],
-        "Helper": {"DeactivatesAfterFinish": ["MineQuiz"], "DescriptionChanges": {}},
+        "Helper": {"DeactivatesAfterFinish": ["MineQuiz"], "DescriptionChanges": {"abandoned-mine":"The mine is buzzing, recycling whatever that they have in here... "}},
         "ChangeInResources": {"Money": 30}
     },
 
@@ -234,11 +240,11 @@
     {
         "Text" : "\"Very well, then!\"",
         "IsActive" : true,
-        "ChangeInResources": {"Money": 30, "Environment": -6, "Social": -6},
+        "ChangeInResources": {"Money": 45, "Environment": -6, "Social": -6},
         "Helper" :
                     {
                     "ConnectRooms": {"east": "dunes-of-raghar"},
-                    "DeactivatesAfterFinish": ["HutsQ1-1"],
+                    "DeactivatesAfterFinish": ["HutsQ1-1", "HutsQ1-2"],
                     "DescriptionChanges": {"distant-island":"Interesting, a bunch of wood shreads laying around, some household items on the ground...\n...seems like a lot of people have passed through there while moving away from the island..."}
                     }
     },
@@ -247,7 +253,7 @@
     {
         "Text": "\"Well, finally\"",
         "IsActive" : true,
-        "ChangeInResources": {"Money": 30, "Environment": -6, "Social": -6},
+        "ChangeInResources": {"Money": 40, "Environment": -6, "Social": -6},
         "Helper" :
             {
             "ConnectRooms": {"east": "dunes-of-raghar" },
@@ -259,17 +265,18 @@
     "HutsT2":
     {   
         "ChangeInResources": {"Environment": 5, "Social": 3},
-        "Helper" : {"DescriptionChanges" : {"distant-island":"Woodworking has stopped here, at least it will be peaceful here for a while..."}, "DeactivatesAfterFinish" : ["HutsQ1-1", "WoodworkersQ1"]}
+        "Helper" : {"DescriptionChanges" : {"distant-island":"Woodworking has stopped here, at least it will be peaceful here for a while..."}, "DeactivatesAfterFinish" : ["HutsQ1-1", "WoodworkersQ1", "HutsQ1-2"]}
     },
 
     "HutsT3":
     {
-        "ChangeInResources": {"Environment": 6, "Social": 6, "Money": -30},
+        "ChangeInResources": {"Environment": 6, "Social": 6},
         "Helper" : {
             "DisconnectRooms": {"north": "shallow-waters-of-aviora" },
             "DescriptionChanges" : {"distant-island": "Though this island can only be entered from one side of the mainland, people here how have sturdy homes...\nit's nice to see smiling faces from afar..."},
-            "DeactivatesAfterFinish" : ["HutsQ1-1", "WoodworkersQ1"]
-            }
+            "DeactivatesAfterFinish" : ["HutsQ1-1", "WoodworkersQ1", "HutsQ1-2"]
+            },
+            "MoneyRequired": 30
     }
 }
 

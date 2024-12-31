@@ -39,7 +39,7 @@
     "huts":
     {
         "Name": "Huts",
-        "Events": ["HutsQ1-1", "HutsQ1-2"]
+        "Events": ["HutsQ1-2", "HutsQ1-1"]
     },
     "ixcrowd":
     {
