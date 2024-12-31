@@ -45,10 +45,13 @@
 
     "PetuniaReward":
     {
-        "Text": "Petunia beamed 'Wonderful! To be honest I'm not even sure why I asked, I can see the river flowing nicely. This will make my garden flourish once more!' she exclaimed. Don't think I forgot about our deal, as promised I will dedicate this opportunity to make sure others have some food on their plate.' She reassured you, well at least some good came out of this. Though truthfully you'd rather forget what you had to do get here...",
+        "Text": "Petunia beamed 'Wonderful! To be honest I'm not even sure why I asked, I can see the river flowing nicely. This will make my garden flourish once more!' she exclaimed.\nDon't think I forgot about our deal, as promised I will dedicate this opportunity to make sure others have some food on their plate.'\nShe reassured you, well at least some good came out of this.\nThough truthfully you'd rather forget what you had to do get here...\n\nI guess there's nothing more to do here, right...",
         "IsActive": true,
         "ParentInteractableName" : "petunia",
-        "ChangeInResources": {"Social": 10, "Environment": 3}
+        "ChangeInResources": {"Social": 10, "Environment": 3},
+        "Helper": {
+            "DescriptionChanges": {"petunias-garden":"It seems like you're done here, you did all you could for the granny [Petunia]..."}
+        }
         
     },
     "PetuniaAngry":
