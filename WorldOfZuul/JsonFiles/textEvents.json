@@ -211,7 +211,8 @@
         "ChangeInResources": {"Environment": -20, "Social": 25},
         "Helper": {
             "DescriptionChanges": {"the-withering-forest-of-arberia": "The forest, from your childhood, seemed to be nothing more than a distant memory, as you look around the narrow trees barely spanning for more than a few miles. Diving deeper you stumble upon a campfire surrounded by mournful lumberjacks.",
-                                    "village-of-ix": "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall, standing in front is the [ Captain Bernard ]."
+                                    "village-of-ix": "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall, standing in front is the [ Captain Bernard ].",
+                                    "crossroads-of-cordon": "Just dusty roads...\nA lot of people pass through here..."
                                     }
         }
     },

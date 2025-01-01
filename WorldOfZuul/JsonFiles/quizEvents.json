@@ -506,7 +506,7 @@
     },
     "CrowdQuestOptions":
     {
-        "Text": "Our men got seriously injured by a falling tree in the forest. Without them we can't finish building the water channel for our fields. They need some clean bandages, there was a Merchant in our village but he left yesterday and headed north. We would be forever thankful for your help, you might catch him on the crossroads and he might have some.",
+        "Text": "Our men got seriously injured by a falling tree in the forest. Without them we can't finish building the water channel for our fields. They need some clean bandages, there was a Merchant in our village but he left yesterday and headed to crossroads. We would be forever thankful for your help, you might catch him on the crossroads and he might have some.",
         "Options": [
             {
                 "OptionText": "I will catch the Merchant in the Crossroads of Cordon to bring you a pair, but you have to stop chopping down the trees, the environment is important.",
@@ -519,7 +519,7 @@
             }
         ],
         "Helper": {
-            "DescriptionChanges": {"crossroads-of-cordon": "Your in luck, you notice a man on a horse with a bunch of travelling bags.\nThis must be a [Merchant]!"}
+            "DescriptionChanges": {"crossroads-of-cordon": "Just dusty roads...\nA lot of people pass through here... Your in luck, you notice a man on a horse with a bunch of travelling bags.\nThis must be the [ Merchant ] villagers spoke about!"}
         }
     },
     "BandagesE1":
