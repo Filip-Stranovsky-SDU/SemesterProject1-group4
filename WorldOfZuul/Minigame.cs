@@ -11,7 +11,6 @@ public class Minigame{
     private bool isRunning;
     private string mapArt = null!;
     private string missileArt = null!;
-    private int petuniaDirection;
     public string returnEventName {get; private set;} = null!;
 
 
@@ -70,7 +69,6 @@ public class Minigame{
 
 
 
-        petuniaDirection = 1;
     }
 
     private void GameLoop(int n, int m){
@@ -140,7 +138,6 @@ public class Minigame{
 
 private class Character {
 	public (int X, int Y) Position;
-	private ConsoleColor Color;
 	private int UpdateFrame = 0;
 	private int FramesToUpdate;
     public int Lives {get; set;}

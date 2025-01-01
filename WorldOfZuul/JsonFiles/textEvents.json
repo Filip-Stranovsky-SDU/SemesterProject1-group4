@@ -31,7 +31,7 @@
 
         "IsActive": true,
         "ParentInteractableName" : "petunia",
-        "ChangeInResources": {"Social": -5, "Environment": 10}
+        "ChangeInResources": {"Social": -5, "Environment": 15}
         
     },
 
@@ -49,7 +49,7 @@
         "Text": "Petunia beamed 'Wonderful! To be honest I'm not even sure why I asked, I can see the river flowing nicely. This will make my garden flourish once more!' she exclaimed.\nDon't think I forgot about our deal, as promised I will dedicate this opportunity to make sure others have some food on their plate.'\nShe reassured you, well at least some good came out of this.\nThough truthfully you'd rather forget what you had to do get here...\n\nI guess there's nothing more to do here, right...",
         "IsActive": true,
         "ParentInteractableName" : "petunia",
-        "ChangeInResources": {"Social": 10, "Environment": 3},
+        "ChangeInResources": {"Social": 20, "Environment": 5},
         "Helper": {
             "DescriptionChanges": {"petunias-garden":"It seems like you're done here, you did all you could for the granny [Petunia]..."}
         }
@@ -60,7 +60,7 @@
         "Text": "How dare you! Get out of here, I don't want to see your face again! Petunia scowled as she seemed ready to chase you out. Man this lady doesn't take rejection well...",
         "IsActive": false,
         "ParentInteractable" : "petunia",
-        "ChangeInResources":  {"Social": -5},
+        "ChangeInResources":  {"Social": -5, "Environment": 5},
         "ActivatesAfterFinish": ["PetuniaFight"]
     
     },
@@ -75,7 +75,7 @@
         "Text": "With unwavering determination you began swinging the bat over and over, cries of the wildlife filled your ears as the dam eventually gave out and water seeped through unobstructed.\n   At least Petunia will be happy...",
         "ParentInteractableName" : "dam",
         "ActivatesAfterFinish": ["PetuniaAskAboutDam"],
-        "ChangeInResources": {"Environment": -19},
+        "ChangeInResources": {"Environment": -15},
         "Helper" : {"DescriptionChanges" : {"river-shore" : "You see a beautiful flowing river...", "petunias-garden": "[Petunia] is looking around with excitement... tell her... "}}
 
     },
@@ -84,7 +84,7 @@
         "Text": "What were you thinking? Only a monster could do something like this. Breathing a sigh of relief you began thinking about how you could explain this to Petunia later...",
         "ParentInteractable": "dam",
         "ActivatesAfterFinish": ["PetuniaAngry"],
-        "ChangeInResources": {"Environment": 15}
+        "ChangeInResources": {"Environment": 25}
     },
 
     "MerchantT1":
@@ -92,7 +92,7 @@
         "Text" : "Not another one...\nthe merchant sighs and forces a smile,\n\"Sorry but the manager isn't available at the moment, let me see what I can do for you...\"\n",
         "ParentInteractable" : "merchant",
         "ActivatesAfterFinish" : ["MerchantQ3"],
-        "ChangeInResources" : {"Social" : -5}
+        "ChangeInResources" : {"Social" : -3}
     },
 
     "MerchantT2":
@@ -109,13 +109,19 @@
         "ParentInteractable" : "merchant",
         "IsActive": true,
         "ActivatesAfterFinish" : ["MerchantQ5", "BossQ1"],
-        "Helper": {"ChangeInteractables" : {"boss" : true, "merchant" : true}}
+        "Helper": {"ChangeInteractables" : {"boss" : true, "merchant" : true}, "DeactivatesAfterFinish": ["MerchantQ3"]}
     },
 
     "MerchantT4":
     {
         "Text": "'Okay, talk to me when you're done' He returns to his duties.",
-        "IsActive" : false
+        "IsActive" : false,
+        "ActivatesAfterFinish": ["MerchantQ5"],
+        "Helper": {"DeactivatesAfterFinish": ["MerchantQ3"]}
+    },
+    "MerchantT5":{
+        "Text": "Merchant spoke sadly: \"Atleast you have tried...\"",
+        "IsActive": false
     },
 
     "BossT1":
@@ -133,20 +139,23 @@
     "BossFail":
     {
         "Text": "'I said I would hear you out, I can see now that it was a mistake. Leave my office.' \n Seems like that's it...",
-        "IsActive": true
+        "IsActive": true,
+        "ActivatesAfterFinish": ["MerchantT5"]
     },
 
     "BossT3":
     {
         "Text": "\"Pleasure doing business with you!\"\nYou can't help but think about how much of a greedy bastard this guy is, but at least it's done with...",
         "IsActive": true,
-        "ChangeInResources" : {"Money" : -20}
+        "ChangeInResources" : {"Money" : -20},
+        "ActivatesAfterFinish": ["MerchantQ6"]
     },
 
     "BossT4":
     {
         "Text": "Then I will have to ask you to leave, I am sorry that we could not come to an agreement.\nYou tried your best, nothing else you can do.",
-        "IsActive": true
+        "IsActive": true,
+        "ActivatesAfterFinish": ["MerchantT5"]
     },
 
     "BossAllCorrect":
@@ -161,7 +170,7 @@
     {
         "Text": "'HE DID!', he merchant yelled in surprise.\nThat's fantastic news! Thank you so much!\nHere have this, it's not a lot but I want to show you my thanks!",
         "IsActive": true,
-        "ChangeInResources": {"Environment": 5, "Money":20 , "Social": 9}
+        "ChangeInResources": {"Environment": 15, "Money":20 , "Social": 20}
     },
 
     "BernardCrowd":
@@ -199,7 +208,7 @@
     "BandagesS3":{
         "Text": "Thank you, we can now proceed with our work!",
         "IsActive": false,
-        "ChangeInResources": {"Environment": -10, "Social": 10},
+        "ChangeInResources": {"Environment": -20, "Social": 25},
         "Helper": {
             "DescriptionChanges": {"the-withering-forest-of-arberia": "The forest, from your childhood, seemed to be nothing more than a distant memory, as you look around the narrow trees barely spanning for more than a few miles. Diving deeper you stumble upon a campfire surrounded by mournful lumberjacks.",
                                     "village-of-ix": "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall, standing in front is the [ Captain Bernard ]."
@@ -209,7 +218,7 @@
     "BandagesE3":{
         "Text": "Thank you, we have talked and agreed to bring the forest of arberia to its former glory. We will start planting new trees as soon as possible.",
         "IsActive": false,
-        "ChangeInResources": {"Environment": 10, "Social": -5},
+        "ChangeInResources": {"Environment": 30, "Social": -10},
         "Helper": {
             "DescriptionChanges": {"the-withering-forest-of-arberia": "Passing by the forest it almost feels brighter, as you see the lumberjacks from before as well as some of the other townsfolk working together to replant new life into this forest. You're certain that as the time goes it will become bigger and better then ever before!",
                                     "village-of-ix": "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall, standing in front is the [ Captain Bernard ].",
@@ -221,7 +230,7 @@
     "GalavaFinish":
     {
         "Text": "Thank you, we will start working as soon as possible. Come check our work in Galava when you'll have time!",
-        "ChangeInResources" : {"Social" : 15},
+        "ChangeInResources" : {"Social" : 20},
         "MoneyRequired": 60,
         "Helper": {"DescriptionChanges" : {"galava-castle-ruins" : "With many hands on deck you watch as the crew set out their work and carefully disassemble the historical ruin. While the locals might not be pleased, you remind yourself that in tough times hard choices sometimes are necessary for the greater good."},
                     "DeactivatesAfterFinish" : ["GalavaQuest"]}
@@ -252,7 +261,7 @@
     {
         "Text" : "\"Very well, then! Now we'll have a speed travel point to the Dues of Raghar to the island's east\"",
         "IsActive" : true,
-        "ChangeInResources": {"Money": 45, "Environment": -6, "Social": -6},
+        "ChangeInResources": {"Money": 45, "Environment": -10, "Social": -10},
         "Helper" :
                     {
                     "ConnectRooms": {"east": "dunes-of-raghar"},
@@ -265,7 +274,7 @@
     {
         "Text": "\"Well, finally\"",
         "IsActive" : true,
-        "ChangeInResources": {"Money": 40, "Environment": -6, "Social": -6},
+        "ChangeInResources": {"Money": 40, "Environment": -10, "Social": -10},
         "Helper" :
             {
             "ConnectRooms": {"east": "dunes-of-raghar" },
@@ -276,13 +285,13 @@
 
     "HutsT2":
     {   
-        "ChangeInResources": {"Environment": 5, "Social": 3},
+        "ChangeInResources": {"Environment": 10, "Social": 8},
         "Helper" : {"DescriptionChanges" : {"distant-island":"Woodworking has stopped here, at least it will be peaceful here for a while..."}, "DeactivatesAfterFinish" : ["HutsQ1-1", "WoodworkersQ1", "HutsQ1-2"]}
     },
 
     "HutsT3":
     {
-        "ChangeInResources": {"Environment": 6, "Social": 6},
+        "ChangeInResources": {"Environment": 18, "Social": 18},
         "Helper" : {
             "DisconnectRooms": {"north": "shallow-waters-of-aviora" },
             "DescriptionChanges" : {"distant-island": "Though this island can only be entered from one side of the mainland, people here how have sturdy homes...\nit's nice to see smiling faces from afar..."},

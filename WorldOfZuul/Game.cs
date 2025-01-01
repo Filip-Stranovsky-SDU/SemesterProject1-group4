@@ -15,6 +15,8 @@ namespace WorldOfZuul
         public Dictionary<string, Interactable> Interactables {get; private set;}=[];
         public Dictionary<string, Event> Events {get; private set;}=[];
 
+        public bool haveWon {get; set;} = false;
+
         
         public Game()
         {
@@ -31,42 +33,40 @@ namespace WorldOfZuul
 
         public void Menu()
         {
-            while (true)
+            string choice = ShowMainMenu();
+            switch (choice)
             {
-                string choice = ShowMainMenu();
-                switch (choice)
-                {
-                    case "1":
-                        Play();
-                        break;
-                    case "2":
-                        bool isLoaded = false;
-                        string? s;
-                        while(!isLoaded){
-                            Console.WriteLine("Please write the name of you save: "); 
-                            s = Console.ReadLine();
-                            SaveLoad l = new();
-                            var data = l.LoadGame(this, s); 
-                            if(data != null){
-                                string temp;
-                                (Rooms, Interactables, Events, temp) = data.Value;
-                                CurrentRoom = Rooms[temp];
-                                isLoaded = true;
-                            }
-                            
+                case "1":
+                    Play();
+                    break;
+                case "2":
+                    bool isLoaded = false;
+                    string? s;
+                    while(!isLoaded){
+                        Console.WriteLine("Please write the name of you save: "); 
+                        s = Console.ReadLine();
+                        SaveLoad l = new();
+                        var data = l.LoadGame(this, s); 
+                        if(data != null){
+                            string temp;
+                            (Rooms, Interactables, Events, temp) = data.Value;
+                            CurrentRoom = Rooms[temp];
+                            isLoaded = true;
                         }
-                        Play();
-                        break;
-                    case "3":
-                        return;
-                }
+                        
+                    }
+                    Play();
+                    break;
+                case "3":
+                    return;
+            
             }
         }
 
 
         private string ShowMainMenu()
         {
-            Console.Clear();
+            //Console.Clear();
             string worldMap = ASCIImage.LoadImage(@$".\JsonFiles\MAP.txt"); // make a relative path - from your file
             Console.WriteLine(worldMap);
             Console.WriteLine();
@@ -79,7 +79,11 @@ namespace WorldOfZuul
             Console.WriteLine("================================");
             Console.Write("Enter your choice (1-3): ");
             
-            return Console.ReadLine() ?? "";
+            string? outp = "";
+            while (outp != "1" && outp != "2" && outp != "3"){
+                outp = Console.ReadLine();
+            }
+            return outp!;
         }
         
         
@@ -189,12 +193,23 @@ namespace WorldOfZuul
                 }
             }
 
+            if(haveWon){
+                Console.WriteLine("You won!");
+            }
+            else{
+                Console.WriteLine("You lost!");
+            }
+
+
             Console.WriteLine("Thank you for playing SustainQuest!");
         }
 
         private void ManageInteract(string? name)
         {
-            if(string.IsNullOrEmpty(name)) throw new("TODO");
+            if(string.IsNullOrEmpty(name)){
+                Console.WriteLine("Nothing to interact with in here or you typed in a wrong name");
+                return;
+            }
             if (CurrentRoom.Interactables.ContainsKey(name) == true)
             {
                 string id = CurrentRoom.Interactables[name];

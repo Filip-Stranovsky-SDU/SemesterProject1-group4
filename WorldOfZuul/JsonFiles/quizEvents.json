@@ -255,7 +255,8 @@
             }
         ],
         "ParentInteractableName" : "merchant",
-        "IsActive" : true
+        "IsActive" : true,
+        "ActivatesAfterFinish": ["MerchantQ3"]
     },
 
     "MerchantQ4":
@@ -274,7 +275,8 @@
             }
         ],
         "ParentInteractableName" : "merchant",
-        "IsActive" : true
+        "IsActive" : true,
+        "ActivatesAfterFinish": ["MerchantQ4"]
     },
 
     "MerchantQ5":

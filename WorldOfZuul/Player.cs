@@ -29,12 +29,12 @@ public class Player{
 
     private void CheckResources(){
         if(WorldStats.Environment > 70 && WorldStats.Social > 70){
-            Console.Write("You won!");
+            gameRef.haveWon = true;
             gameRef.ContinuePlaying = false;
             return;
         }
         if(WorldStats.Environment < 20 || WorldStats.Social < 20){
-            Console.Write("You lost! XD");
+            gameRef.haveWon = false;
             gameRef.ContinuePlaying = false;
             return;
         }
