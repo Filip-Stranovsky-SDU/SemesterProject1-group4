@@ -36,7 +36,7 @@
         "RoomId": "crossroads-of-cordon",
         "ShortDescription": "Crossroads of Cordon",
         "Interactables": {"Merchant": "cordon-merchant"},
-        "LongDescription": "",
+        "LongDescription": "Just dusty roads...\nA lot of people pass through here...",
         "Exits": {
             "north": "market-square-of-pelorn",
             "west": "dunes-of-raghar",
@@ -48,7 +48,7 @@
         "RoomId": "dunes-of-raghar",
         "ShortDescription": "Dunes of Raghar",
         "Interactables": {},
-        "LongDescription": "",
+        "LongDescription": "It's the hottest place on this island, almost nothing grows here...",
         "Exits": {
             "east": "crossroads-of-cordon"
         }
@@ -58,7 +58,7 @@
         "RoomId": "shallow-waters-of-aviora",
         "ShortDescription": "Shallow Waters of Avoira",
         "Interactables": {},
-        "LongDescription": "",
+        "LongDescription": "A beautiful beach... a lot of untouched nature here...",
         "Exits": {
             "west": "river-shore",
             "south": "distant-island"
@@ -69,7 +69,7 @@
         "RoomId": "river-shore",
         "ShortDescription": "River Shore",
         "Interactables": {"Dam": "dam"},
-        "LongDescription": "Walking along the edge of the river you see a huge [Dam] limiting the waterflow. There doesn't seem to be anyone around except for the occasional beaver running past you.",
+        "LongDescription": "Walking along the edge of the river you see a huge dam limiting the waterflow. There doesn't seem to be anyone around except for the occasional beaver running past you.",
         "Exits": {
             "east": "shallow-waters-of-aviora",
             "west": "village-of-ix"
@@ -80,7 +80,7 @@
         "RoomId": "distant-island",
         "ShortDescription": "Distant Island",
         "Interactables": {"Woodworkers" : "woodworkers", "Huts" : "huts"},
-        "LongDescription": "You reached the Distant Island. It would seem enough to have one wide bridge from here to the mainland, but people here must think otherwise...\nThis island does not strike as a particularly green one, nor does it seem like a lot of people live here.\n\nYou look around and see a bunch of tree bark laying around.\nYou also see some [Woodworkers]...\n\nWandering somethings catches your eye in the distance... small, shabby [Huts]",
+        "LongDescription": "You reached the Distant Island. It would seem enough to have one wide bridge from here to the mainland, but people here must think otherwise...\nThis island does not strike as a particularly green one, nor does it seem like a lot of people live here.\n\nYou look around and see a bunch of tree bark laying around.\nYou also see some [Woodworkers]...\n\nWandering something catches your eye in the distance... small, shabby [Huts]",
         "Exits": {
             "north": "shallow-waters-of-aviora",
             "west": "galava-castle-ruins"

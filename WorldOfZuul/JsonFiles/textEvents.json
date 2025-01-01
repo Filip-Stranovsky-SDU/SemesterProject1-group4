@@ -40,7 +40,8 @@
         "Text": "Quest Accepted. Now, you need to go to the River Shore and destroy the beaver dam",
         "IsActive": true,
         "ParentInteractableName" : "petunia",
-        "ActivatesAfterFinish": ["DamDefault", "PetuniaQ5"]
+        "ActivatesAfterFinish": ["DamDefault", "PetuniaQ5"],
+        "Helper": {"DescriptionChanges": {"river-shore": "Walking along the edge of the river you see a huge [Dam] limiting the waterflow. There doesn't seem to be anyone around except for the occasional beaver running past you."}}
     },
 
     "PetuniaReward":
@@ -74,7 +75,7 @@
         "Text": "With unwavering determination you began swinging the bat over and over, cries of the wildlife filled your ears as the dam eventually gave out and water seeped through unobstructed.\n   At least Petunia will be happy...",
         "ParentInteractableName" : "dam",
         "ActivatesAfterFinish": ["PetuniaAskAboutDam"],
-        "ChangeInResources": {"Environment": -10},
+        "ChangeInResources": {"Environment": -19},
         "Helper" : {"DescriptionChanges" : {"river-shore" : "You see a beautiful flowing river...", "petunias-garden": "[Petunia] is looking around with excitement... tell her... "}}
 
     },
@@ -211,14 +212,15 @@
         "ChangeInResources": {"Environment": 10, "Social": -5},
         "Helper": {
             "DescriptionChanges": {"the-withering-forest-of-arberia": "Passing by the forest it almost feels brighter, as you see the lumberjacks from before as well as some of the other townsfolk working together to replant new life into this forest. You're certain that as the time goes it will become bigger and better then ever before!",
-                                    "village-of-ix": "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall, standing in front is the [ Captain Bernard ]."
+                                    "village-of-ix": "The Village of Ix is a small village with most of the people living in wooden shelters or tents. There is a small house in the centre that serves as a town hall, standing in front is the [ Captain Bernard ].",
+                                    "crossroads-of-cordon": "Just dusty roads...\nA lot of people pass through here..."
                                     }
         } 
     },
     
     "GalavaFinish":
     {
-        "Text": "Thank you, we will start working as soon as possible",
+        "Text": "Thank you, we will start working as soon as possible. Come check our work in Galava when you'll have time!",
         "ChangeInResources" : {"Social" : 15},
         "MoneyRequired": 60,
         "Helper": {"DescriptionChanges" : {"galava-castle-ruins" : "With many hands on deck you watch as the crew set out their work and carefully disassemble the historical ruin. While the locals might not be pleased, you remind yourself that in tough times hard choices sometimes are necessary for the greater good."},
@@ -248,7 +250,7 @@
 
     "ThankYou":
     {
-        "Text" : "\"Very well, then!\"",
+        "Text" : "\"Very well, then! Now we'll have a speed travel point to the Dues of Raghar to the island's east\"",
         "IsActive" : true,
         "ChangeInResources": {"Money": 45, "Environment": -6, "Social": -6},
         "Helper" :

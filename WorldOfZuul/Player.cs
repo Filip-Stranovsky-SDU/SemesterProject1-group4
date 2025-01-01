@@ -28,7 +28,7 @@ public class Player{
     // display the current state of resources
 
     private void CheckResources(){
-        if(WorldStats.Environment > 90 && WorldStats.Social > 90){
+        if(WorldStats.Environment > 70 && WorldStats.Social > 70){
             Console.Write("You won!");
             gameRef.ContinuePlaying = false;
             return;
