@@ -193,12 +193,13 @@ namespace WorldOfZuul
                 }
             }
 
-            if(haveWon){
-                Console.WriteLine("You won!");
+              if(haveWon){
+                Console.WriteLine("CONGRATULATIONS!\nYou worked so hard to bring your homeland to it's former flourishing state!\nYou should be very proud of your hard work.\nPeople will be able to live on this island for long as the nature will be nurtured and used cautiously thanks to you!;-D");
             }
             else{
-                Console.WriteLine("You lost!");
+                Console.WriteLine("YOU LOST\nNot only you, the whole homeland is suffering. The nature, the people are leaving...\nIt's not going to be possible to live here for that much longer...\nVERY DISAPPOINTING...\nMaybe you'll be more cautious in other places you live so they don't get ravaged like your beloved homeland");
             }
+
 
 
             Console.WriteLine("Thank you for playing SustainQuest!");
