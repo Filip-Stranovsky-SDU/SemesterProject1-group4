@@ -66,7 +66,7 @@ namespace WorldOfZuul
 
         private string ShowMainMenu()
         {
-            //Console.Clear();
+            Console.Clear();
             string worldMap = ASCIImage.LoadImage(@$".\JsonFiles\MAP.txt"); // make a relative path - from your file
             Console.WriteLine(worldMap);
             Console.WriteLine();
