@@ -12,9 +12,11 @@ public class Event
     //public string Description { get; set; } = ""; // Default Val is empty, used for options in QuizEvent and for easier orientation
     public Resources ChangeInResources {get; set;} = new(); // Dictionary to store how resources change when event happens 
     public int MoneyRequired {get; set;} = 0;
+    public EventHelper? Helper {get; set;}
+
     [JsonIgnore]
     protected Game gameRef = null!; // gameRef.Events["Petunia1"].Activate();
-    public EventHelper? Helper;
+
 
 
     public Event(){}
