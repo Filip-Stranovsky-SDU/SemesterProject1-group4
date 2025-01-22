@@ -6,7 +6,7 @@ public class EventHelper{
     public List<string>? DeactivatesAfterFinish {get; set;}
     public Dictionary<string, string>? ConnectRooms { get; set; }
     public Dictionary<string, string>? DisconnectRooms {get; set;}
-    public bool BossFight = false;
+    public bool BossFight {get; set;} = false;
     
     
     public EventHelper(){}
